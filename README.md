@@ -1,4 +1,3 @@
-footbeatz
-=========
+# feetbeatz
 
 Multitoe floor midi controller
