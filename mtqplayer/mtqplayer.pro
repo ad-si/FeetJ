@@ -61,4 +61,4 @@ INCLUDEPATH += include
 
 LIBS += -L$${PWD}/lib -lMultiToeQt
 
-QMAKE_POST_LINK = cp $${PWD}/lib/libMultiToeQt.so $${OUT_PWD}/libMultiToeQt.so.1 && cp -r $${PWD}/lib/plugins $${OUT_PWD}/plugins && cp -r $${PWD}/data $${OUT_PWD}/data
+QMAKE_POST_LINK = cp $${PWD}/lib/libMultiToeQt.so $${OUT_PWD}/libMultiToeQt.so.1 && cp -r $${PWD}/lib/plugins $${OUT_PWD}/plugins && cp -r $${PWD}/data $${OUT_PWD}/data && cp -r $${PWD}/qml $${OUT_PWD}/qml && cp $${PWD}/config.ini $${OUT_PWD}/config.ini
