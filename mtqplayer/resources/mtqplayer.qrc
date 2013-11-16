@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>svg/Widgets.svg</file>
+        <file>fonts/Ubuntu-L.ttf</file>
+        <file>fonts/Ubuntu-R.ttf</file>
+        <file>qml/PanZoom.qml</file>
+        <file>qml/PanZoomLoader.js</file>
+        <file>config/mtqplayer.ini</file>
+    </qresource>
+</RCC>
