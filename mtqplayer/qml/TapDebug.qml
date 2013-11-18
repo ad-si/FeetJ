@@ -17,58 +17,66 @@ Rectangle {
 		height: 2400
 		width: 4096
 		onQmlContactMove: {
-			//	console.log("test");
-			//console.log(event.x());
-			//console.log(event.center.x);
-			fun.x = event.center.x;
-			fun.y = event.center.y;
+			moveRect.x = event.center.x;
+			moveRect.y = event.center.y;
 		}
 
 		onQmlTapDown: {
-		fan.x = event.center.x;
-		fan.y = event.center.y;
+			console.log("Tap Down at ", event.center)
+			var tapRect = Qt.createQmlObject('import QtQuick 2.0; 	Rectangle {
+			id: tapRect
+			color: "#00ff00"
+			width: 1
+			height: 1
+			Rectangle {
+				color: "#ff0000"
+				x: -50
+				y: -2.5
+				width: 100
+				height: 5
+				transformOrigin: Item.Center
+				rotation: 45
+			}
+			Rectangle {
+				color: "#ff0000"
+				x: -50
+				y: -2.5
+				width: 100
+				height: 5
+				transformOrigin: Item.Center
+				rotation: -45
+			}
+		}',
+				 floor, "dynamicSnippet");
+			tapRect.x = event.center.x;
+			tapRect.y = event.center.y;
 		}
 	}
 
 
 	
-    Label {
-        id: helloLabel
-		x: 200
-		y: 400
-        width: 650
-        height: 160
-		text: "Hello World"
-		rotation: -20
-    }
 
-    PushButton {
-		id: addNameButton
-		x: 850
-		y: 550
-		width: 400
-		height: 150
-		text: "Add my Name!"
-		onPressed: { /* it's JavaScript in here! */
-			helloLabel.text += " from <your name>"
+
+	Rectangle {
+		id: moveRect
+		color: "#ffffff"
+		width: 1
+		height: 1
+		Rectangle {
+			color: "#ffffff"
+			x: -50
+			y: -2.5
+			width: 100
+			height: 5
 		}
-    }
-	/*DebugWidget {
-	height: 2400
-	width: 4096
-	}*/
-	Rectangle {
-		id: fun
-		color: "#00ff00"
-		width: 100
-		height: 100
-	}
+		Rectangle {
+			color: "#ffffff"
+			x: -2.5
+			y: -50
+			width: 5
+			height: 100
+		}
 
-	Rectangle {
-		id: fan
-		color: "#ff0000"
-		width: 100
-		height: 100
 	}
 
 	/*TextInputWidget {
