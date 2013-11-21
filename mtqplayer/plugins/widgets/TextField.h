@@ -4,23 +4,21 @@
 
 #include "BaseWidget.h"
 
-using namespace mtq;
-
 class TextField: public BaseWidget
 {
 	//Tell the Qt-Preprocessor this is a QObject
 	Q_OBJECT
 
 	//Register widget as plugin for use in QML
-    QML_PLUGIN_REGISTRATION(TextField, "widgets")
+	MTQ_QML_PLUGIN_REGISTRATION(TextField, "widgets")
 
 public:
 	TextField(QQuickItem *parent = 0);
-	TextField(QQuickItem *parent, int width);
+	TextField(QQuickItem *parent, const int width);
 
 	void paint(QPainter *painter);
 
-	QString text();
+	QString text() const;
 	void setText(const QString &text);
 
 private:
@@ -30,7 +28,7 @@ private:
 	bool m_showCursor;
 	QFont m_fontForPaintedText;
 
-	void positionTextCursor(int xInText);
+	void positionTextCursor(const int xInText);
 	void init();
 
 public slots:
@@ -38,8 +36,7 @@ public slots:
 	void blink();
 
 protected:
-	void mousePressEvent(QMouseEvent *event);
-	void tapDown(TapEvent *event);
+    void processTapDown(mtq::TapEvent *event);
 
 signals:
 	void enterPressed();

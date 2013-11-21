@@ -1,7 +1,8 @@
 #include "BaseWidget.h"
 
+
 BaseWidget::BaseWidget(QQuickItem *parent)
-    : QQuickPaintedItem(parent)
+	: QQuickPaintedItem(parent)
 {
 	setWidth(200);
 	setHeight(200);
@@ -13,59 +14,59 @@ void BaseWidget::paint(QPainter *)
 }
 
 // we forward the floor and mouse events for use in QML
-void BaseWidget::contactDown(ContactEvent *event)
+void BaseWidget::contactDown(mtq::ContactEvent *event)
 {
-    emit qmlContactDown(event);
+	emit qmlContactDown(event);
 }
 
-void BaseWidget::contactMove(ContactEvent *event)
+void BaseWidget::contactMove(mtq::ContactEvent *event)
 {
-    emit qmlContactMove(event);
+	emit qmlContactMove(event);
 }
 
-void BaseWidget::contactChanged(ContactEvent *event)
+void BaseWidget::contactChanged(mtq::ContactEvent *event)
 {
-    emit qmlContactChanged(event);
+	emit qmlContactChanged(event);
 }
 
-void BaseWidget::contactMerged(ContactEvent *event)
+void BaseWidget::contactMerged(mtq::ContactEvent *event)
 {
-    emit qmlContactMerged(event);
+	emit qmlContactMerged(event);
 }
 
-void BaseWidget::contactUp(ContactEvent *event)
+void BaseWidget::contactUp(mtq::ContactEvent *event)
 {
-    emit qmlContactUp(event);
+	emit qmlContactUp(event);
 }
 
-void BaseWidget::tapDown(TapEvent *event)
+void BaseWidget::tapDown(mtq::TapEvent *event)
 {
-    emit qmlTapDown(event);
+	emit qmlTapDown(event);
 }
 
-void BaseWidget::tapCancel(TapEvent *event)
+void BaseWidget::tapCancel(mtq::TapEvent *event)
 {
-    emit qmlTapCancel(event);
+	emit qmlTapCancel(event);
 }
 
-void BaseWidget::tapUp(TapEvent *event)
+void BaseWidget::tapUp(mtq::TapEvent *event)
 {
-    emit qmlTapUp(event);
+	emit qmlTapUp(event);
 }
 
-void BaseWidget::dwell(TapEvent *event)
+void BaseWidget::dwell(mtq::TapEvent *event)
 {
-    emit qmlDwell(event);
+	emit qmlDwell(event);
 }
 
-void BaseWidget::tap(TapEvent *event)
+void BaseWidget::tap(mtq::TapEvent *event)
 {
-    emit qmlTap(event);
+	emit qmlTap(event);
 }
 
-void BaseWidget::doubleTap(TapEvent *event)
+void BaseWidget::doubleTap(mtq::TapEvent *event)
 {
-    emit qmlDoubleTap(event);
+	emit qmlDoubleTap(event);
 }
 
 void BaseWidget::mousePressEvent(QMouseEvent *event)

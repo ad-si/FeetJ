@@ -10,20 +10,20 @@
 
 using namespace mtq;
 
-//We need to register this Type in QML
-QML_REGISTER_PLUGIN(TextField)
+//We need to register this Type in MTQ
+MTQ_QML_REGISTER_PLUGIN(TextField)
 
 //A TextField, used in the TextInputWidget to display, and edit typed text
 TextField::TextField(QQuickItem *parent)
-    : BaseWidget(parent)
+	: BaseWidget(parent)
 {
 	init();
 	setWidth(200);
 }
 
 //Constructor in case of variable width
-TextField::TextField(QQuickItem *parent, int width)
-    : BaseWidget(parent)
+TextField::TextField(QQuickItem *parent, const int width)
+	: BaseWidget(parent)
 {
 	init();
 	setWidth(width);
@@ -87,7 +87,7 @@ void TextField::paint(QPainter *painter)
 	}
 }
 
-void TextField::positionTextCursor(int xInTextRect) {
+void TextField::positionTextCursor(const int xInTextRect) {
 	//QFontMetric enables us to find out the width of a given QString
 	QFontMetrics fontWidth(m_fontForPaintedText);
 	for (int i = 1; i < m_paintedText.size(); i++) {
@@ -114,26 +114,11 @@ void TextField::blink()
 	update();
 }
 
-
-
-
-void TextField::mousePressEvent(QMouseEvent *event)
-{
-	BaseWidget::mousePressEvent(event);
-	positionTextCursor(event->x() - MARGIN - PADDING);
+void TextField::processTapDown(mtq::TapEvent *event) {
+    positionTextCursor(event->mappedCenter().x() - MARGIN - PADDING);
 }
 
-void TextField::tapDown(TapEvent *event) {
-	BaseWidget::tapDown(event);
-	positionTextCursor(static_cast<int>(mapFromScene(event->center()).x())
-										- MARGIN - PADDING);
-}
-
-
-
-
-
-QString TextField::text()
+QString TextField::text() const
 {
 	return m_paintedText;
 }

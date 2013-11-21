@@ -5,29 +5,27 @@
 
 #include "BaseWidget.h"
 
-using namespace mtq;
-
 class ListPicker: public BaseWidget
 {
 	//Tell the Qt-Preprocessor this is a QObject
 	Q_OBJECT
 
 	//Register widget as plugin for use in QML
-    QML_PLUGIN_REGISTRATION(ListPicker, "widgets")
+	MTQ_QML_PLUGIN_REGISTRATION(ListPicker, "widgets")
 
 	//QProperties: access attributes from QML.
 	//Here we define the getters and setters to be used
 	Q_PROPERTY(int selectedItem READ selectedItem WRITE setSelectedItem NOTIFY selectedItemChanged)
-	Q_PROPERTY(QString caption READ caption WRITE setCaption)
+	Q_PROPERTY(QString caption READ caption WRITE setCaption NOTIFY captionChanged)
 
 public:
 	ListPicker(QQuickItem *parent = 0);
 
 	void paint(QPainter *painter);
 
-	void setSelectedItem(int index);
-	int selectedItem() {return m_selectedItem;}
-	QString caption() {return m_caption;}
+	void setSelectedItem(const int index);
+	int selectedItem() const;
+	QString caption() const;
 	void setCaption(const QString &caption);
 
 public slots:
@@ -35,14 +33,14 @@ public slots:
 
 private:
 	QVector<QString> m_items;
-    QSvgRenderer *m_svgRenderer;
+	QSvgRenderer *m_svgRenderer;
 	int m_selectedItem;
 	QString m_caption;
 
 protected:
-	void mousePressEvent(QMouseEvent *event);
-	void tapDown(TapEvent *event);
+    void processTapDown(mtq::TapEvent *event);
 
 signals:
 	void selectedItemChanged(int selectedItem);
+	void captionChanged(QString caption);
 };

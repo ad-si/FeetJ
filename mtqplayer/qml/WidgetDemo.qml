@@ -13,7 +13,7 @@ Rectangle {
 		id: radioButtonLabel
 		x: 1600
 		y: 1850
-		width: 0
+		width: toggleButton.active ? 1000 : 0
 		text: "Background Color"
 	}
 
@@ -34,15 +34,6 @@ Rectangle {
         height: 160
         activeTitle: "ON"
         inactiveTitle: "OFF"
-        onChanged: {
-            if(active) {
-                radioButton.width = 1200
-                radioButtonLabel.width = 1000
-            } else {
-                radioButton.width = 0
-                radioButtonLabel.width = 0
-            }
-        }
     }
 
 
@@ -59,7 +50,7 @@ Rectangle {
         id: radioButton
         x: 1500
         y: 2000
-        width: 0
+        width: toggleButton.active ? 1200 : 0
         selectedItem: 0
         rotation: 5
 
@@ -84,12 +75,8 @@ Rectangle {
         id: slider
         x: 600
         y: 500
-        width: 800
+        width: 2000*slider2.value + 300
         height: 300
-
-        onValueChanged: {
-            slider2.width = 2000*value + 300;
-        }
     }
 
 
@@ -97,12 +84,9 @@ Rectangle {
         id: slider2
         x: 600
         y: 800
-        width: 800
+        width: 2000*slider.value + 300
         value: 0.5
-
-        onValueChanged: {
-            slider.width = 2000*value + 300;
-        }
+		rotation: angleSlider.value / Math.PI * 180
     }
 
     AngleSlider {
@@ -112,9 +96,6 @@ Rectangle {
         width: 900
         height: 900
         value: 0
-		onValueChanged: {
-            slider2.rotation = value / 3.141569 * 180;
-        }
     }
 
 

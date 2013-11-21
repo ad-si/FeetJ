@@ -12,15 +12,15 @@
 
 using namespace mtq;
 
-//We need to register this Type in QML
-QML_REGISTER_PLUGIN(EventConsole)
+//We need to register this Type in MTQ
+MTQ_QML_REGISTER_PLUGIN(EventConsole)
 
 EventConsole::EventConsole(QQuickItem *parent)
-    : QQuickItem(parent)
+	: QQuickItem(parent)
 {
 }
 
-bool EventConsole::invokeMTQEventHandler(Event *event)
+bool EventConsole::invokeMTQEventHandler(const Event *event)
 {
 	if (!event)
 		return false;
@@ -48,55 +48,55 @@ bool EventConsole::invokeMTQEventHandler(Event *event)
 
 void EventConsole::contactDown(ContactEvent *)
 {
-    qDebug() << "contactDown";
+	qDebug() << "contactDown";
 }
 
 void EventConsole::contactMove(ContactEvent *)
 {
-    qDebug() << "contactMove";
+	qDebug() << "contactMove";
 }
 
 void EventConsole::contactChanged(ContactEvent *)
 {
-    qDebug() << "contactChanged";
+	qDebug() << "contactChanged";
 }
 
 void EventConsole::contactMerged(ContactEvent *)
 {
-    qDebug() << "contactMerge";
+	qDebug() << "contactMerge";
 }
 
 void EventConsole::contactUp(ContactEvent *)
 {
-    qDebug() << "contactUp";
+	qDebug() << "contactUp";
 }
 
 void EventConsole::tapDown(TapEvent *)
 {
-    qDebug() << "tapDown";
+	qDebug() << "tapDown";
 }
 
 void EventConsole::tapCancel(TapEvent *)
 {
-    qDebug() << "tapCancel";
+	qDebug() << "tapCancel";
 }
 
 void EventConsole::tapUp(TapEvent *)
 {
-    qDebug() << "tapUp";
+	qDebug() << "tapUp";
 }
 
 void EventConsole::dwell(TapEvent *)
 {
-    qDebug() << "dwell";
+	qDebug() << "dwell";
 }
 
 void EventConsole::tap(TapEvent *)
 {
-    qDebug() << "tap";
+	qDebug() << "tap";
 }
 
 void EventConsole::doubleTap(TapEvent *)
 {
-    qDebug() << "doubleTap";
+	qDebug() << "doubleTap";
 }

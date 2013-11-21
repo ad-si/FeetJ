@@ -8,15 +8,15 @@
 
 using namespace mtq;
 
-//We need to register this Type in QML
-QML_REGISTER_PLUGIN(ListPicker)
+//We need to register this Type in MTQ
+MTQ_QML_REGISTER_PLUGIN(ListPicker)
 
 //ListPicker can be used to select an option in a List. Possibly as a menu
 ListPicker::ListPicker(QQuickItem *parent)
-    : BaseWidget(parent),
-      m_svgRenderer(new QSvgRenderer(design::widgetsSvgFile, this))
+	: BaseWidget(parent),
+	  m_svgRenderer(new QSvgRenderer(design::widgetsSvgFile, this))
 {
-    m_items = QVector<QString>();
+	m_items = QVector<QString>();
 }
 
 void ListPicker::paint(QPainter *painter)
@@ -36,13 +36,13 @@ void ListPicker::paint(QPainter *painter)
 		painter->setFont(design::labelFont);
 		for (int i = 0; i < itemCount; i++) {
 			if (m_selectedItem == i)
-                m_svgRenderer->render(painter, "ListPicker::selectedItem",
+				m_svgRenderer->render(painter, "ListPicker::selectedItem",
 									 QRect(0, (i+1) * itemHeight, width(), itemHeight));
 
 			/* QSvgRenderer renders an SVG item with id "ListPicker::separator"
 			 * from from mtqviewer\resources\svg\Widgets.svg
 			 * into a rectangle refering to the coordinates of the parent widget */
-            m_svgRenderer->render(painter, "ListPicker::separator",
+			m_svgRenderer->render(painter, "ListPicker::separator",
 								 QRect(0, (i+1) * itemHeight, width(), SEPARATOR_HEIGHT));
 
 			painter->drawText(QRect(QRect(0, (i+1) * itemHeight + SEPARATOR_HEIGHT, width(), itemHeight)),
@@ -59,10 +59,20 @@ void ListPicker::addItem(const QString &itemText)
 	update();
 }
 
-void ListPicker::setSelectedItem(int index)
+void ListPicker::setSelectedItem(const int index)
 {
 	m_selectedItem = index;
 	emit selectedItemChanged(index);
+}
+
+int ListPicker::selectedItem() const
+{
+	return m_selectedItem;
+}
+
+QString ListPicker::caption() const
+{
+	return m_caption;
 }
 
 void ListPicker::setCaption(const QString &caption)
@@ -71,18 +81,9 @@ void ListPicker::setCaption(const QString &caption)
 	update();
 }
 
-void ListPicker::mousePressEvent(QMouseEvent *event)
+void ListPicker::processTapDown(mtq::TapEvent *event)
 {
-	BaseWidget::mousePressEvent(event);
-	if ((event->y() / (height() / (m_items.size() + 1))) > 1) //prevents selecting the first line with caption
-		setSelectedItem(event->y() / (height() / (m_items.size() + 1) ) - 1);
-	update();
-}
-
-void ListPicker::tapDown(TapEvent *event)
-{
-	BaseWidget::tapDown(event);
-	int y = mapFromScene(event->center()).y();
+    int y = event->mappedCenter().y();
 	if ( y / (height() / (m_items.size() +1 )) > 1 ) //prevents selecting the first line with caption
 		setSelectedItem(y / (height() / (m_items.size() +1 )) - 1);
 	update();

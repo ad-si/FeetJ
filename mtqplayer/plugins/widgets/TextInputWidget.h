@@ -1,8 +1,8 @@
 #pragma once
 
 #include "BaseWidget.h"
-
-using namespace mtq;
+#include "plugins/widgets/Keyboard.h"
+#include "plugins/widgets/TextField.h"
 
 class TextInputWidget: public BaseWidget
 {
@@ -10,10 +10,12 @@ class TextInputWidget: public BaseWidget
 	Q_OBJECT
 
 	//Register widget as plugin for use in QML
-    QML_PLUGIN_REGISTRATION(TextInputWidget, "widgets")
+	MTQ_QML_PLUGIN_REGISTRATION(TextInputWidget, "widgets")
 
+private:
+		Keyboard *m_keyboard;
+		TextField *m_textField;
 public:
 	TextInputWidget(QQuickItem *parent = 0);
 
 };
-

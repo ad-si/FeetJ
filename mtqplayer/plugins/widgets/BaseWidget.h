@@ -6,10 +6,8 @@
 #include "gui/EventDispatcher.h"
 #include "core/QmlPluginRegistry.h"
 
-using namespace mtq;
-
 //This is a generic widget. Inherit from BaseWidget to get mouse and floor events
-class BaseWidget : public QQuickPaintedItem, public EventDispatcher
+class BaseWidget : public QQuickPaintedItem, public mtq::EventDispatcher
 {
 	//We need to tell the Qt-Preprocessor
 	Q_OBJECT
@@ -19,41 +17,51 @@ public:
 	void paint(QPainter *painter);
 	virtual ~BaseWidget() {}
 
-protected:
+private:
 	// Event handlers
-    virtual void contactDown(ContactEvent *event);
-    virtual void contactMove(ContactEvent *event);
-    virtual void contactChanged(ContactEvent *event);
-    virtual void contactMerged(ContactEvent *event);
-    virtual void contactUp(ContactEvent *event);
+    void contactDown(mtq::ContactEvent *event);
+    void contactMove(mtq::ContactEvent *event);
+    void contactChanged(mtq::ContactEvent *event);
+    void contactMerged(mtq::ContactEvent *event);
+    void contactUp(mtq::ContactEvent *event);
 
-    virtual void tapDown(TapEvent *event);
-    virtual void tapCancel(TapEvent *event);
-    virtual void tapUp(TapEvent *event);
-    virtual void dwell(TapEvent *event);
-    virtual void tap(TapEvent *event);
-    virtual void doubleTap(TapEvent *event);
+    void tapDown(mtq::TapEvent *event);
+    void tapCancel(mtq::TapEvent *event);
+    void tapUp(mtq::TapEvent *event);
+    void dwell(mtq::TapEvent *event);
+    void tap(mtq::TapEvent *event);
+    void doubleTap(mtq::TapEvent *event);
 
-	virtual void mousePressEvent(QMouseEvent *event);
-	virtual void mouseReleaseEvent (QMouseEvent *event);
+    void mouseDoubleClickEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent (QMouseEvent *event);
 
+protected:
+	virtual void processContactDown(mtq::ContactEvent *);
+    virtual void processContactMove(mtq::ContactEvent *);
+    virtual void processContactChanged(mtq::ContactEvent *);
+    virtual void processContactMerged(mtq::ContactEvent *);
+    virtual void processContactUp(mtq::ContactEvent *);
+
+    virtual void processTapDown(mtq::TapEvent *);
+    virtual void processTapCancel(mtq::TapEvent *);
+    virtual void processTapUp(mtq::TapEvent *);
+    virtual void processDwell(mtq::TapEvent *);
+    virtual void processTap(mtq::TapEvent *);
+    virtual void processDoubleTap(mtq::TapEvent *);
 
 signals:
-	// Signals to be sent, for instance to QML
-    void qmlContactDown(QObject *event);
-    void qmlContactMove(QObject *event);
-    void qmlContactChanged(QObject *event);
-    void qmlContactMerged(QObject *event);
-    void qmlContactUp(QObject *event);
+	void mtqContactDown(QObject *event);
+	void mtqContactMove(QObject *event);
+	void mtqContactChanged(QObject *event);
+	void mtqContactMerged(QObject *event);
+	void mtqContactUp(QObject *event);
 
-    void qmlTapDown(QObject *event);
-    void qmlTapCancel(QObject *event);
-    void qmlTapUp(QObject *event);
-    void qmlDwell(QObject *event);
-    void qmlTap(QObject *event);
-    void qmlDoubleTap(QObject *event);
-
-	void qmlMousePress(QMouseEvent *event);
-	void qmlMouseRelease(QMouseEvent *event);
-
+	void mtqTapDown(QObject *event);
+	void mtqTapCancel(QObject *event);
+	void mtqTapUp(QObject *event);
+	void mtqDwell(QObject *event);
+	void mtqTap(QObject *event);
+	void mtqDoubleTap(QObject *event);
 };

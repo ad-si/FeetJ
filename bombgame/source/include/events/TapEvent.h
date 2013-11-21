@@ -6,17 +6,17 @@
 
 namespace mtq {
 
-    struct TapInfo : PositionInfo
-    {
-    };
+	struct TapInfo : PositionInfo
+	{
+	};
 
-    class MTQ_EXPORT TapEvent : public PositionEvent
-    {
-        Q_OBJECT
+	class MTQ_EXPORT TapEvent : public PositionEvent
+	{
+		Q_OBJECT
 
-    public:
-        TapEvent(TapInfo *tapInfo = new TapInfo(), Kind kind = Event::None);
-        TapEvent(const TapEvent &other);
-    };
+	public:
+		TapEvent(TapInfo *tapInfo = new TapInfo(), Kind kind = Event::None);
+		TapEvent(const TapEvent &other);
+	};
 
 }

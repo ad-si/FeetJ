@@ -1,4 +1,5 @@
 #include "Keyboard.h"
+
 #include <QVector>
 #include <QSignalMapper>
 #include <QStringList>
@@ -10,11 +11,11 @@
 
 using namespace mtq;
 
-//We need to register this Type in QML
-QML_REGISTER_PLUGIN(Keyboard)
+//We need to register this Type in MTQ
+MTQ_QML_REGISTER_PLUGIN(Keyboard)
 
 Keyboard::Keyboard(QQuickItem *parent)
-    : BaseWidget(parent)
+	: BaseWidget(parent)
 {
 	setHeight(550);
 	setWidth(1210);

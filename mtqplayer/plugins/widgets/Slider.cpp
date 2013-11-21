@@ -6,16 +6,16 @@
 
 using namespace mtq;
 
-//We need to register this Type in QML
-QML_REGISTER_PLUGIN(Slider)
+//We need to register this Type in MTQ
+MTQ_QML_REGISTER_PLUGIN(Slider)
 
 Slider::Slider(QQuickItem *parent)
-    : BaseWidget(parent),
-      m_active(false),
-      m_value(0.5),
-      m_svgRenderer(new QSvgRenderer(design::widgetsSvgFile, this))
+	: BaseWidget(parent),
+	  m_active(false),
+	  m_value(0.5),
+	  m_svgRenderer(new QSvgRenderer(design::widgetsSvgFile, this))
 {
-    setHeight(168 + 140); //toolTipHeight included
+	setHeight(168 + 140); //toolTipHeight included
 }
 
 void Slider::paint(QPainter *painter)
@@ -29,23 +29,23 @@ void Slider::paint(QPainter *painter)
 	int frameHeight = height() - toolTipHeight;
 
 	//Render frame
-    m_svgRenderer->render(painter, "Slider::frame::topleft",	 QRect(0, toolTipHeight, roundedCornerSize, roundedCornerSize));
-    m_svgRenderer->render(painter, "Slider::frame::vertical",	QRect(0,
+	m_svgRenderer->render(painter, "Slider::frame::topleft",	 QRect(0, toolTipHeight, roundedCornerSize, roundedCornerSize));
+	m_svgRenderer->render(painter, "Slider::frame::vertical",	QRect(0,
 																   toolTipHeight + roundedCornerSize,
 																   frameThickness,
 																   frameHeight - (2*roundedCornerSize)));
-    m_svgRenderer->render(painter, "Slider::frame::bottomleft",  QRect(0, height() - roundedCornerSize,
+	m_svgRenderer->render(painter, "Slider::frame::bottomleft",  QRect(0, height() - roundedCornerSize,
 																	 roundedCornerSize, roundedCornerSize));
 
-    m_svgRenderer->render(painter, "Slider::frame::horizontal",  QRect(roundedCornerSize, toolTipHeight, width()-2*roundedCornerSize, frameThickness));
-    m_svgRenderer->render(painter, "Slider::frame::horizontal",  QRect(roundedCornerSize, height() - frameThickness, width()-2*roundedCornerSize, frameThickness));
+	m_svgRenderer->render(painter, "Slider::frame::horizontal",  QRect(roundedCornerSize, toolTipHeight, width()-2*roundedCornerSize, frameThickness));
+	m_svgRenderer->render(painter, "Slider::frame::horizontal",  QRect(roundedCornerSize, height() - frameThickness, width()-2*roundedCornerSize, frameThickness));
 
-    m_svgRenderer->render(painter, "Slider::frame::topright",	QRect(width() - roundedCornerSize, toolTipHeight, roundedCornerSize, roundedCornerSize));
-    m_svgRenderer->render(painter, "Slider::frame::vertical",	QRect(width() - frameThickness,
+	m_svgRenderer->render(painter, "Slider::frame::topright",	QRect(width() - roundedCornerSize, toolTipHeight, roundedCornerSize, roundedCornerSize));
+	m_svgRenderer->render(painter, "Slider::frame::vertical",	QRect(width() - frameThickness,
 																   toolTipHeight + roundedCornerSize,
 																   frameThickness,
 																   frameHeight - (2*roundedCornerSize)));
-    m_svgRenderer->render(painter, "Slider::frame::bottomright", QRect(width() - roundedCornerSize, height() - roundedCornerSize,
+	m_svgRenderer->render(painter, "Slider::frame::bottomright", QRect(width() - roundedCornerSize, height() - roundedCornerSize,
 																	 roundedCornerSize, roundedCornerSize));
 
 	//Render indicator (with tooltip if active)
@@ -53,7 +53,7 @@ void Slider::paint(QPainter *painter)
 	QString indicatorElementId;
 	if (active()) {
 		indicatorElementId = "pressed";
-        m_svgRenderer->render(painter, "Slider::tooltip", QRect(pixelX, 0, toolTipWidth, toolTipHeight));
+		m_svgRenderer->render(painter, "Slider::tooltip", QRect(pixelX, 0, toolTipWidth, toolTipHeight));
 
 		// Render caption
 		QRectF rect(pixelX, -5, toolTipWidth, toolTipHeight);
@@ -65,48 +65,31 @@ void Slider::paint(QPainter *painter)
 		indicatorElementId = "normal";
 	}
 
-    m_svgRenderer->render(painter, "Slider::indicator::" + indicatorElementId + "::top",	 QRect(pixelX, toolTipHeight, indicatorWidth, roundedCornerSize - frameThickness));
-    m_svgRenderer->render(painter, "Slider::indicator::" + indicatorElementId + "::middle",  QRect(pixelX,
+	m_svgRenderer->render(painter, "Slider::indicator::" + indicatorElementId + "::top",	 QRect(pixelX, toolTipHeight, indicatorWidth, roundedCornerSize - frameThickness));
+	m_svgRenderer->render(painter, "Slider::indicator::" + indicatorElementId + "::middle",  QRect(pixelX,
 																								 toolTipHeight + (roundedCornerSize - frameThickness),
 																								 indicatorWidth,
 																								 height() - toolTipHeight - 2*(roundedCornerSize - frameThickness)));
-    m_svgRenderer->render(painter, "Slider::indicator::" + indicatorElementId + "::bottom",  QRect(pixelX, height() - (roundedCornerSize - frameThickness),
+	m_svgRenderer->render(painter, "Slider::indicator::" + indicatorElementId + "::bottom",  QRect(pixelX, height() - (roundedCornerSize - frameThickness),
 																								 indicatorWidth, roundedCornerSize - frameThickness));
 }
 
-void Slider::tapDown(TapEvent *event)
+void Slider::processTapDown(mtq::TapEvent *event)
 {
-	BaseWidget::tapDown(event);
-	if(static_cast<int>(mapFromScene(event->center()).y()) >= 140) { //not on tooltip area
-		setValueByTapX(static_cast<int>(mapFromScene(event->center()).x()));
+    if(static_cast<int>(event->mappedCenter().y()) >= 140) { //not on tooltip area
+
+        setValueByTapX(static_cast<int>(event->mappedCenter().x()));
 		setActive(true);
 	}
 }
 
-void Slider::tapUp(TapEvent *event)
+void Slider::processTapUp(mtq::TapEvent *event)
 {
-	BaseWidget::tapUp(event);
 	setActive(false);
 }
 
-void Slider::tapCancel(TapEvent *event)
+void Slider::processTapCancel(mtq::TapEvent *event)
 {
-	BaseWidget::tapCancel(event);
-	setActive(false);
-}
-
-void Slider::mousePressEvent(QMouseEvent *event)
-{
-	BaseWidget::mousePressEvent(event);
-	if(event->y() >= 140) { //not on tooltip area
-		setValueByTapX(event->x());
-		setActive(true);
-	}
-}
-
-void Slider::mouseReleaseEvent(QMouseEvent *event)
-{
-	BaseWidget::mouseReleaseEvent(event);
 	setActive(false);
 }
 
@@ -118,22 +101,22 @@ void Slider::setValueByTapX(int x) {
 	update();
 }
 
-qreal Slider::value()
+qreal Slider::value() const
 {
 	return m_value;
 }
 
-void Slider::setValue(qreal value)
+void Slider::setValue(const qreal value)
 {
 	m_value = value;
 }
 
-bool Slider::active()
+bool Slider::active() const
 {
 	return m_active;
 }
 
-void Slider::setActive(bool state)
+void Slider::setActive(const bool state)
 {
 	m_active = state;
 	update();

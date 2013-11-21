@@ -8,7 +8,6 @@ SOURCES += \
     plugins/system/Config.cpp \
     plugins/widgets/AngleSlider.cpp \
     plugins/widgets/BaseWidget.cpp \
-    plugins/widgets/DebugWidget.cpp \
     plugins/widgets/Design.cpp \
     plugins/widgets/EventConsole.cpp \
     plugins/widgets/GenericSvgButton.cpp \
@@ -28,7 +27,6 @@ HEADERS += \
     plugins/system/Config.h \
     plugins/widgets/AngleSlider.h \
     plugins/widgets/BaseWidget.h \
-    plugins/widgets/DebugWidget.h \
     plugins/widgets/Design.h \
     plugins/widgets/EventConsole.h \
     plugins/widgets/GenericSvgButton.h \

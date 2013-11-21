@@ -1,5 +1,7 @@
 #include "RadioButton.h"
+
 #include <QPainter>
+
 #include "Design.h"
 
 #define SEPARATOR_WIDTH 2
@@ -7,16 +9,16 @@
 
 using namespace mtq;
 
-//We need to register this Type in QML
-QML_REGISTER_PLUGIN(RadioButton)
+//We need to register this Type in MTQ
+MTQ_QML_REGISTER_PLUGIN(RadioButton)
 
 //Constructor
 RadioButton::RadioButton(QQuickItem *parent)
-    : BaseWidget(parent),
-      m_svgRenderer(new QSvgRenderer(design::widgetsSvgFile, this))
+	: BaseWidget(parent),
+	  m_svgRenderer(new QSvgRenderer(design::widgetsSvgFile, this))
 {
 	setHeight(168);
-    m_items = QVector<QString>();
+	m_items = QVector<QString>();
 }
 
 void RadioButton::paint(QPainter *painter)
@@ -36,7 +38,7 @@ void RadioButton::paint(QPainter *painter)
 }
 
 // paints the radiobutton if there are more than one item
-void RadioButton::renderMoreItems(QPainter *painter, int itemWidth, int itemCount)
+void RadioButton::renderMoreItems(QPainter *painter, const int itemWidth, const int itemCount)
 {
 	QString selectedID = "";
 	if(m_selectedItem == 0) {
@@ -44,9 +46,9 @@ void RadioButton::renderMoreItems(QPainter *painter, int itemWidth, int itemCoun
 	}
 
 	// Render leftMostItem
-    m_svgRenderer->render(painter, "RadioButton::" + selectedID + "frame::left", QRect(0, 0, ROUNDED_CORNER_WIDTH, height()));
-    m_svgRenderer->render(painter, "RadioButton::" + selectedID + "frame",	   QRect(ROUNDED_CORNER_WIDTH, 0, itemWidth - ROUNDED_CORNER_WIDTH, height()));
-    m_svgRenderer->render(painter, "RadioButton::separator",					 QRect(itemWidth, 0, SEPARATOR_WIDTH, height()));
+	m_svgRenderer->render(painter, "RadioButton::" + selectedID + "frame::left", QRect(0, 0, ROUNDED_CORNER_WIDTH, height()));
+	m_svgRenderer->render(painter, "RadioButton::" + selectedID + "frame",	   QRect(ROUNDED_CORNER_WIDTH, 0, itemWidth - ROUNDED_CORNER_WIDTH, height()));
+	m_svgRenderer->render(painter, "RadioButton::separator",					 QRect(itemWidth, 0, SEPARATOR_WIDTH, height()));
 
 	painter->drawText(QRect(0, 0, itemWidth, height()),
 					  Qt::AlignCenter , m_items.at(0));
@@ -59,8 +61,8 @@ void RadioButton::renderMoreItems(QPainter *painter, int itemWidth, int itemCoun
 		else
 			selectedID = "";
 
-        m_svgRenderer->render(painter, "RadioButton::" + selectedID + "frame",   QRect(i*(itemWidth + SEPARATOR_WIDTH), 0, itemWidth, height()));
-        m_svgRenderer->render(painter, "RadioButton::separator",				 QRect((i+1)*(itemWidth + SEPARATOR_WIDTH) - SEPARATOR_WIDTH, 0, SEPARATOR_WIDTH, height()));
+		m_svgRenderer->render(painter, "RadioButton::" + selectedID + "frame",   QRect(i*(itemWidth + SEPARATOR_WIDTH), 0, itemWidth, height()));
+		m_svgRenderer->render(painter, "RadioButton::separator",				 QRect((i+1)*(itemWidth + SEPARATOR_WIDTH) - SEPARATOR_WIDTH, 0, SEPARATOR_WIDTH, height()));
 
 		QRect rect(i*(itemWidth + SEPARATOR_WIDTH), 0, itemWidth, height());
 		painter->drawText(rect, Qt::AlignCenter , m_items.at(i));
@@ -72,8 +74,8 @@ void RadioButton::renderMoreItems(QPainter *painter, int itemWidth, int itemCoun
 	else
 		selectedID = "";
 
-    m_svgRenderer->render(painter, "RadioButton::" + selectedID + "frame",	   QRect(width() - itemWidth - SEPARATOR_WIDTH, 0, itemWidth - ROUNDED_CORNER_WIDTH, height()));
-    m_svgRenderer->render(painter, "RadioButton::" + selectedID + "frame::right",QRect(width() - ROUNDED_CORNER_WIDTH - SEPARATOR_WIDTH, 0, ROUNDED_CORNER_WIDTH, height()));
+	m_svgRenderer->render(painter, "RadioButton::" + selectedID + "frame",	   QRect(width() - itemWidth - SEPARATOR_WIDTH, 0, itemWidth - ROUNDED_CORNER_WIDTH, height()));
+	m_svgRenderer->render(painter, "RadioButton::" + selectedID + "frame::right",QRect(width() - ROUNDED_CORNER_WIDTH - SEPARATOR_WIDTH, 0, ROUNDED_CORNER_WIDTH, height()));
 
 	QRect rect(width() - itemWidth - SEPARATOR_WIDTH, 0, itemWidth, height());
 	painter->drawText(rect, Qt::AlignCenter , m_items.at(m_items.size()-1));
@@ -83,7 +85,7 @@ void RadioButton::renderMoreItems(QPainter *painter, int itemWidth, int itemCoun
 /* paints the radiobutton if there is only one item.
  * you think radiobuttons with only one option are somewhat pointless?
  * yes, I agree :-) */
-void RadioButton::renderOneMenuItem(QPainter *painter, int itemWidth)
+void RadioButton::renderOneMenuItem(QPainter *painter, const int itemWidth)
 {
 	QString selectedID = "";
 	if(m_selectedItem == 0)
@@ -91,14 +93,13 @@ void RadioButton::renderOneMenuItem(QPainter *painter, int itemWidth)
 		else
 			selectedID = "";
 
-        m_svgRenderer->render(painter, "RadioButton::" + selectedID + "frame::left",   QRect(0, 0, ROUNDED_CORNER_WIDTH, height()));
-        m_svgRenderer->render(painter, "RadioButton::" + selectedID + "frame",		 QRect(ROUNDED_CORNER_WIDTH, 0, width() - ROUNDED_CORNER_WIDTH, height()));
-        m_svgRenderer->render(painter, "RadioButton::" + selectedID + "frame::right",  QRect(width() - ROUNDED_CORNER_WIDTH, 0, ROUNDED_CORNER_WIDTH, height()));
+		m_svgRenderer->render(painter, "RadioButton::" + selectedID + "frame::left",   QRect(0, 0, ROUNDED_CORNER_WIDTH, height()));
+		m_svgRenderer->render(painter, "RadioButton::" + selectedID + "frame",		 QRect(ROUNDED_CORNER_WIDTH, 0, width() - ROUNDED_CORNER_WIDTH, height()));
+		m_svgRenderer->render(painter, "RadioButton::" + selectedID + "frame::right",  QRect(width() - ROUNDED_CORNER_WIDTH, 0, ROUNDED_CORNER_WIDTH, height()));
 
 		QRectF rect = QRect(0, 0, itemWidth, height());
 		painter->drawText(rect, Qt::AlignCenter , m_items.at(0));
 }
-
 
 void RadioButton::addItem(const QString &itemText)
 {
@@ -106,26 +107,20 @@ void RadioButton::addItem(const QString &itemText)
 	update();
 }
 
-
-void RadioButton::tapDown(TapEvent *event)
+void RadioButton::processTapDown(mtq::TapEvent *event)
 {
-	BaseWidget::tapDown(event);
-	int x = mapFromScene(event->center()).x();
+    int x = event->mappedCenter().x();
 	setSelectedItem(x / (width() / m_items.size() ));
 	update();
 }
 
-
-void RadioButton::mousePressEvent(QMouseEvent *event)
-{
-	BaseWidget::mousePressEvent(event);
-	setSelectedItem(event->x() / (width() / m_items.size() ));
-	update();
-}
-
-
-void RadioButton::setSelectedItem(int index)
+void RadioButton::setSelectedItem(const int index)
 {
 	m_selectedItem = index;
 	emit selectedItemChanged(index);
+}
+
+int RadioButton::selectedItem() const
+{
+	return m_selectedItem;
 }

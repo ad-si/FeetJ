@@ -2,19 +2,17 @@
 
 #include "BaseWidget.h"
 
-using namespace mtq;
-
 class Label: public BaseWidget
 {
 	//Tell the Qt-Preprocessor this is a QObject
 	Q_OBJECT
 
 	//Register widget as plugin for use in QML
-    QML_PLUGIN_REGISTRATION(Label, "widgets")
+	MTQ_QML_PLUGIN_REGISTRATION(Label, "widgets")
 
 	//QProperties: access attributes from QML.
 	//Here we define the getters and setters to be used
-	Q_PROPERTY(QString text READ text WRITE setText)
+	Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged)
 
 public:
 	Label(QQuickItem *parent = 0);
@@ -22,7 +20,10 @@ public:
 	void paint(QPainter *painter);
 
 	void setText(const QString &text);
-	QString text();
+	QString text() const;
+
+signals:
+	void textChanged(QString text);
 
 private:
 	QString m_text;

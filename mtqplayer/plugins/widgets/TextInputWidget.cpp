@@ -1,28 +1,25 @@
 #include "TextInputWidget.h"
 
-#include "plugins/widgets/Keyboard.h"
-#include "plugins/widgets/TextField.h"
-
 using namespace mtq;
 
 //We need to register this Type in QML
-QML_REGISTER_PLUGIN(TextInputWidget)
+MTQ_QML_REGISTER_PLUGIN(TextInputWidget)
 
 
-//This is a text field with an attached Keyboard
+//This is a text field with an attached Keyboard. Note that you can't actually get at the text yet.
 TextInputWidget::TextInputWidget(QQuickItem *parent)
-    : BaseWidget(parent)
+	: BaseWidget(parent)
 {
-	Keyboard *keyboard = new Keyboard(this);
-	TextField *textField = new TextField(this, keyboard->width());
+	m_keyboard = new Keyboard(this);
+	m_textField = new TextField(this, m_keyboard->width());
 
-	keyboard->setX(0);
-	keyboard->setY(130);
-	keyboard->setParentItem(this);
+	m_keyboard->setX(0);
+	m_keyboard->setY(130);
+	m_keyboard->setParentItem(this);
 
-	textField->setX(0);
-	textField->setY(0);
-	textField->setParentItem(this);
+	m_textField->setX(0);
+	m_textField->setY(0);
+	m_textField->setParentItem(this);
 
-	connect(keyboard, SIGNAL(pressed(QString)), textField, SLOT(addCharacter(QString)));
+	connect(m_keyboard, SIGNAL(pressed(QString)), m_textField, SLOT(addCharacter(QString)));
 }

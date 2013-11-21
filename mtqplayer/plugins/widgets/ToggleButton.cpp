@@ -7,11 +7,11 @@
 using namespace mtq;
 
 //We need to register this Type in QML
-QML_REGISTER_PLUGIN(ToggleButton)
+MTQ_QML_REGISTER_PLUGIN(ToggleButton)
 
 //ToggleButton, works like a nice modern checkBox
 ToggleButton::ToggleButton(QQuickItem *parent)
-    : BaseWidget(parent)
+	: BaseWidget(parent)
 {
 	setWidth(200);
 	setHeight(80);
@@ -63,8 +63,6 @@ void ToggleButton::paint(QPainter *painter)
 				design::borderRadius, design::borderRadius);
 }
 
-
-
 void ToggleButton::animateMovement()
 {
 	if(m_active)
@@ -77,25 +75,12 @@ void ToggleButton::animateMovement()
 	update();
 }
 
-
-
-void ToggleButton::mousePressEvent(QMouseEvent *event)
+void ToggleButton::processTapDown(mtq::TapEvent *event)
 {
-	BaseWidget::mousePressEvent(event);
 	setActive(!active());
 }
 
-
-void ToggleButton::tapDown(TapEvent *event)
-{  
-	BaseWidget::tapDown(event);
-	setActive(!active());
-}
-
-
-
-
-QString ToggleButton::activeTitle()
+QString ToggleButton::activeTitle() const
 {
 	return m_activeTitle;
 }
@@ -106,7 +91,7 @@ void ToggleButton::setActiveTitle(QString newActiveTitle)
 	update();
 }
 
-QString ToggleButton::inactiveTitle()
+QString ToggleButton::inactiveTitle() const
 {
 	return m_inactiveTitle;
 }
@@ -127,6 +112,6 @@ void ToggleButton::setActive(bool newActive)
 	if (newActive != m_active) {
 		m_active = newActive;
 		m_timer.start();
-		emit changed(m_active);
+		emit activeChanged(m_active);
 	}
 }

@@ -2,8 +2,8 @@
 
 #include <QPainter>
 
-//We need to register this Type in QML
-QML_REGISTER_PLUGIN(PaintField)
+//We need to register this Type in MTQ
+MTQ_QML_REGISTER_PLUGIN(PaintField)
 
 //Constructor
 PaintField::PaintField(QQuickItem *)
@@ -31,75 +31,48 @@ void PaintField::paint(QPainter *painter)
 								  m_strokes.at(strokeI).at(i+1));
 			}
 		}
-    }
+	}
 }
 
-qreal PaintField::strokeHue()
+qreal PaintField::strokeHue() const
 {
 	return m_strokeHue;
 }
 
-void PaintField::setStrokeHue(qreal hue)
+void PaintField::setStrokeHue(const qreal hue)
 {
 	m_strokeHue = hue;
 }
 
-int PaintField::backgroundBrightness()
+int PaintField::backgroundBrightness() const
 {
 	return m_backgroundBrightness;
 }
 
-void PaintField::setBackgroundBrightness(int brightness)
+void PaintField::setBackgroundBrightness(const int brightness)
 {
 	m_backgroundBrightness = brightness;
 	m_bgColor = QColor().fromHsv(1, 0, brightness);
 	update();
 }
 
-void PaintField::contactDown(ContactEvent *event)
+void PaintField::processContactDown(mtq::ContactEvent *event)
 {
-	BaseWidget::contactDown(event);
 	m_strokes.push_back(QVector<QPointF>());
 	m_strokeColors.push_back(QColor().fromHsvF(m_strokeHue, 1, 1));
-	QPointF center = event->center();
+	QPointF center = event->mappedCenter();
 	m_strokes.last().push_back(center);
 	update();
 }
 
-void PaintField::contactMove(ContactEvent *event)
+void PaintField::processContactMove(mtq::ContactEvent *event)
 {
-	BaseWidget::contactMove(event);
-	QPointF center = event->center();
+	QPointF center = event->mappedCenter();
 	m_strokes.last().push_back(center);
 	update();
 }
 
-void PaintField::contactUp(ContactEvent *event)
+void PaintField::processContactUp(mtq::ContactEvent *event)
 {
-    BaseWidget::contactUp(event);
-	update();
-}
-
-void PaintField::mousePressEvent(QMouseEvent *event)
-{
-	BaseWidget::mousePressEvent(event);
-	m_strokes.push_back(QVector<QPointF>());
-	m_strokeColors.push_back(QColor().fromHsvF(m_strokeHue, 1, 1));
-	QPointF center = event->pos();
-	m_strokes.last().push_back(center);
-	update();
-}
-
-void PaintField::mouseMoveEvent(QMouseEvent *event)
-{
-	BaseWidget::mouseMoveEvent(event);
-	QPointF center = event->pos();
-	m_strokes.last().push_back(center);
-	update();
-}
-
-void PaintField::mouseReleaseEvent(QMouseEvent *event)
-{
-    BaseWidget::mouseReleaseEvent(event);
 	update();
 }

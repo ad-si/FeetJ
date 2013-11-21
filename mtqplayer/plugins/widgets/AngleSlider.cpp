@@ -4,14 +4,14 @@
 
 #include "Design.h"
 
-//We need to register this Type in QML
-QML_REGISTER_PLUGIN(AngleSlider)
+//We need to register this Type in MTQ
+MTQ_QML_REGISTER_PLUGIN(AngleSlider)
 
 //This is a neat circular slider, with values from 0 to 2pi
 AngleSlider::AngleSlider(QQuickItem *parent)
-    : BaseWidget(parent),
-      m_value(30),
-      m_active(false)
+	: BaseWidget(parent),
+	  m_value(30),
+	  m_active(false)
 {
 	setWidth(500);
 	setHeight(500);
@@ -84,7 +84,7 @@ void AngleSlider::forceSquare()
 }
 
 
-void AngleSlider::setValueByTapPos(int xInWidget, int yInWidget)
+void AngleSlider::setValueByTapPos(const int xInWidget, const int yInWidget)
 {
 	//move to middle
 	qreal x = (xInWidget - (height()/2));
@@ -105,54 +105,39 @@ void AngleSlider::setValueByTapPos(int xInWidget, int yInWidget)
 	}
 }
 
-void AngleSlider::tapDown(TapEvent *event)
+void AngleSlider::processTapDown(mtq::TapEvent *event)
 {
-	BaseWidget::tapDown(event);
-	setValueByTapPos(static_cast<int>(mapFromScene(event->center()).x()),
-					 static_cast<int>(mapFromScene(event->center()).y()));
+    setValueByTapPos(static_cast<int>(event->mappedCenter().x()),
+                     static_cast<int>(event->mappedCenter().y()));
 }
 
-void AngleSlider::tapUp(TapEvent *event)
+void AngleSlider::processTapUp(mtq::TapEvent *event)
 {
-	BaseWidget::tapUp(event);
 	setActive(false);
 }
 
-void AngleSlider::tapCancel(TapEvent *event)
+void AngleSlider::processTapCancel(mtq::TapEvent *event)
 {
-	BaseWidget::tapCancel(event);
 	setActive(false);
 }
 
-void AngleSlider::mousePressEvent(QMouseEvent *event)
-{
-	BaseWidget::mousePressEvent(event);
-	setValueByTapPos(event->x(), event->y());
-}
-
-void AngleSlider::mouseReleaseEvent(QMouseEvent *event)
-{
-	BaseWidget::mouseReleaseEvent(event);
-	setActive(false);
-}
-
-bool AngleSlider::active()
+bool AngleSlider::active() const
 {
 	return m_active;
 }
 
-void AngleSlider::setActive(bool state)
+void AngleSlider::setActive(const bool state)
 {
 	m_active = state;
 	update();
 }
 
-qreal AngleSlider::value()
+qreal AngleSlider::value() const
 {
 	return m_value;
 }
 
-void AngleSlider::setValue(qreal value)
+void AngleSlider::setValue(const qreal value)
 {
 	m_value = value;
 }

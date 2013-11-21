@@ -5,12 +5,12 @@
 
 namespace mtq {
 
-    class MTQ_EXPORT DebugEventDispatcher {
+	class MTQ_EXPORT DebugEventDispatcher {
 	public:
-        virtual bool invokeDebugEventHandler(DebugEvent *event);
+		virtual bool invokeDebugEventHandler(DebugEvent *event);
 	protected:
 
-        virtual void debug(DebugEvent *event);
+		virtual void debug(DebugEvent *event);
 	};
 
 }

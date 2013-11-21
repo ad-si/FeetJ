@@ -16,12 +16,12 @@ Rectangle {
 		text: "tt"
 		height: 2400
 		width: 4096
-		onQmlContactMove: {
-			moveRect.x = event.center.x;
-			moveRect.y = event.center.y;
+		onMtqContactMove: {
+            moveRect.x = event.mappedCenter.x;
+            moveRect.y = event.mappedCenter.y;
 		}
 
-		onQmlTapDown: {
+		onMtqTapDown: {
 			console.log("Tap Down at ", event.center)
 			var tapRect = Qt.createQmlObject('import QtQuick 2.0; 	Rectangle {
 			id: tapRect
@@ -48,8 +48,8 @@ Rectangle {
 			}
 		}',
 				 floor, "dynamicSnippet");
-			tapRect.x = event.center.x;
-			tapRect.y = event.center.y;
+            tapRect.x = event.mappedCenter.x;
+            tapRect.y = event.mappedCenter.y;
 		}
 	}
 

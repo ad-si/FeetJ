@@ -13,8 +13,8 @@ Rectangle {
         y: 100
         width: 1200
         height: 1000
-		strokeHue: 0.5
-		backgroundBrightness: 100
+		strokeHue: hueSlider.value/2.0/Math.PI
+		backgroundBrightness: brightnessSlider.value*255/2/Math.PI
         }
 		
 	AngleSlider {
@@ -24,9 +24,6 @@ Rectangle {
 		width: 200
 		height: 200
 		value: 0
-		onValueChanged: {
-			paintField.strokeHue = value/2.0/3.141569;
-		}
 	}
 	
 	AngleSlider {
@@ -36,9 +33,6 @@ Rectangle {
 		width: 200
 		height: 200
 		value: 0
-		onValueChanged: {
-			paintField.backgroundBrightness = value*255/2/3.141569;
-		}
 	}
 
 }

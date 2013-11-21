@@ -7,22 +7,22 @@
 //"The code is as free as it can get. No licence at all, just free for whatever one wants to do with it."
 
 //We need to register this Type in QML
-QML_REGISTER_PLUGIN(Shortcut)
+MTQ_QML_REGISTER_PLUGIN(Shortcut)
 
 Shortcut::Shortcut(QObject *parent)
-    : QObject(parent),
-      m_keySequence(),
-      m_keypressAlreadySend(false)
+	: QObject(parent),
+	  m_keySequence(),
+	  m_keypressAlreadySend(false)
 {
 	qApp->installEventFilter(this);
 }
 
-QVariant Shortcut::key()
+QVariant Shortcut::key() const
 {
-    return m_keySequence;
+	return m_keySequence;
 }
 
-void Shortcut::setKey(QVariant key)
+void Shortcut::setKey(const QVariant key)
 {
 	QKeySequence newKey = key.value<QKeySequence>();
 	if(m_keySequence != newKey) {
