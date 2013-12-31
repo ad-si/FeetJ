@@ -53,7 +53,9 @@ OTHER_FILES += \
     qml/WidgetDemo.qml \
     qml/Paint.qml \
     qml/HelloWorld.qml \
-    resources/config/mtqplayer.ini
+    resources/config/mtqplayer.ini \
+    data/feetbeatz.qml \
+    config.ini
 
 INCLUDEPATH += include
 

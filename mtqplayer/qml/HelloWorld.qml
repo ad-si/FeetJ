@@ -6,8 +6,6 @@ Rectangle {
     width: 4096
     height: 2400
     color: "#ff333333"
-
-
 	
     Label {
         id: helloLabel
@@ -15,7 +13,7 @@ Rectangle {
 		y: 400
         width: 650
         height: 160
-		text: "Hello World"
+        text: "Test"
 		rotation: -20
     }
 
@@ -30,5 +28,4 @@ Rectangle {
 			helloLabel.text += " from <your name>"
 		}
     }
-
 }
