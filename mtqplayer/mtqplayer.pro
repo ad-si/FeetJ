@@ -41,7 +41,8 @@ HEADERS += \
     plugins/widgets/TextField.h \
     plugins/widgets/TextInputWidget.h \
     plugins/widgets/ToggleButton.h \
-    include/bass/bass.h
+    include/bass/bass.h \
+    soundMain.h
 
 RESOURCES += \
     resources/mtqplayer.qrc
