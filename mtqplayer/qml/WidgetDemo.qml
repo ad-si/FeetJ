@@ -7,8 +7,6 @@ Rectangle {
     height: 2400
     color: "#ff333333"
 
-
-
 	Label {
 		id: radioButtonLabel
 		x: 1600

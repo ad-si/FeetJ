@@ -55,7 +55,14 @@ OTHER_FILES += \
     qml/HelloWorld.qml \
     resources/config/mtqplayer.ini \
     data/feetbeatz.qml \
-    config.ini
+    config.ini \
+    data/audioLogic.js \
+    data/Lane.qml \
+    data/Test.qml \
+    data/Songpicker.qml \
+    data/Crossfader.qml \
+    data/EffectController.qml \
+    data/EffectButton.qml
 
 INCLUDEPATH += include
 
