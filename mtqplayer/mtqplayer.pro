@@ -21,7 +21,8 @@ SOURCES += \
     plugins/widgets/TextField.cpp \
     plugins/widgets/TextInputWidget.cpp \
     plugins/widgets/ToggleButton.cpp \
-    soundMain.cpp
+    soundMain.cpp \
+    player.cpp
 
 HEADERS += \
     plugins/input/Shortcut.h \
@@ -42,7 +43,8 @@ HEADERS += \
     plugins/widgets/TextInputWidget.h \
     plugins/widgets/ToggleButton.h \
     include/bass/bass.h \
-    soundMain.h
+    soundMain.h \
+    player.h
 
 RESOURCES += \
     resources/mtqplayer.qrc

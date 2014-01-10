@@ -5,7 +5,7 @@
 // wegen sleep
 #include <unistd.h>
 
-
+#include "player.h"
 #include "soundMain.h"
 
 int main(int argc, char **argv)
@@ -13,14 +13,24 @@ int main(int argc, char **argv)
 	mtq::Application app(argc, argv);
 	printf("\nIch bin dumm!\n\n");
 
+	Player p;
+
+
+	p.playA();
+	sleep(2);
+	p.playB();
+	p.playA();
+
+	/*
 	initSound();
-	playTest();
+	playA();
+	playB();
 	sleep(1);
-	playTest();
-	sleep(3);
-	playTest();
+	playA();
+	sleep(1);
+	playB();
 	sleep(5);
-	playTest();
+	playA();*/
 
 	return app.exec();
 }
