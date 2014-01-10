@@ -3,7 +3,6 @@ import mtq.widgets 1.0
 
 Slider {
     id: crossfader
-    x: lane1.x + 400
-    y: 1400
+    anchors.horizontalCenter: parent.horizontalCenter
     width: 800
 }

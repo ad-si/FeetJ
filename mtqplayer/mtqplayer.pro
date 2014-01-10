@@ -56,7 +56,6 @@ OTHER_FILES += \
     qml/Paint.qml \
     qml/HelloWorld.qml \
     resources/config/mtqplayer.ini \
-    data/feetbeatz.qml \
     config.ini \
     data/audioLogic.js \
     data/Lane.qml \
@@ -64,7 +63,9 @@ OTHER_FILES += \
     data/Songpicker.qml \
     data/Crossfader.qml \
     data/EffectController.qml \
-    data/EffectButton.qml
+    data/EffectButton.qml \
+    data/DjArea.qml \
+    data/FeetJ.qml
 
 INCLUDEPATH += include
 
