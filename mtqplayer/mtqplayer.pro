@@ -20,7 +20,8 @@ SOURCES += \
     plugins/widgets/Slider.cpp \
     plugins/widgets/TextField.cpp \
     plugins/widgets/TextInputWidget.cpp \
-    plugins/widgets/ToggleButton.cpp
+    plugins/widgets/ToggleButton.cpp \
+    soundMain.cpp
 
 HEADERS += \
     plugins/input/Shortcut.h \
@@ -39,7 +40,8 @@ HEADERS += \
     plugins/widgets/Slider.h \
     plugins/widgets/TextField.h \
     plugins/widgets/TextInputWidget.h \
-    plugins/widgets/ToggleButton.h
+    plugins/widgets/ToggleButton.h \
+    include/bass/bass.h
 
 RESOURCES += \
     resources/mtqplayer.qrc
@@ -62,3 +64,10 @@ INCLUDEPATH += include
 LIBS += -L$${PWD}/lib -lMultiToeQt
 
 QMAKE_POST_LINK = ln -s $${PWD}/lib/libMultiToeQt.so $${OUT_PWD}/libMultiToeQt.so.1 && ln -s $${PWD}/lib/plugins $${OUT_PWD}/plugins && ln -s $${PWD}/data $${OUT_PWD}/data && ln -s $${PWD}/qml $${OUT_PWD}/qml && ln -s $${PWD}/config.ini $${OUT_PWD}/config.ini
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/include/bass/release/ -lbass
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/include/bass/debug/ -lbass
+else:unix: LIBS += -L$$PWD/include/bass/ -lbass
+
+INCLUDEPATH += $$PWD/include/bass
+DEPENDPATH += $$PWD/include/bass

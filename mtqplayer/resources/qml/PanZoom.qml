@@ -147,7 +147,7 @@ Rectangle {
 			viewScale.yScale *= 1.2;
 			viewTranslate.x = (background.width/2 - oldXDistance*1.2) / viewScale.xScale;
 			viewTranslate.y = (background.height/2 - oldYDistance*1.2) / viewScale.yScale;
-		}
+        }
 	}
 
 	Shortcut {key: "+"; onActivated: {zoomInButton.onPressed()} }
