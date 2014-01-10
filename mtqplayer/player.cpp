@@ -1,9 +1,12 @@
 #include "player.h"
 #include "bass/bass.h"
 #include <stdlib.h>
+#include <iostream>
 
 //HSTREAM Player::trackA;
 //HSTREAM Player::trackB;
+
+
 
 
 Player::Player()
@@ -27,4 +30,10 @@ void Player::playA()
 void Player::playB()
 {
 	BASS_ChannelPlay(trackB, FALSE);
+}
+
+void Player::testSlot()
+{
+	std::cout << "FRESH SLUUUUUUUUUT!";
+	playA();
 }

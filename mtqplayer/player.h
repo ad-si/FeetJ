@@ -1,15 +1,22 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include <QObject>
 #include "bass/bass.h"
 
-class Player
+#include <iostream>
+
+class Player : public QObject
 {
+	Q_OBJECT
+
 	public:
 		Player();
-		void playA();
-		void playB();
+		Q_INVOKABLE void playA();
+		Q_INVOKABLE void playB();
 
+	public slots:
+		void testSlot();
 
 	private:
 		HSTREAM trackA;

@@ -46,6 +46,8 @@ HEADERS += \
     soundMain.h \
     player.h
 
+
+
 RESOURCES += \
     resources/mtqplayer.qrc
 

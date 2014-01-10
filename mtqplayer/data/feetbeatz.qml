@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtMultimedia 5.0
 import mtq.widgets 1.0
+//import fb.player 1.0 //wtf
 
 Rectangle {
     id: floor
@@ -25,6 +26,9 @@ Rectangle {
         x: 250
         y: 250
         color: "#ff9999"
+
+        signal qmlSignal()
+
         MouseArea {
             id: stopArea
             anchors.fill: parent
@@ -32,6 +36,8 @@ Rectangle {
                 acdc.stop()
                 nirvana.stop()
                 //songLabel.text = "stopped."
+                silence.qmlSignal();
+
                 }
             }
         }
