@@ -145,6 +145,153 @@ Rectangle {
         }
     }
 
+    Rectangle {
+        id: effectsContainer
+        x: 2600
+        y: 100
+        height: 1300
+        width: 1300
+        color: "#ffaaaa"
+
+        Rectangle {
+            id: effectButton1
+            height: 200
+            width: 300
+            x: 100
+            y: 300
+            color: "#aaffaa"
+
+            Label {
+                id: effectButton1Label
+                text: "Effekt 1"
+            }
+
+            MouseArea {
+                id: mouseArea1
+                anchors.fill: parent
+                onPressed: effectButton1Label.text = "jo!"
+            }
+
+        }
+
+        Rectangle {
+            id: effectButton2
+            height: 200
+            width: 300
+            x: 500
+            y: 300
+
+            Label {
+                id: effectButton2Label
+                text: "Effekt 1"
+            }
+
+            MouseArea {
+                id: mouseArea2
+                anchors.fill: parent
+                onPressed: effectButton2Label.text = "jo!"
+            }
+        }
+
+        Rectangle {
+            id: effectButton3
+            height: 200
+            width: 300
+            x: 900
+            y: 300
+
+            Label {
+                id: effectButton3Label
+                text: "Effekt 1"
+            }
+
+            MouseArea {
+                id: mouseArea3
+                anchors.fill: parent
+                onPressed: effectButton3Label.text = "jo!"
+            }
+        }
+
+        Rectangle {
+            id: effectButton4
+            height: 200
+            width: 300
+            x: 100
+            y: 800
+
+            Label {
+                id: effectButton4Label
+                text: "Effekt 4"
+            }
+
+            MouseArea {
+                id: mouseArea4
+                anchors.fill: parent
+                onPressed: effectButton4Label.text = "jo!"
+            }
+        }
+
+        Rectangle {
+            id: effectButton5
+            height: 200
+            width: 300
+            x: 500
+            y: 800
+
+            Label {
+                id: effectButton5Label
+                text: "Effekt 5"
+            }
+
+            MouseArea {
+                id: mouseArea5
+                anchors.fill: parent
+                onPressed: effectButton5Label.text = "jo!"
+            }
+        }
+
+        Rectangle {
+            id: effectButton6
+            height: 200
+            width: 300
+            x: 900
+            y: 800
+
+            Label {
+                id: effectButton6Label
+                text: "Effekt 6"
+            }
+
+            MouseArea {
+                id: mouseArea6
+                anchors.fill: parent
+                onPressed: effectButton6Label.text = "jo!"
+            }
+        }
+    }
+
+    Rectangle {
+        id: interactiveField
+        height: 700
+        width: 1300
+        x: 2600
+        y: 1600
+        color: "#aaaaff"
+
+        Label {
+            id: interactiveFieldLabel
+            anchors.centerIn: parent
+            anchors.fill: parent
+            text: "Interactive Field"
+        }
+
+        MouseArea {
+            id: interactiveFieldMouseArea
+            anchors.fill: parent
+            onPressed: interactiveFieldLabel.text = "it's interactive!"
+        }
+    }
+
     Slider {
         id: crossfader
         x: lane1.x + 400
