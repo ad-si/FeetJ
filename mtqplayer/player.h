@@ -15,8 +15,8 @@ class Player : public QObject
 		Player();
 		Q_INVOKABLE void playA();
 		Q_INVOKABLE void playB();
-		void setTrackA(Song s);
-		void setTrackB(Song s);
+		void setTrack(int track, Song s);
+		SongList lib;
 
 	public slots:
 		void testSlot();
@@ -24,8 +24,7 @@ class Player : public QObject
 	private:
 		HSTREAM trackA;
 		HSTREAM trackB;
-		SongList lib;
-		void setTrack(HSTREAM *T, Song s);
+		HSTREAM* getTrackByNo(int n);
 };
 
 #endif // PLAYER_H
