@@ -22,7 +22,9 @@ SOURCES += \
     plugins/widgets/TextInputWidget.cpp \
     plugins/widgets/ToggleButton.cpp \
     soundMain.cpp \
-    player.cpp
+    player.cpp \
+    plugins/widgets/FjSlider.cpp \
+    plugins/widgets/FjPlayer.cpp
 
 HEADERS += \
     plugins/input/Shortcut.h \
@@ -44,7 +46,9 @@ HEADERS += \
     plugins/widgets/ToggleButton.h \
     include/bass/bass.h \
     soundMain.h \
-    player.h
+    player.h \
+    plugins/widgets/FjSlider.h \
+    plugins/widgets/FjPlayer.h
 
 
 
