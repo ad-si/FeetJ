@@ -27,6 +27,7 @@ public:
 	bool active() const;
 	void setActive(const bool state);
 
+
 private:
 	bool m_active;
 	qreal m_value;
@@ -36,6 +37,7 @@ private:
 
 public slots:
 	void test();
+	void testStuff();
 
 
 protected:

@@ -16,6 +16,7 @@ class Player : public QObject
 		Q_INVOKABLE void playA();
 		Q_INVOKABLE void playB();
 		void setTrack(int track, Song s);
+		void setTrackVolume(int track, float vol);
 		SongList lib;
 
 	public slots:

@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include "songlist.h"
+#include <QDebug>
 
 //HSTREAM Player::trackA;
 //HSTREAM Player::trackB;
@@ -29,11 +30,14 @@ Player::Player()
 void Player::playA()
 {
 	BASS_ChannelPlay(trackA, FALSE);
+	qDebug() << "[A] Playing";
+
 }
 
 void Player::playB()
 {
 	BASS_ChannelPlay(trackB, FALSE);
+	qDebug() << "[B] Playing";
 }
 
 HSTREAM* Player::getTrackByNo(int n)
@@ -46,7 +50,18 @@ HSTREAM* Player::getTrackByNo(int n)
 		return NULL;
 }
 
-
+void Player::setTrackVolume(int track, float vol)
+{
+	HSTREAM* T = getTrackByNo(track);
+	int e;
+	float v;
+	BASS_ChannelGetAttribute(*T,BASS_ATTRIB_VOL,&v);
+	qDebug() << "Volume: " << v;
+	e = BASS_ChannelSetAttribute(*T, BASS_ATTRIB_VOL, 0.0);
+	qDebug() << e;
+	BASS_ChannelGetAttribute(*T,BASS_ATTRIB_VOL,&v);
+	qDebug() << v;
+}
 
 void Player::setTrack(int track, Song s)
 {

@@ -4,8 +4,11 @@
 #include <QPainter>
 #include "Design.h"
 #include "player.h"
+#include <QDebug>
 
 using namespace mtq;
+
+Player p;
 
 //We need to register this Type in MTQ
 MTQ_QML_REGISTER_PLUGIN(FjPlayer)
@@ -17,6 +20,13 @@ FjPlayer::FjPlayer(QQuickItem *parent)
 	  m_svgRenderer(new QSvgRenderer(design::widgetsSvgFile, this))
 {
 	setHeight(168 + 140); //toolTipHeight included
+}
+
+void FjPlayer::testStuff()
+{
+	p.setTrackVolume(1,0);
+	p.setTrackVolume(2,0);
+	qDebug() << "Wow, I'm soo changing the volume right now!";
 }
 
 void FjPlayer::paint(QPainter *painter)
@@ -124,7 +134,6 @@ void FjPlayer::setActive(const bool state)
 }
 
 void FjPlayer::test() {
-	Player p;
 	p.playA();
 	p.playB();
 	printf("abgespült");

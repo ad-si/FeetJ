@@ -39,6 +39,9 @@ Rectangle {
         width: 500
         height: 200
         visible: true
+        onMtqTapDown: {
+            player.testStuff();
+        }
     }
 
 }
