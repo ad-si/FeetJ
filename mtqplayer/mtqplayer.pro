@@ -24,7 +24,9 @@ SOURCES += \
     soundMain.cpp \
     player.cpp \
     plugins/widgets/FjSlider.cpp \
-    plugins/widgets/FjPlayer.cpp
+    plugins/widgets/FjPlayer.cpp \
+    song.cpp \
+    songlist.cpp
 
 HEADERS += \
     plugins/input/Shortcut.h \
@@ -48,7 +50,9 @@ HEADERS += \
     soundMain.h \
     player.h \
     plugins/widgets/FjSlider.h \
-    plugins/widgets/FjPlayer.h
+    plugins/widgets/FjPlayer.h \
+    song.h \
+    songlist.h
 
 
 

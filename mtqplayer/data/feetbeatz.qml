@@ -45,11 +45,6 @@ Rectangle {
 
 
 
-
-
-
-
-
 /*Rectangle {
     id: floor
     width: 4096
