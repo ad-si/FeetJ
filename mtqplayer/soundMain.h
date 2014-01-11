@@ -1,11 +1,10 @@
 #ifndef SOUNDMAIN_H
 #define SOUNDMAIN_H
 
-#include "bass/bass.h"
+#include "player.h"
 
-void initSound();
-void playA();
-void playB();
+Player thePlayer;
+Player getPlayer();
 
 #endif // SOUNDMAIN_H
 
