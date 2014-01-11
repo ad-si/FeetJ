@@ -7,6 +7,8 @@
 
 using namespace mtq;
 
+Player p;
+
 //We need to register this Type in MTQ
 MTQ_QML_REGISTER_PLUGIN(FjPlayer)
 
@@ -124,8 +126,11 @@ void FjPlayer::setActive(const bool state)
 }
 
 void FjPlayer::test() {
-	Player p;
 	p.playA();
-	p.playB();
 	printf("abgespült");
+}
+
+void FjPlayer::changeTrack(int channel) {
+	Song s = p.lib.getTestSong();
+	p.setTrack(channel, s);
 }

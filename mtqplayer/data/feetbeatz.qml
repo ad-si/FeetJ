@@ -28,7 +28,6 @@ Rectangle {
         visible: true
         onMtqTapDown: {
             player.test();
-            crossfader.x += 10;
         }
 
     }
@@ -39,6 +38,9 @@ Rectangle {
         width: 500
         height: 200
         visible: true
+        onMtqTapDown: {
+            player.changeTrack(1);
+        }
     }
 
 }

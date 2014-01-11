@@ -18,11 +18,11 @@ Player::Player()
 	/* Initialize output device */
 	BASS_Init(device, freq, 0, 0, NULL);
 
-	trackA = BASS_StreamCreateFile(FALSE, "/home/hci1/emailp.wav", 0, 0, 0);
+	trackA = BASS_StreamCreateFile(FALSE, "/home/hci1/winter.wav", 0, 0, 0);
 	Song s = lib.getTestSong();
 	string s2 = lib.getFullPath(s);
 	//trackB = BASS_StreamCreateFile(FALSE, (void*)(s2.c_str()), 0, 0, 0);
-	setTrack(1, lib.getTestSong());
+	//setTrack(1, lib.getTestSong());
 
 }
 

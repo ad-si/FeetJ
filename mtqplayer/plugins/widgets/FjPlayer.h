@@ -36,6 +36,7 @@ private:
 
 public slots:
 	void test();
+	void changeTrack(int channel);
 
 
 protected:
