@@ -22,13 +22,4 @@ Item {
     Crossfader {
         y: 1600
     }
-
-    Rectangle {
-        id: nowLine
-        height: 2
-        width: 4096
-        color: "gray"
-        x: 0
-        y: 1500
-    }
 }

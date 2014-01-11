@@ -21,6 +21,7 @@ SOURCES += \
     plugins/widgets/TextField.cpp \
     plugins/widgets/TextInputWidget.cpp \
     plugins/widgets/ToggleButton.cpp \
+    plugins/widgets/GenericButton.cpp \
     soundMain.cpp
 
 HEADERS += \
@@ -41,6 +42,7 @@ HEADERS += \
     plugins/widgets/TextField.h \
     plugins/widgets/TextInputWidget.h \
     plugins/widgets/ToggleButton.h \
+    plugins/widgets/GenericButton.h \
     include/bass/bass.h
 
 RESOURCES += \

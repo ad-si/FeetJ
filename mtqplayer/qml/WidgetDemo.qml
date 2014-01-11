@@ -145,6 +145,19 @@ Rectangle {
         }
     }
 
+    GenericButton {
+        id: genericButton
+        x: 400
+        y: 100
+        width: 100
+        height: 100
+        text: "asdbfjhasdf"
+        color: "#aaaaff"
+        onMtqTap: {
+            genericButton.x += 50
+        }
+    }
+
     PushButton {
 		id: rotatingButton
         x: 50
