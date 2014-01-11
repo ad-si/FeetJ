@@ -10,6 +10,115 @@ Rectangle {
     height: 2400
     color: "#ff333333"
 
+    PaintField {
+        x: 0
+        y: 1500
+        height: 5
+        width: 4096
+    }
+
+    ListPicker {
+        id: songPicker
+        x: 100
+        y: 800
+        width: 800
+        height: 400
+        visible: true
+        selectedItem: 0
+        caption: "Songs"
+
+        Component.onCompleted: {
+            songPicker.addItem("Chubby Checker - Let's Twist again");
+            songPicker.addItem("Parov Stellar - Catgroove");
+            songPicker.addItem("Beach Boys - Surfin' USA")
+        }
+
+        onSelectedItemChanged: {
+            if (selectedItem == 0) {
+
+                laneImageChubby.visible = true
+                songPicker.visible = false
+            }
+            else if (selectedItem == 1) {
+                laneImageParov.visible = true
+                songPicker.visible = false
+            }
+            else if (selectedItem == 2) {
+                laneImageBeach.visible = true
+                songPicker.visible = false
+            }
+
+        }
+    }
+
+
+    PushButton {
+        id: laneImageChubby
+        x: 2000
+        y: 1500-laneImageChubby.height
+        height: 1762.5
+        width: 200
+        visible: false
+
+        Image {
+        source: "/home/hci1/dis13_group8/mtqplayer/images/chubbyChecker.png"
+            anchors.fill: parent
+        }
+        Behavior on y {
+            NumberAnimation { duration: 141000 }
+        }
+
+        onMtqTapDown: {
+            laneImageChubby.y +=laneImageChubby.height
+        }
+
+    }
+
+
+    PushButton {
+        id: laneImageParov
+        x: 2000
+        y: 1500-laneImageParov.height
+        height: 2962.5
+        width: 200
+        visible: false
+
+        Image {
+        source: "/home/hci1/dis13_group8/mtqplayer/images/catgroove.png"
+            anchors.fill: parent
+        }
+        Behavior on y {
+            NumberAnimation { duration: 237000 }
+        }
+
+        onMtqTapDown: {
+            laneImageParov.y +=laneImageParov.height
+        }
+
+    }
+
+    PushButton {
+        id: laneImageBeach
+        x: 2000
+        y: 1500-laneImageBeach.height
+        height: 1887.5
+        width: 200
+        visible: false
+
+        Image {
+        source: "/home/hci1/dis13_group8/mtqplayer/images/surfin.png"
+            anchors.fill: parent
+        }
+        Behavior on y {
+            NumberAnimation { duration: 151000 }
+        }
+
+        onMtqTapDown: {
+            laneImageBeach.y +=laneImageBeach.height
+        }
+
+    }
+
     FjPlayer {
         id: player
         x:-300
@@ -33,12 +142,23 @@ Rectangle {
 
     }
 
+
+
     Slider {
         y: 500
         x: 500
         width: 500
         height: 200
         visible: true
+    }
+
+    PushButton {
+        y: 800
+        x: 500
+        width: 500
+        height: 2000
+
+
     }
 
 }

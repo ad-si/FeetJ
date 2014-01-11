@@ -17,8 +17,8 @@ Player::Player()
 	/* Initialize output device */
 	BASS_Init(device, freq, 0, 0, NULL);
 
-	trackA = BASS_StreamCreateFile(FALSE, "/home/hci1/emailp.wav", 0, 0, 0);
-	trackB = BASS_StreamCreateFile(FALSE, "/home/hci1/adios.wav", 0, 0, 0);
+    trackA = BASS_StreamCreateFile(FALSE, "/home/hci1/dis13_group8/mtqplayer/MM_Lachen.wav", 0, 0, 0);
+    trackB = BASS_StreamCreateFile(FALSE, "/home/hci1/dis13_group8/mtqplayer/MM_Lachen.wav", 0, 0, 0);
 
 }
 
