@@ -42,6 +42,7 @@ public slots:
 	void test();
 	void testStuff();
 	void changeTrack(int channel, int title);
+	void crossfade(float pos);
 
 
 protected:

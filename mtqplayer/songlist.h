@@ -11,7 +11,11 @@ class SongList
 {
 public:
 	SongList();
+
 	//Song getTestSong();
+
+	Song getTestSong();
+	Song getAnotherTestSong();
 	string getFullPath(Song s);
 	Song getSong(int title);
 

@@ -18,10 +18,11 @@ class Player : public QObject
 		void playTrack(int track);
 		void setTrack(int track, Song s);
 		void setTrackVolume(int track, float vol);
+		void setCrossfade(float pos);
+		void pauseTrack(int track);
+		void effectFlanger(int track);
+		void effectReverb(int track);
 		SongList lib;
-
-	public slots:
-		void testSlot();
 
 	private:
 		HSTREAM trackA;
