@@ -11,20 +11,33 @@ ListPicker {
     caption: "Songs"
 
     Component.onCompleted: {
-        songPicker.addItem("ACDC");
-        songPicker.addItem("Nirvana");
+        songPicker.addItem("Chubby Checker - Let's Twist again");
+        songPicker.addItem("Parov Stellar - Catgroove");
+        songPicker.addItem("Beach Boys - Surfin' USA")
     }
 
     onSelectedItemChanged: {
-
         if (selectedItem == 0) {
-            //audioLogic.currentSong = "acdc"
+            songPicker.visible = false
+
+
         }
         else if (selectedItem == 1) {
-            //audioLogic.currentSong = "nirvana"
+            laneImageParov.visible = true
+            songPicker.visible = false
         }
-
+        else if (selectedItem == 2) {
+            laneImageBeach.visible = true
+            songPicker.visible = false
+        }
     }
+
+    Lane {
+        imagePath: "/home/hci1/dis13_group8/mtqplayer/images/chubbychecker.png"
+        songDuration: 141000
+        waveHeight: 1762.5
+    }
+
 
     function startSong(name){
         var map = {

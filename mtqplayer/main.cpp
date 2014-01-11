@@ -1,25 +1,53 @@
 #include "core/Application.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include "bass/bass.h"
+#include <iostream>
+#include <QtQml>
+#include <QQmlEngine>
+
+// wegen sleep
+#include <unistd.h>
+
+#include "player.h"
+#include "soundMain.h"
+
+using namespace std;
 
 int main(int argc, char **argv)
 {
 	mtq::Application app(argc, argv);
-	printf("\nIch bin dumm!\n\n");
+	cout << "\nIch bin dumm!\n\n";
 
-	int device = -1; // Default Sounddevice
-	int freq = 44100; // Sample rate (Hz)
-	HSTREAM streamHandle; // Handle for open stream
+	Player p;
+
+	/*
+	int e;
+	e = qmlRegisterType<Player>("fb.player", 1,0, "Player");
+	cout << e;
+	printf("ich bin eine wildblume!\n");
+	*/
 
 
-	/* Initialize output device */
-	BASS_Init(device, freq, 0, 0, NULL);
+
+	/*
+	p.playA();
+	sleep(2);
+	p.playB();
+	p.playA();
+	*/
+	/*
+	initSound();
+	playA();
+	playB();
+	sleep(1);
+	playA();
+	sleep(1);
+	playB();
+	sleep(5);
+	playA();*/
 
 
-	/* Load your soundfile and play it */
-	streamHandle = BASS_StreamCreateFile(FALSE, "/home/hci1/emailp.wav", 0, 0, 0);
-	BASS_ChannelPlay(streamHandle, FALSE);
+	//QObject::connect(silence, SIGNAL(qmlSignal()),&p,SLOT(testSlot()));
 
 	return app.exec();
 }

@@ -22,7 +22,10 @@ SOURCES += \
     plugins/widgets/TextInputWidget.cpp \
     plugins/widgets/ToggleButton.cpp \
     plugins/widgets/GenericButton.cpp \
-    soundMain.cpp
+    plugins/widgets/FjSlider.cpp \
+    plugins/widgets/FjPlayer.cpp \
+    soundMain.cpp \
+    player.cpp
 
 HEADERS += \
     plugins/input/Shortcut.h \
@@ -43,7 +46,11 @@ HEADERS += \
     plugins/widgets/TextInputWidget.h \
     plugins/widgets/ToggleButton.h \
     plugins/widgets/GenericButton.h \
-    include/bass/bass.h
+    plugins/widgets/FjSlider.h \
+    plugins/widgets/FjPlayer.h \
+    include/bass/bass.h \
+    soundMain.h \
+    player.h
 
 RESOURCES += \
     resources/mtqplayer.qrc
@@ -67,7 +74,8 @@ OTHER_FILES += \
     data/EffectController.qml \
     data/EffectButton.qml \
     data/DjArea.qml \
-    data/FeetJ.qml
+    data/FeetJ.qml \
+    data/feetbeatz.qml
 
 INCLUDEPATH += include
 

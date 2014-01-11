@@ -6,35 +6,51 @@ Item {
     id: laneContainer
 
     property alias laneColor: lane.color
+    property string imagePath
+    property double waveHeight
+    property int songDuration
 
     //signal clicked(string songName)
-
 
     Rectangle {
         id: lane
         width: 200
         height: 2400
-        x: 0
-        y: 0
         color: "#ffaaaa"
 
-        MouseArea {
-            id: playArea
-            anchors.fill: parent
-            onPressed:  {
-                lane.visible = false
-                songPicker.x = mouse.x - songPicker.width/2
-                songPicker.y = mouse.y - songPicker.height/2
-                songPicker.visible = true
-            }
-        }
 
-        Text {
-            text: "+"
-            anchors.centerIn: parent
-            font {
-                family: "Helvetica"
-                pointSize: 100
+        GenericButton {
+            id: waveLane
+            height: waveHeight
+            width: 200
+            x: 0
+            y: 1500 - waveHeight
+            color: "#ffffff"
+
+            onMtqTap: {
+                waveLane.y += waveLane.height
+            }
+
+
+            Image {
+                source: imagePath
+                anchors.fill: parent
+            }
+
+            Behavior on y {
+                NumberAnimation {
+                    duration: songDuration
+                }
+
+            }
+
+            Text {
+                text: "+"
+                anchors.centerIn: parent
+                font {
+                    family: "Helvetica"
+                    pointSize: 100
+                }
             }
         }
     }
