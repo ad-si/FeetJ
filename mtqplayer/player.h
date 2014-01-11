@@ -18,6 +18,7 @@ class Player : public QObject
 		void playTrack(int track);
 		void setTrack(int track, Song s);
 		void setTrackVolume(int track, float vol);
+		void setCrossfade(float pos);
 		SongList lib;
 
 	public slots:

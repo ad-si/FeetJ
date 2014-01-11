@@ -33,16 +33,25 @@ Rectangle {
     }
 
     Slider {
+        id: slidor
         y: 500
         x: 500
         width: 500
         height: 200
         visible: true
         onMtqTapDown: {
-            player.testStuff();
-
-
+            helloLabel.text = slidor.value;
+            player.crossfade(slidor.value);
+            //player.testStuff();
         }
+    }
+
+    Label {
+        id: helloLabel
+        x: 500
+        y: 800
+        width: 3000
+        text: "WURST macht gesund!"
     }
 
 }

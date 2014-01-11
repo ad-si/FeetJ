@@ -12,6 +12,7 @@ class SongList
 public:
 	SongList();
 	Song getTestSong();
+	Song getAnotherTestSong();
 	string getFullPath(Song s);
 
 

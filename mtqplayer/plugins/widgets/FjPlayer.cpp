@@ -24,9 +24,11 @@ FjPlayer::FjPlayer(QQuickItem *parent)
 
 void FjPlayer::testStuff()
 {
-	p.setTrackVolume(1,0);
-	p.setTrackVolume(2,0);
-	qDebug() << "Wow, I'm soo changing the volume right now!";
+//	p.setTrackVolume(1,0);
+//	p.setTrackVolume(2,0);
+//	qDebug() << "Wow, I'm soo changing the volume right now!";
+ p.setTrackVolume(1,0.3);
+ p.setTrackVolume(2,0.1);
 }
 
 void FjPlayer::paint(QPainter *painter)
@@ -112,6 +114,11 @@ void FjPlayer::setValueByTapX(int x) {
 	update();
 }
 
+void FjPlayer::crossfade(float pos)
+{
+	p.setCrossfade(pos);
+}
+
 qreal FjPlayer::value() const
 {
 	return m_value;
@@ -134,7 +141,10 @@ void FjPlayer::setActive(const bool state)
 }
 
 void FjPlayer::test() {
+	p.setTrack(1, p.lib.getTestSong());
+	p.setTrack(2,p.lib.getAnotherTestSong());
 	p.playTrack(1);
+	p.playTrack(2);
 	printf("abgespült");
 }
 

@@ -25,6 +25,9 @@ Player::Player()
 	//trackB = BASS_StreamCreateFile(FALSE, (void*)(s2.c_str()), 0, 0, 0);
 	//setTrack(1, lib.getTestSong());
 
+	// lineare lautstaerke kurve
+	BASS_SetConfig(BASS_CONFIG_CURVE_VOL, false);
+
 }
 
 //void Player::playA()
@@ -44,6 +47,8 @@ void Player::playTrack(int track)
 {
 	HSTREAM* T = getTrackByNo(track);
 	BASS_ChannelPlay(*T, FALSE);
+
+	qDebug() << "[" << track << "] Playing.";
 }
 
 HSTREAM* Player::getTrackByNo(int n)
@@ -59,14 +64,9 @@ HSTREAM* Player::getTrackByNo(int n)
 void Player::setTrackVolume(int track, float vol)
 {
 	HSTREAM* T = getTrackByNo(track);
-	int e;
-	float v;
-	BASS_ChannelGetAttribute(*T,BASS_ATTRIB_VOL,&v);
-	qDebug() << "Volume: " << v;
-	e = BASS_ChannelSetAttribute(*T, BASS_ATTRIB_VOL, 0.0);
-	qDebug() << e;
-	BASS_ChannelGetAttribute(*T,BASS_ATTRIB_VOL,&v);
-	qDebug() << v;
+	BASS_ChannelSetAttribute(*T, BASS_ATTRIB_VOL, vol);
+	qDebug() << "[" << track << "] Set Volume to " << vol;
+
 }
 
 void Player::setTrack(int track, Song s)
@@ -74,6 +74,16 @@ void Player::setTrack(int track, Song s)
 	HSTREAM* T = getTrackByNo(track);
 	string s2 = lib.getFullPath(s);
 	*T = BASS_StreamCreateFile(FALSE, (void*)(s2.c_str()), 0, 0, 0);
+	qDebug() << "[" << track << "] Loaded Song ";
+}
+
+void Player::setCrossfade(float pos)
+{
+	// 0 = A hat volle Lautstaerke;
+	// 1 = B hat volle Lautstaerke
+
+	setTrackVolume(1, 1-pos);
+	setTrackVolume(2,pos);
 
 }
 
