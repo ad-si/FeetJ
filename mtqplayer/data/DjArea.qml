@@ -7,16 +7,19 @@ Item {
     width: 2100
     height: 2400
 
+
     Lane {
         id: lane1
         x: 0
-        laneColor: "#ffaaaa"
+        //laneColor: "#ffaaaa"
+        waveHeight: 2400
     }
 
     Lane {
         id: lane2
         x: 2000
-        laneColor: "#aaffaa"
+        //laneColor: "#aaffaa"
+        waveHeight: 2400
     }
 
     Crossfader {

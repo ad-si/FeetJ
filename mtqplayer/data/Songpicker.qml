@@ -2,59 +2,46 @@ import QtQuick 2.0
 import mtq.widgets 1.0
 
 
-ListPicker {
-    id: songPicker
-    width: 400
-    height: 400
-    visible: false
-    selectedItem: 0
-    caption: "Songs"
+Item {
 
-    Component.onCompleted: {
-        songPicker.addItem("Chubby Checker - Let's Twist again");
-        songPicker.addItem("Parov Stellar - Catgroove");
-        songPicker.addItem("Beach Boys - Surfin' USA")
-    }
+    ListPicker {
+        id: songPicker
+        width: 700
+        height: 400
+        selectedItem: 0
+        caption: "Songs"
 
-    onSelectedItemChanged: {
-        if (selectedItem == 0) {
-            songPicker.visible = false
-
-
+        Component.onCompleted: {
+            songPicker.addItem("Chubby Checker - Let's Twist again")
+            songPicker.addItem("Parov Stellar - Catgroove")
+            songPicker.addItem("Beach Boys - Surfin' USA")
         }
-        else if (selectedItem == 1) {
-            laneImageParov.visible = true
-            songPicker.visible = false
-        }
-        else if (selectedItem == 2) {
-            laneImageBeach.visible = true
-            songPicker.visible = false
-        }
-    }
 
-    Lane {
-        imagePath: "/home/hci1/dis13_group8/mtqplayer/images/chubbychecker.png"
-        songDuration: 141000
-        waveHeight: 1762.5
-    }
+        onSelectedItemChanged: {
+            if (selectedItem == 0) {
+                songPicker.visible = false
+     //           lane1.visible = true
+            }
+            else if (selectedItem == 1) {
+                songPicker.visible = false
+         //       lane1.visible = true
+            }
+            else if (selectedItem == 2) {
+                songPicker.visible = false
+           //     lane2.visible = true
 
-
-    function startSong(name){
-        var map = {
-            0: "acdc",
-            1: "nirvana",
-            2: "biggerthanhiphop",
-            3: "catgroove",
-            4: "jeffer",
-            5: "surfin_usa",
-            6: "biggerthanhiphop",
-            7: "highwaytohel",
-            8: "letstwistagain",
-            9: "talkdirty",
-            10: "bonkers",
-            11: "i_would",
-            12: "nirvana",
-            13: "touchmyhorn"
+            }
         }
     }
+
+    Rectangle {
+
+    }
+
+   // Lane {
+        //id: lane1
+        //imagePath: "/home/hci1/dis13_group8/mtqplayer/images/chubbychecker.png"
+        //songDuration: 141000
+     //   waveHeight: 1763
+   // }
 }
