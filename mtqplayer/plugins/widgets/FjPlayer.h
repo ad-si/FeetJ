@@ -1,8 +1,11 @@
 #pragma once
 
 #include <QSvgRenderer>
-
+#include <string>
+#include <iostream>
 #include "BaseWidget.h"
+
+using namespace std;
 
 class FjPlayer: public BaseWidget
 {
@@ -27,6 +30,7 @@ public:
 	bool active() const;
 	void setActive(const bool state);
 
+
 private:
 	bool m_active;
 	qreal m_value;
@@ -36,6 +40,9 @@ private:
 
 public slots:
 	void test();
+	void testStuff();
+	void changeTrack(int channel, int title);
+	void crossfade(float pos);
 
 
 protected:

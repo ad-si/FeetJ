@@ -25,7 +25,9 @@ SOURCES += \
     plugins/widgets/FjSlider.cpp \
     plugins/widgets/FjPlayer.cpp \
     soundMain.cpp \
-    player.cpp
+    player.cpp \
+    song.cpp \
+    songlist.cpp
 
 HEADERS += \
     plugins/input/Shortcut.h \
@@ -50,7 +52,12 @@ HEADERS += \
     plugins/widgets/FjPlayer.h \
     include/bass/bass.h \
     soundMain.h \
-    player.h
+    player.h \
+    plugins/widgets/FjSlider.h \
+    plugins/widgets/FjPlayer.h \
+    song.h \
+    songlist.h
+
 
 RESOURCES += \
     resources/mtqplayer.qrc

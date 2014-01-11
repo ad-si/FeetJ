@@ -125,6 +125,7 @@ Rectangle {
         y:-300
         height: 100
         width: 100
+        visible: false
 
     }
 
@@ -136,8 +137,7 @@ Rectangle {
         height: 200
         visible: true
         onMtqTapDown: {
-            player.test();
-            crossfader.x += 10;
+            //player.test();
         }
 
     }
@@ -145,28 +145,30 @@ Rectangle {
 
 
     Slider {
+        id: slidor
         y: 500
         x: 500
         width: 500
         height: 200
         visible: true
+
+        onMtqTapDown: {
+            player.changeTrack(1, 0);
+            helloLabel.text = slidor.value;
+            player.crossfade(slidor.value);
+
+        }
     }
 
-    PushButton {
-        y: 800
+    Label {
+        id: helloLabel
         x: 500
-        width: 500
-        height: 2000
-
-
+        y: 800
+        width: 3000
+        text: "WURST macht gesund!"
     }
 
 }
-
-
-
-
-
 
 
 

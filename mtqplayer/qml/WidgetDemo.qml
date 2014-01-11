@@ -20,7 +20,7 @@ Rectangle {
 		x: 500
         y: 800
         width: 3000
-		text: ""
+        text: slider.value
 	}
 
 

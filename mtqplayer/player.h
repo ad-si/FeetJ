@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "bass/bass.h"
+#include "songlist.h"
 
 #include <iostream>
 
@@ -12,15 +13,21 @@ class Player : public QObject
 
 	public:
 		Player();
-		Q_INVOKABLE void playA();
-		Q_INVOKABLE void playB();
-
-	public slots:
-		void testSlot();
+//		Q_INVOKABLE void playA();
+//		Q_INVOKABLE void playB();
+		void playTrack(int track);
+		void setTrack(int track, Song s);
+		void setTrackVolume(int track, float vol);
+		void setCrossfade(float pos);
+		void pauseTrack(int track);
+		void effectFlanger(int track);
+		void effectReverb(int track);
+		SongList lib;
 
 	private:
 		HSTREAM trackA;
 		HSTREAM trackB;
+		HSTREAM* getTrackByNo(int n);
 };
 
 #endif // PLAYER_H
