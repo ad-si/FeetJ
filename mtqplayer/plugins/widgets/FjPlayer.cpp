@@ -145,6 +145,8 @@ void FjPlayer::test() {
 	p.setTrack(2,p.lib.getAnotherTestSong());
 	p.playTrack(1);
 	p.playTrack(2);
+	p.effectFlanger(1);
+	p.effectReverb(2);
 	printf("abgespült");
 }
 

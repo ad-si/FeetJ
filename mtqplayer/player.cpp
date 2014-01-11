@@ -69,6 +69,24 @@ void Player::setTrackVolume(int track, float vol)
 
 }
 
+void Player::pauseTrack(int track)
+{
+	HSTREAM* T = getTrackByNo(track);
+	BASS_ChannelPause(*T);
+}
+
+void Player::effectFlanger(int track)
+{
+	HSTREAM* T = getTrackByNo(track);
+	BASS_ChannelSetFX(*T,BASS_FX_DX8_FLANGER,1);
+}
+
+void Player::effectReverb(int track)
+{
+	HSTREAM* T = getTrackByNo(track);
+	BASS_ChannelSetFX(*T,BASS_FX_DX8_REVERB,1);
+}
+
 void Player::setTrack(int track, Song s)
 {
 	HSTREAM* T = getTrackByNo(track);
@@ -86,10 +104,3 @@ void Player::setCrossfade(float pos)
 	setTrackVolume(2,pos);
 
 }
-
-void Player::testSlot()
-{
-	std::cout << "FRESH SLUUUUUUUUUT!";
-//	playA();
-}
-
