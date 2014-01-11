@@ -2,7 +2,54 @@ import QtQuick 2.0
 import QtMultimedia 5.0
 import mtq.widgets 1.0
 
+
 Rectangle {
+    id: floor
+    width: 4096
+    height: 2400
+    color: "#ff333333"
+
+    FjPlayer {
+        id: player
+        x:-300
+        y:-300
+        height: 100
+        width: 100
+
+    }
+
+    FjSlider {
+        id: crossfader
+        x: 100
+        y: 100
+        width: 500
+        height: 200
+        visible: true
+        onMtqTapDown: {
+            player.test();
+            crossfader.x += 10;
+        }
+
+    }
+
+    Slider {
+        y: 500
+        x: 500
+        width: 500
+        height: 200
+        visible: true
+    }
+
+}
+
+
+
+
+
+
+
+
+/*Rectangle {
     id: floor
     width: 4096
     height: 2400
@@ -125,6 +172,8 @@ Rectangle {
                     nirvana.stop()
                     acdc.play()
                     songLabel.text = "ACDC!"
+                    lane2.visible = true
+                    songPicker.visible = false
                 }
                 else if (selectedItem == 1) {
                     acdc.stop()
@@ -337,5 +386,6 @@ Rectangle {
             helloLabel.text += " from Adrian"
 		}
     }
-    */
+
 }
+*/
