@@ -11,9 +11,9 @@ class SongList
 {
 public:
 	SongList();
-	Song getTestSong();
+	//Song getTestSong();
 	string getFullPath(Song s);
-
+	Song getSong(int title);
 
 private:
 	string basePath;

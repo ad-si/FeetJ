@@ -1,8 +1,11 @@
 #pragma once
 
 #include <QSvgRenderer>
-
+#include <string>
+#include <iostream>
 #include "BaseWidget.h"
+
+using namespace std;
 
 class FjPlayer: public BaseWidget
 {
@@ -38,7 +41,7 @@ private:
 public slots:
 	void test();
 	void testStuff();
-	void changeTrack(int channel);
+	void changeTrack(int channel, int title);
 
 
 protected:

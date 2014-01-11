@@ -39,7 +39,7 @@ Rectangle {
         height: 200
         visible: true
         onMtqTapDown: {
-            player.testStuff();
+            player.changeTrack(1, 0);
 
 
         }

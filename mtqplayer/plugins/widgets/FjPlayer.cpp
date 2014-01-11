@@ -138,7 +138,8 @@ void FjPlayer::test() {
 	printf("abgespült");
 }
 
-void FjPlayer::changeTrack(int channel) {
-	Song s = p.lib.getTestSong();
+void FjPlayer::changeTrack(int channel, int title) {
+	Song s = p.lib.getSong(title);
 	p.setTrack(channel, s);
+	printf("song gewechselt.");
 }

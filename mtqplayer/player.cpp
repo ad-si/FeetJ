@@ -20,7 +20,7 @@ Player::Player()
 	BASS_Init(device, freq, 0, 0, NULL);
 
 	trackA = BASS_StreamCreateFile(FALSE, "/home/hci1/winter.wav", 0, 0, 0);
-	Song s = lib.getTestSong();
+	Song s = lib.getSong(0);
 	string s2 = lib.getFullPath(s);
 	//trackB = BASS_StreamCreateFile(FALSE, (void*)(s2.c_str()), 0, 0, 0);
 	//setTrack(1, lib.getTestSong());
