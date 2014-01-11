@@ -19,25 +19,31 @@ Player::Player()
 	/* Initialize output device */
 	BASS_Init(device, freq, 0, 0, NULL);
 
-	trackA = BASS_StreamCreateFile(FALSE, "/home/hci1/emailp.wav", 0, 0, 0);
+	trackA = BASS_StreamCreateFile(FALSE, "/home/hci1/winter.wav", 0, 0, 0);
 	Song s = lib.getTestSong();
 	string s2 = lib.getFullPath(s);
 	//trackB = BASS_StreamCreateFile(FALSE, (void*)(s2.c_str()), 0, 0, 0);
-	setTrack(1, lib.getTestSong());
+	//setTrack(1, lib.getTestSong());
 
 }
 
-void Player::playA()
-{
-	BASS_ChannelPlay(trackA, FALSE);
-	qDebug() << "[A] Playing";
+//void Player::playA()
+//{
+//	BASS_ChannelPlay(trackA, FALSE);
+//	qDebug() << "[A] Playing";
 
-}
+//}
 
-void Player::playB()
+//void Player::playB()
+//{
+//	BASS_ChannelPlay(trackB, FALSE);
+//	qDebug() << "[B] Playing";
+//}
+
+void Player::playTrack(int track)
 {
-	BASS_ChannelPlay(trackB, FALSE);
-	qDebug() << "[B] Playing";
+	HSTREAM* T = getTrackByNo(track);
+	BASS_ChannelPlay(*T, FALSE);
 }
 
 HSTREAM* Player::getTrackByNo(int n)
@@ -74,6 +80,6 @@ void Player::setTrack(int track, Song s)
 void Player::testSlot()
 {
 	std::cout << "FRESH SLUUUUUUUUUT!";
-	playA();
+//	playA();
 }
 

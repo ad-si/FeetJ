@@ -28,7 +28,6 @@ Rectangle {
         visible: true
         onMtqTapDown: {
             player.test();
-            crossfader.x += 10;
         }
 
     }
@@ -41,6 +40,8 @@ Rectangle {
         visible: true
         onMtqTapDown: {
             player.testStuff();
+
+
         }
     }
 

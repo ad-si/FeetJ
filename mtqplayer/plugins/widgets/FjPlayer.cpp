@@ -134,7 +134,11 @@ void FjPlayer::setActive(const bool state)
 }
 
 void FjPlayer::test() {
-	p.playA();
-	p.playB();
+	p.playTrack(1);
 	printf("abgespült");
+}
+
+void FjPlayer::changeTrack(int channel) {
+	Song s = p.lib.getTestSong();
+	p.setTrack(channel, s);
 }

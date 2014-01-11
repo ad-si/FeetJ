@@ -13,8 +13,9 @@ class Player : public QObject
 
 	public:
 		Player();
-		Q_INVOKABLE void playA();
-		Q_INVOKABLE void playB();
+//		Q_INVOKABLE void playA();
+//		Q_INVOKABLE void playB();
+		void playTrack(int track);
 		void setTrack(int track, Song s);
 		void setTrackVolume(int track, float vol);
 		SongList lib;
