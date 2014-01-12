@@ -159,3 +159,7 @@ void FjPlayer::changeTrack(int channel, int title) {
 void FjPlayer::play(int channel) {
 	p.playTrack(channel);
 }
+
+void FjPlayer::setVolume(int track, float vol) {
+	p.setTrackVolume(track, vol);
+}

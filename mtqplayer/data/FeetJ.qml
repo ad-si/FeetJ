@@ -10,16 +10,29 @@ Rectangle {
     height: 2400
     color: "#ff333333"
 
-   FjPlayer {
-       id: player
-       width: 100
-       height: 100
-       visible: false
-       x: -300
-       y: -300
-   }
+    FjSlider {
+        id: crossfader
+        x: 2500
+        y: 1500
+        width: 700
+        height: 300
+        onMtqTapDown: {
+            player.setVolume(1, 1-crossfader.value);
+            player.setVolume(2, crossfader.value);
+        }
+    }
 
-   PaintField {
+    FjPlayer {
+        //utility overflow
+        id: player
+        width: 100
+        height: 100
+        visible: false
+        x: -300
+        y: -300
+    }
+
+    PaintField {
         x: 0
         y: 1500
         height: 5
