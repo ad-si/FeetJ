@@ -13,6 +13,9 @@ Item {
         x: 0
         //laneColor: "#ffaaaa"
         waveHeight: 2400
+        onMtqTapDown: {
+
+        }
     }
 
     Lane {

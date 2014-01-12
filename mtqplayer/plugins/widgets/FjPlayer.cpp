@@ -155,3 +155,7 @@ void FjPlayer::changeTrack(int channel, int title) {
 	p.setTrack(channel, s);
 	printf("song gewechselt.");
 }
+
+void FjPlayer::play(int channel) {
+	p.playTrack(channel);
+}

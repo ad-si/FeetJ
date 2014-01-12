@@ -10,6 +10,15 @@ Rectangle {
     height: 2400
     color: "#ff333333"
 
+   FjPlayer {
+       id: player
+       width: 100
+       height: 100
+       visible: false
+       x: -300
+       y: -300
+   }
+
    PaintField {
         x: 0
         y: 1500
@@ -51,15 +60,17 @@ Rectangle {
 
         onSelectedItemChanged: {
             if (selectedItem == 0) {
-
+                player.changeTrack(1, 2);
                 laneImageChubby.visible = true
                 songPicker.visible = false
             }
             else if (selectedItem == 1) {
+                player.changeTrack(1,1);
                 laneImageParov.visible = true
                 songPicker.visible = false
             }
             else if (selectedItem == 2) {
+                player.changeTrack(1,0);
                 laneImageBeach.visible = true
                 songPicker.visible = false
             }
@@ -86,6 +97,7 @@ Rectangle {
 
         onMtqTapDown: {
             laneImageChubby.y +=laneImageChubby.height
+            player.play(1);
         }
 
     }
@@ -109,6 +121,7 @@ Rectangle {
 
         onMtqTapDown: {
             laneImageParov.y +=laneImageParov.height
+            player.play(1);
         }
 
     }
@@ -131,6 +144,7 @@ Rectangle {
 
         onMtqTapDown: {
             laneImageBeach.y +=laneImageBeach.height
+            player.play(1);
         }
 
     }
@@ -171,15 +185,17 @@ Rectangle {
 
         onSelectedItemChanged: {
             if (selectedItem == 0) {
-
+                player.changeTrack(2,2);
                 laneImageChubby2.visible = true
                 songPicker2.visible = false
             }
             else if (selectedItem == 1) {
+                player.changeTrack(2,1);
                 laneImageParov2.visible = true
                 songPicker2.visible = false
             }
             else if (selectedItem == 2) {
+                player.changeTrack(2,0);
                 laneImageBeach2.visible = true
                 songPicker2.visible = false
             }
@@ -206,6 +222,7 @@ Rectangle {
 
         onMtqTapDown: {
             laneImageChubby2.y +=laneImageChubby2.height
+            player.play(2);
         }
 
     }
@@ -229,6 +246,7 @@ Rectangle {
 
         onMtqTapDown: {
             laneImageParov2.y +=laneImageParov2.height
+            player.play(2);
         }
 
     }
@@ -251,6 +269,7 @@ Rectangle {
 
         onMtqTapDown: {
             laneImageBeach2.y +=laneImageBeach2.height
+            player.play(2);
         }
 
     }
