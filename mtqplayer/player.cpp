@@ -98,8 +98,11 @@ void Player::setTrackEffectNo(int track, int no)
 
 void Player::toggleEffect(int track, int effectNumber)
 {
+	std::cout << *(getTrackEffectByNo(1));
 	std::cout << "[" << track << "] Toggling Effect " << effectNumber;
 	std::cout << " (Current Effect: " << effectNoA << effectNoB << ")\n";
+
+
 	if (isThisEffectCurrentlyActiveOnThisTrack(track, effectNumber))
 	{
 
@@ -123,8 +126,9 @@ void Player::stopEffect(int track)
 	HSTREAM* T = getTrackByNo(track);
 	HFX* E = getTrackEffectByNo(track);
 
-	//BASS_ChannelRemoveFX(*E, *T);
-	BASS_ChannelRemoveFX(trackA, effectA); // #hardcode
+	if (!BASS_ChannelRemoveFX(*T, *E)) std::cout << "Stop Error!\n";
+
+	setTrackEffectNo(track, 0);
 }
 
 void Player::effectFlanger(int track)
