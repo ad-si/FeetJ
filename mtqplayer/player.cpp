@@ -75,7 +75,19 @@ void Player::pauseTrack(int track)
 void Player::effectFlanger(int track)
 {
 	HSTREAM* T = getTrackByNo(track);
-	BASS_ChannelSetFX(*T,BASS_FX_DX8_FLANGER,1);
+	HFX Flanger = BASS_ChannelSetFX(*T,BASS_FX_DX8_FLANGER,1);
+
+	float fWetDryMix = 80; // that's pretty wet
+	float fDepth = 100; // that's pretty deep (default -50)
+	float fFeedback = 50;
+	float fFrequency = 1; // that's pretty frequent
+	DWORD lWaveform = 1;
+	float fDelay = 2;
+	DWORD lPhase = BASS_DX8_PHASE_ZERO;
+
+	BASS_DX8_FLANGER flangerParams = {fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase};
+
+	BASS_FXSetParameters(Flanger, &flangerParams);
 }
 
 void Player::effectReverb(int track)
