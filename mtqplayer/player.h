@@ -22,12 +22,21 @@ class Player : public QObject
 		void pauseTrack(int track);
 		void effectFlanger(int track);
 		void effectReverb(int track);
+		void toggleEffect(int track, int effectNumber);
+		void stopEffect(int track);
 		SongList lib;
 
 	private:
 		HSTREAM trackA;
 		HSTREAM trackB;
+		HFX effectA;
+		int effectNoA;
+		HFX effectB;
+		int effectNoB;
 		HSTREAM* getTrackByNo(int n);
+		HFX* getTrackEffectByNo(int track);
+		bool isThisEffectCurrentlyActiveOnThisTrack(int track, int effectNo);
+		void setTrackEffectNo(int track, int no);
 };
 
 #endif // PLAYER_H

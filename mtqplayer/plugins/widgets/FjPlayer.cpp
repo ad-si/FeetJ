@@ -160,6 +160,11 @@ void FjPlayer::play(int channel) {
 	p.playTrack(channel);
 }
 
+void FjPlayer::toggleEffect(int track, int effectNumber)
+{
+	p.toggleEffect(track, effectNumber);
+}
+
 void FjPlayer::setVolume(int track, float vol) {
 	p.setTrackVolume(track, vol);
 }

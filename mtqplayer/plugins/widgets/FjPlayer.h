@@ -45,6 +45,7 @@ public slots:
 	void crossfade(float pos);
 	void play(int channel);
 	void setVolume(int track, float vol);
+	void toggleEffect(int track, int effectNumber);
 
 
 protected:

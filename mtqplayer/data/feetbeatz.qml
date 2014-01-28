@@ -192,7 +192,8 @@ Rectangle {
 
         Component.onCompleted: {
             songPicker2.addItem("Chubby Checker - Let's Twist again");
-            songPicker2.addItem("Parov Stellar - Catgroove");
+            songPicker2.addItem("Parov Stella
+r - Catgroove");
             songPicker2.addItem("Beach Boys - Surfin' USA")
         }
 
@@ -296,7 +297,7 @@ Rectangle {
         visible: true
         text: flanger
         onMtqTapDown: {
-            player.playEffect(1,1);
+            player.toggleEffect(1,1);
         }
     }
 
@@ -309,7 +310,7 @@ Rectangle {
         visible: true
         text: reverb
         onMtqTapDown: {
-            player.playEffect(2,1);
+            player.toggleEffect(1,2);
         }
     }
 
