@@ -314,4 +314,18 @@ r - Catgroove");
         }
     }
 
+    GenericButton {
+       id: controlPad
+       x: 100
+       y: 1000
+       height: 300
+       width: 300
+       visible: true
+       onMtqTapDown: {
+           controlPad.x += event.mappedCenter.x -150;
+           controlPad.y += event.mappedCenter.y -150;
+
+       }
+    }
+
 }
