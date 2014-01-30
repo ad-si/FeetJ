@@ -24,6 +24,7 @@ class Player : public QObject
 		void effectReverb(int track);
 		void toggleEffect(int track, int effectNumber);
 		void stopEffect(int track);
+		void modifyEffect(int track, int x, int y);
 		SongList lib;
 
 	private:
@@ -33,10 +34,16 @@ class Player : public QObject
 		int effectNoA;
 		HFX effectB;
 		int effectNoB;
+
 		HSTREAM* getTrackByNo(int n);
 		HFX* getTrackEffectByNo(int track);
+
 		bool isThisEffectCurrentlyActiveOnThisTrack(int track, int effectNo);
 		void setTrackEffectNo(int track, int no);
+
+		void effectFlanger(int track);
+		void effectReverb(int track);
+		void modifyFlanger(int track, int x, int y);
 };
 
 #endif // PLAYER_H
