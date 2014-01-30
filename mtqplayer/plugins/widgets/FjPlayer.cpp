@@ -165,7 +165,7 @@ void FjPlayer::toggleEffect(int track, int effectNumber)
 	p.toggleEffect(track, effectNumber);
 }
 
-void FjPlayer::modifyEffect(int track, int x, int y)
+void FjPlayer::modifyEffect(int track, float x, float y)
 {
 	p.modifyEffect(track, x, y);
 }

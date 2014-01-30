@@ -22,7 +22,7 @@ class Player : public QObject
 		void pauseTrack(int track);
 		void toggleEffect(int track, int effectNumber);
 		void stopEffect(int track);
-		void modifyEffect(int track, int x, int y);
+		void modifyEffect(int track, float x, float y);
 		SongList lib;
 
 	private:
@@ -42,7 +42,7 @@ class Player : public QObject
 
 		void effectFlanger(int track);
 		void effectReverb(int track);
-		void modifyFlanger(int track, int x, int y);
+		void modifyFlanger(int track, float x, float y);
 };
 
 #endif // PLAYER_H

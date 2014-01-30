@@ -156,7 +156,7 @@ void Player::toggleEffect(int track, int effectNumber)
 	}
 }
 
-void Player::modifyEffect(int track, int x, int y)
+void Player::modifyEffect(int track, float x, float y)
 {
 	int ENo = getTrackEffectNo(track);
 	switch(ENo)
@@ -180,16 +180,22 @@ void Player::effectFlanger(int track)
 	*E = BASS_ChannelSetFX(*T,BASS_FX_DX8_FLANGER,1);
 
 	// default parameters for flanger
-	modifyFlanger(track, 50, 50);
+	modifyFlanger(track, 50.0, 50.0);
 }
 
-void Player::modifyFlanger(int track, int x, int y)
+void Player::modifyFlanger(int track, float x, float y)
 {
 	HSTREAM* T = getTrackByNo(track);
 	HFX* E = getTrackEffectByNo(track);
 
-	float fWetDryMix = 0.0 + x; // that's pretty wet (
-	float fDepth = 0.0 + y; // that's pretty deep (default -50)
+	float fx = 1.0 * x;
+	float fy = 1.0 * y;
+
+	// 0 to 100
+	float fWetDryMix = fx; // that's pretty wet (
+
+	// 0 to 100
+	float fDepth = fy; // that's pretty deep (default -50)
 	float fFeedback = 50;
 	float fFrequency = 1; // that's pretty frequent
 	DWORD lWaveform = 1;
@@ -198,6 +204,8 @@ void Player::modifyFlanger(int track, int x, int y)
 
 	BASS_DX8_FLANGER flangerParams = {fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase};
 	BASS_FXSetParameters(*E, &flangerParams);
+
+	cout << track << " -> Modified Flanger to " << fx << " / " << fy <<  " :: " << BASS_ErrorGetCode() << "\n";
 }
 
 void Player::effectReverb(int track)
