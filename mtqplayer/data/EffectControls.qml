@@ -14,10 +14,14 @@ Item {
 
         GenericButton {
             id: laneASelectors
+            text: "Lane A"
+            color: "#323232"
         }
 
         GenericButton {
             id: laneBSelectors
+            text: "Lane B"
+            color: "#323232"
         }
     }
 
@@ -31,14 +35,20 @@ Item {
 
         GenericButton {
             id: effect1
+            text: "Delay"
+            color: "#323232"
         }
 
         GenericButton {
             id: effect2
+            text: "Reverb"
+            color: "#323232"
         }
 
         GenericButton {
             id: effect3
+            text: "Flanger"
+            color: "#323232"
         }
     }
 }

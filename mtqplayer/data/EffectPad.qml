@@ -6,6 +6,5 @@ Rectangle {
     height: 400
     width: 600
     y: 50
-    color: "#ffaaaa"
-    anchors.horizontalCenter: parent.horizontalCenter
+    color: "#323232"
 }

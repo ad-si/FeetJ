@@ -78,7 +78,6 @@ OTHER_FILES += \
     data/Test.qml \
     data/Songpicker.qml \
     data/Crossfader.qml \
-    data/EffectButton.qml \
     data/DjArea.qml \
     data/FeetJ.qml \
     data/feetbeatz.qml \

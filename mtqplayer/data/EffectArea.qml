@@ -7,7 +7,7 @@ Item {
     anchors.right: parent.right
 
     EffectPad {
-
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 
     EffectControls {

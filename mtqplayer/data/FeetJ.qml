@@ -8,7 +8,7 @@ Rectangle {
     id: floor
     width: 4096
     height: 2400
-    color: "#333333"
+    color: "#222222"
 
     Rectangle {
         id: nowLine
