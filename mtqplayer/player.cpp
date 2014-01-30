@@ -49,6 +49,14 @@ void Player::setTrack(int track, Song s)
 	qDebug() << "[" << track << "] Loaded Song ";
 }
 
+void Player::setTrackVolume(int track, float vol)
+{
+		HSTREAM* T = getTrackByNo(track);
+		BASS_ChannelSetAttribute(*T, BASS_ATTRIB_VOL, vol);
+		//qDebug() << "[" << track << "] Set Volume to " << vol;
+
+}
+
 void Player::setCrossfade(float pos)
 {
 	// 0 = A hat volle Lautstaerke;
@@ -85,6 +93,13 @@ HSTREAM* Player::getTrackByNo(int n)
 /* ===================================================================================================
  * EFFEKTE -> Steuerung insgesamt
  * =================================================================================================== */
+
+int Player::getTrackEffectNo(int track)
+{
+	if (track == 1) return effectNoA;
+	if (track == 2) return effectNoB;
+	return 0;
+}
 
 HFX* Player::getTrackEffectByNo(int track)
 {
@@ -143,7 +158,12 @@ void Player::toggleEffect(int track, int effectNumber)
 
 void Player::modifyEffect(int track, int x, int y)
 {
-
+	int ENo = getTrackEffectNo(track);
+	switch(ENo)
+	{
+		case 1: modifyFlanger(track, x, y);
+		//case 2: modifyReverb(track);
+	}
 }
 
 /* ===================================================================================================
@@ -159,8 +179,17 @@ void Player::effectFlanger(int track)
 
 	*E = BASS_ChannelSetFX(*T,BASS_FX_DX8_FLANGER,1);
 
-	float fWetDryMix = 80; // that's pretty wet
-	float fDepth = 100; // that's pretty deep (default -50)
+	// default parameters for flanger
+	modifyFlanger(track, 50, 50);
+}
+
+void Player::modifyFlanger(int track, int x, int y)
+{
+	HSTREAM* T = getTrackByNo(track);
+	HFX* E = getTrackEffectByNo(track);
+
+	float fWetDryMix = 0.0 + x; // that's pretty wet (
+	float fDepth = 0.0 + y; // that's pretty deep (default -50)
 	float fFeedback = 50;
 	float fFrequency = 1; // that's pretty frequent
 	DWORD lWaveform = 1;
@@ -168,13 +197,7 @@ void Player::effectFlanger(int track)
 	DWORD lPhase = BASS_DX8_PHASE_ZERO;
 
 	BASS_DX8_FLANGER flangerParams = {fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase};
-
 	BASS_FXSetParameters(*E, &flangerParams);
-}
-
-void Player::modifyFlanger(int track, int x, int y)
-{
-
 }
 
 void Player::effectReverb(int track)

@@ -20,8 +20,6 @@ class Player : public QObject
 		void setTrackVolume(int track, float vol);
 		void setCrossfade(float pos);
 		void pauseTrack(int track);
-		void effectFlanger(int track);
-		void effectReverb(int track);
 		void toggleEffect(int track, int effectNumber);
 		void stopEffect(int track);
 		void modifyEffect(int track, int x, int y);
@@ -37,6 +35,7 @@ class Player : public QObject
 
 		HSTREAM* getTrackByNo(int n);
 		HFX* getTrackEffectByNo(int track);
+		int getTrackEffectNo(int track);
 
 		bool isThisEffectCurrentlyActiveOnThisTrack(int track, int effectNo);
 		void setTrackEffectNo(int track, int no);
