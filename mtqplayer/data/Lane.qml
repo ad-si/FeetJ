@@ -5,13 +5,12 @@ import mtq.widgets 1.0
 Item {
     id: laneContainer
 
-
     property alias laneColor: lane.color
     property string imagePath
     property double waveHeight
     property int songDuration
 
-    signal clicked(string songName)
+    //signal clicked(string songName)
 
     Rectangle {
         id: lane
@@ -44,12 +43,14 @@ Item {
                 anchors.fill: parent
             }
 
+            /*
             Behavior on y {
                 NumberAnimation {
                     duration: songDuration
                 }
 
             }
+            */
 
             Text {
                 text: "+"

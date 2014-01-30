@@ -19,9 +19,13 @@ Rectangle {
         y: 1500
     }
 
-    //DjArea {
-    //    anchors.horizontalCenter: parent.horizontalCenter
-    //}
+    DjArea {
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
+
+    EffectArea {
+        anchors.right: parent.right
+    }
 }
 
 

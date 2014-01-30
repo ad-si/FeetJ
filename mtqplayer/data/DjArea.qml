@@ -2,30 +2,25 @@ import QtQuick 2.0
 import mtq.widgets 1.0
 
 Item {
-    x: 0
-    y: 0
-    width: 2100
+    width: 1800
     height: 2400
-
 
     Lane {
         id: lane1
-        x: 0
+        anchors.left: parent.left
         //laneColor: "#ffaaaa"
         waveHeight: 2400
-        onMtqTapDown: {
-
-        }
     }
 
     Lane {
         id: lane2
-        x: 2000
+        anchors.right: parent.right
         //laneColor: "#aaffaa"
         waveHeight: 2400
     }
 
     Crossfader {
+        anchors.horizontalCenter: parent.horizontalCenter
         y: 1600
     }
 }
