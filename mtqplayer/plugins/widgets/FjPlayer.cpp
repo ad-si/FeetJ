@@ -27,8 +27,8 @@ void FjPlayer::testStuff()
 //	p.setTrackVolume(1,0);
 //	p.setTrackVolume(2,0);
 //	qDebug() << "Wow, I'm soo changing the volume right now!";
- p.setTrackVolume(1,0.3);
- p.setTrackVolume(2,0.1);
+ //p.setTrackVolume(1,0.3);
+ //p.setTrackVolume(2,0.1); Deprecaaaaaaaaaaaaaaaaaaaaaated
 }
 
 void FjPlayer::paint(QPainter *painter)
@@ -145,8 +145,8 @@ void FjPlayer::test() {
 	p.setTrack(2,p.lib.getAnotherTestSong());
 	p.playTrack(1);
 	p.playTrack(2);
-	p.effectFlanger(1);
-	p.effectReverb(2);
+	//p.effectFlanger(1);
+	//p.effectReverb(2);
 	printf("abgespült");
 }
 
@@ -160,6 +160,16 @@ void FjPlayer::play(int channel) {
 	p.playTrack(channel);
 }
 
+void FjPlayer::toggleEffect(int track, int effectNumber)
+{
+	p.toggleEffect(track, effectNumber);
+}
+
+void FjPlayer::modifyEffect(int track, int x, int y)
+{
+	p.modifyEffect(track, x, y);
+}
+
 void FjPlayer::setVolume(int track, float vol) {
-	p.setTrackVolume(track, vol);
+//	p.setTrackVolume(track, vol);
 }
