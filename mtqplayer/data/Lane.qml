@@ -6,9 +6,6 @@ Item {
     id: laneContainer
 
     property alias laneColor: lane.color
-    property string imagePath
-    property double waveHeight
-    property int songDuration
 
     //signal clicked(string songName)
 
@@ -20,7 +17,7 @@ Item {
         color: "transparent"
 
         Song {
-
+            anchors.fill: parent
         }
 
     }

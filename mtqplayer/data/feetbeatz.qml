@@ -18,8 +18,8 @@ Rectangle {
         width: 700
         height: 300
         onMtqTapDown: {
-            player.setVolume(1, 1-crossfader.value);
-            player.setVolume(2, crossfader.value);
+            player.setVolume(1, 1-crossfader.value)
+            player.setVolume(2, crossfader.value)
         }
 
 //        OnValueChanged: console.log("sieh mal einer an")

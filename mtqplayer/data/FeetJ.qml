@@ -1,5 +1,4 @@
 import QtQuick 2.0
-import QtMultimedia 5.0
 import mtq.widgets 1.0
 //import "audioLogic.js" as audioLogic
 
@@ -8,7 +7,8 @@ Rectangle {
     id: floor
     width: 4096
     height: 2400
-    color: "#222222"
+    color: "black"
+
 
     Rectangle {
         id: nowLine

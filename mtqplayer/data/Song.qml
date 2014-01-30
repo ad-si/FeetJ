@@ -3,13 +3,17 @@ import mtq.widgets 1.0
 
 Item {
 
+    property string imagePath
+    property double waveHeight
+    property int songDuration
+
     GenericButton {
 
         id: waveLane
-        height: waveHeight
+        height: 2400 //waveheight
         width: 200
         anchors.fill: parent
-        color: "#ffffff"
+        color: "#222222"
 
         onMtqTap: {
             //waveLane.y += waveLane.height
@@ -19,12 +23,12 @@ Item {
 
             //songPicker.x = tap.x - songPicker.width/2
             //songPicker.y = tap.y - songPicker.height/2
-            songPicker.visible = true
+            //songPicker.visible = true
         }
 
 
         Image {
-            source: imagePath
+            source: "/home/hci1/dis13_group8/mtqplayer/songs/catgroove.png"
             anchors.fill: parent
         }
 

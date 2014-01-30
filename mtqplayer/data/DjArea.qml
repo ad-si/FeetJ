@@ -8,15 +8,11 @@ Item {
     Lane {
         id: lane1
         anchors.left: parent.left
-        //laneColor: "#ffaaaa"
-        waveHeight: 2400
     }
 
     Lane {
         id: lane2
         anchors.right: parent.right
-        //laneColor: "#aaffaa"
-        waveHeight: 2400
     }
 
     Crossfader {
