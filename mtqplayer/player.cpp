@@ -14,31 +14,18 @@ Player::Player()
 
 	int device = -1; // Default Sounddevice
 	int freq = 44100; // Sample rate (Hz)
+
 	/* Initialize output device */
 	BASS_Init(device, freq, 0, 0, NULL);
 
-	trackA = BASS_StreamCreateFile(FALSE, "/home/hci1/winter.wav", 0, 0, 0);
-	Song s = lib.getSong(0);
-	string s2 = lib.getFullPath(s);
-	//trackB = BASS_StreamCreateFile(FALSE, (void*)(s2.c_str()), 0, 0, 0);
-	//setTrack(1, lib.getTestSong());
-	// lineare lautstaerke kurve
 	BASS_SetConfig(BASS_CONFIG_CURVE_VOL, false);
 
 }
 
-//void Player::playA()
-//{
-//	BASS_ChannelPlay(trackA, FALSE);
-//	qDebug() << "[A] Playing";
+/* ===================================================================================================
+ * TRACK CONTROL
+ * =================================================================================================== */
 
-//}
-
-//void Player::playB()
-//{
-//	BASS_ChannelPlay(trackB, FALSE);
-//	qDebug() << "[B] Playing";
-//}
 
 void Player::playTrack(int track)
 {
@@ -47,6 +34,47 @@ void Player::playTrack(int track)
 
 	qDebug() << "[" << track << "] Playing.";
 }
+
+void Player::pauseTrack(int track)
+{
+	HSTREAM* T = getTrackByNo(track);
+	BASS_ChannelPause(*T);
+}
+
+void Player::setTrack(int track, Song s)
+{
+	HSTREAM* T = getTrackByNo(track);
+	string s2 = lib.getFullPath(s);
+	*T = BASS_StreamCreateFile(FALSE, (void*)(s2.c_str()), 0, 0, 0);
+	qDebug() << "[" << track << "] Loaded Song ";
+}
+
+void Player::setTrackVolume(int track, float vol)
+{
+		HSTREAM* T = getTrackByNo(track);
+		BASS_ChannelSetAttribute(*T, BASS_ATTRIB_VOL, vol);
+		//qDebug() << "[" << track << "] Set Volume to " << vol;
+
+}
+
+void Player::setCrossfade(float pos)
+{
+	// 0 = A hat volle Lautstaerke;
+	// 1 = B hat volle Lautstaerke
+
+	setTrackVolume(1, 1-pos);
+	setTrackVolume(2,pos);
+
+}
+
+
+
+
+
+
+/* ===================================================================================================
+ * HILFSFUNKTIONEN
+ * =================================================================================================== */
 
 HSTREAM* Player::getTrackByNo(int n)
 {
@@ -58,23 +86,20 @@ HSTREAM* Player::getTrackByNo(int n)
 		return NULL;
 }
 
-void Player::setTrackVolume(int track, float vol)
-{
-	HSTREAM* T = getTrackByNo(track);
-	BASS_ChannelSetAttribute(*T, BASS_ATTRIB_VOL, vol);
-	qDebug() << "[" << track << "] Set Volume to " << vol;
 
-}
 
-void Player::pauseTrack(int track)
-{
-	HSTREAM* T = getTrackByNo(track);
-	BASS_ChannelPause(*T);
-}
+
 
 /* ===================================================================================================
- * EFFEKTE
+ * EFFEKTE -> Steuerung insgesamt
  * =================================================================================================== */
+
+int Player::getTrackEffectNo(int track)
+{
+	if (track == 1) return effectNoA;
+	if (track == 2) return effectNoB;
+	return 0;
+}
 
 HFX* Player::getTrackEffectByNo(int track)
 {
@@ -94,6 +119,16 @@ void Player::setTrackEffectNo(int track, int no)
 {
 	if (track == 1) (effectNoA = no);
 	if (track == 2) (effectNoB = no);
+}
+
+void Player::stopEffect(int track)
+{
+	HSTREAM* T = getTrackByNo(track);
+	HFX* E = getTrackEffectByNo(track);
+
+	if (!BASS_ChannelRemoveFX(*T, *E)) std::cout << "Stop Error!\n";
+
+	setTrackEffectNo(track, 0);
 }
 
 void Player::toggleEffect(int track, int effectNumber)
@@ -121,15 +156,21 @@ void Player::toggleEffect(int track, int effectNumber)
 	}
 }
 
-void Player::stopEffect(int track)
+void Player::modifyEffect(int track, float x, float y)
 {
-	HSTREAM* T = getTrackByNo(track);
-	HFX* E = getTrackEffectByNo(track);
-
-	if (!BASS_ChannelRemoveFX(*T, *E)) std::cout << "Stop Error!\n";
-
-	setTrackEffectNo(track, 0);
+	int ENo = getTrackEffectNo(track);
+	switch(ENo)
+	{
+		case 1: modifyFlanger(track, x, y);
+		//case 2: modifyReverb(track);
+	}
 }
+
+/* ===================================================================================================
+ * EFFEKTE -> Implementierung einzelne Effekte
+ * =================================================================================================== */
+
+
 
 void Player::effectFlanger(int track)
 {
@@ -138,8 +179,23 @@ void Player::effectFlanger(int track)
 
 	*E = BASS_ChannelSetFX(*T,BASS_FX_DX8_FLANGER,1);
 
-	float fWetDryMix = 80; // that's pretty wet
-	float fDepth = 100; // that's pretty deep (default -50)
+	// default parameters for flanger
+	modifyFlanger(track, 50.0, 50.0);
+}
+
+void Player::modifyFlanger(int track, float x, float y)
+{
+	HSTREAM* T = getTrackByNo(track);
+	HFX* E = getTrackEffectByNo(track);
+
+	float fx = 1.0 * x;
+	float fy = 1.0 * y;
+
+	// 0 to 100
+	float fWetDryMix = fx; // that's pretty wet (
+
+	// 0 to 100
+	float fDepth = fy; // that's pretty deep (default -50)
 	float fFeedback = 50;
 	float fFrequency = 1; // that's pretty frequent
 	DWORD lWaveform = 1;
@@ -147,8 +203,9 @@ void Player::effectFlanger(int track)
 	DWORD lPhase = BASS_DX8_PHASE_ZERO;
 
 	BASS_DX8_FLANGER flangerParams = {fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase};
-
 	BASS_FXSetParameters(*E, &flangerParams);
+
+	cout << track << " -> Modified Flanger to " << fx << " / " << fy <<  " :: " << BASS_ErrorGetCode() << "\n";
 }
 
 void Player::effectReverb(int track)
@@ -158,20 +215,4 @@ void Player::effectReverb(int track)
 	*E = BASS_ChannelSetFX(*T,BASS_FX_DX8_REVERB,1);
 }
 
-void Player::setTrack(int track, Song s)
-{
-	HSTREAM* T = getTrackByNo(track);
-	string s2 = lib.getFullPath(s);
-	*T = BASS_StreamCreateFile(FALSE, (void*)(s2.c_str()), 0, 0, 0);
-	qDebug() << "[" << track << "] Loaded Song ";
-}
 
-void Player::setCrossfade(float pos)
-{
-	// 0 = A hat volle Lautstaerke;
-	// 1 = B hat volle Lautstaerke
-
-	setTrackVolume(1, 1-pos);
-	setTrackVolume(2,pos);
-
-}

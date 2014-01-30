@@ -322,8 +322,8 @@ r - Catgroove");
        width: 300
        visible: true
        onMtqTapDown: {
-           controlPad.x += event.mappedCenter.x -150;
-           controlPad.y += event.mappedCenter.y -150;
+           console.log(event.mappedCenter.x/3, event.mappedCenter.y/3);
+           player.modifyEffect(1,event.mappedCenter.x/3, event.mappedCenter.y/3)
 
        }
     }
