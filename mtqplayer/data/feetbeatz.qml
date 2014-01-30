@@ -349,7 +349,8 @@ Rectangle {
 
         Component.onCompleted: {
             songPicker2.addItem("Chubby Checker - Let's Twist again");
-            songPicker2.addItem("Parov Stellar - Catgroove");
+            songPicker2.addItem("Parov Stella
+r - Catgroove");
             songPicker2.addItem("Beach Boys - Surfin' USA")
         }
 
@@ -453,7 +454,7 @@ Rectangle {
         visible: true
         text: flanger
         onMtqTapDown: {
-            player.playEffect(1,1);
+            player.toggleEffect(1,1);
         }
     }
 
@@ -466,9 +467,61 @@ Rectangle {
         visible: true
         text: reverb
         onMtqTapDown: {
-            player.playEffect(2,1);
+            player.toggleEffect(1,2);
         }
     }
 
+    GenericButton {
+       id: controlPad
+       x: 100
+       y: 1000
+       height: 300
+       width: 300
+       visible: true
+       onMtqTapDown: {
+           console.log(event.mappedCenter.x/3, event.mappedCenter.y/3);
+           player.modifyEffect(1,event.mappedCenter.x/3, event.mappedCenter.y/3)
 
+       }
+    }
+
+    ToggleButton {
+        id: toggleA
+        visible: true
+        x: 100
+        y: 1500
+        height: 100
+        width: 300
+        activeTitle: "ON"
+        inactiveTitle: "OFF"
+    }
+    Text {
+        text: "Track A"
+        x: 450
+        y: 1510
+        height: 100
+        width: 300
+        font.pointSize: 48
+        color: "white"
+    }
+
+    ToggleButton {
+        id: toggleB
+        visible: true
+        x: 100
+        y: 1650
+        height: 100
+        width: 300
+        activeTitle: "ON"
+        inactiveTitle: "OFF"
+    }
+    Text {
+        text: "Track B"
+        x: 450
+        y: 1660
+        height: 100
+        width: 300
+        font.pointSize: 48
+        color: "white"
+    }
 }
