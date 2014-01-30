@@ -173,7 +173,3 @@ void FjPlayer::modifyEffect(int track, float x, float y)
 void FjPlayer::setVolume(int track, float vol) {
 //	p.setTrackVolume(track, vol);
 }
-
-void FjPlayer::changeFlanger(int track, int param1, int param2) {
-
-}
