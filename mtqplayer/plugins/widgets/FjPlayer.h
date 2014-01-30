@@ -46,7 +46,7 @@ public slots:
 	void play(int channel);
 	void setVolume(int track, float vol);
 	void toggleEffect(int track, int effectNumber);
-	void modifyEffect(int track, int x, int y);
+	void modifyEffect(int track, float x, float y);
 
 
 protected:
