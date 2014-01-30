@@ -102,10 +102,6 @@ Rectangle {
                }
         }
 
-
-
-    }
-
     PushButton {
         id: laneImageParov
         x: 2000
@@ -204,7 +200,6 @@ Rectangle {
 
         }
     }
-
 
 
     PushButton {
@@ -349,8 +344,7 @@ Rectangle {
 
         Component.onCompleted: {
             songPicker2.addItem("Chubby Checker - Let's Twist again");
-            songPicker2.addItem("Parov Stella
-r - Catgroove");
+            songPicker2.addItem("Parov Stellar - Catgroove");
             songPicker2.addItem("Beach Boys - Surfin' USA")
         }
 
@@ -524,4 +518,5 @@ r - Catgroove");
         font.pointSize: 48
         color: "white"
     }
+}
 }

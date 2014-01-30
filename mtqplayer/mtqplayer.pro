@@ -83,7 +83,8 @@ OTHER_FILES += \
     data/feetbeatz.qml \
     data/EffectArea.qml \
     data/EffectPad.qml \
-    data/EffectControls.qml
+    data/EffectControls.qml \
+    data/Song.qml
 
 INCLUDEPATH += include
 
