@@ -328,4 +328,44 @@ r - Catgroove");
        }
     }
 
+    ToggleButton {
+        id: toggleA
+        visible: true
+        x: 100
+        y: 1500
+        height: 100
+        width: 300
+        activeTitle: "ON"
+        inactiveTitle: "OFF"
+    }
+    Text {
+        text: "Track A"
+        x: 450
+        y: 1510
+        height: 100
+        width: 300
+        font.pointSize: 48
+        color: "white"
+    }
+
+    ToggleButton {
+        id: toggleB
+        visible: true
+        x: 100
+        y: 1650
+        height: 100
+        width: 300
+        activeTitle: "ON"
+        inactiveTitle: "OFF"
+    }
+    Text {
+        text: "Track B"
+        x: 450
+        y: 1660
+        height: 100
+        width: 300
+        font.pointSize: 48
+        color: "white"
+    }
+
 }

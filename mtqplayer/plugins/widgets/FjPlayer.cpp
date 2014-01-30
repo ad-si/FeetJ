@@ -168,3 +168,7 @@ void FjPlayer::toggleEffect(int track, int effectNumber)
 void FjPlayer::setVolume(int track, float vol) {
 	p.setTrackVolume(track, vol);
 }
+
+void FjPlayer::changeFlanger(int track, int param1, int param2) {
+
+}
