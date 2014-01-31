@@ -50,6 +50,12 @@ class Player : public QObject
 		void modifyReverb(int track, float x, float y);
 		void effectEQ(int track);
 		void modifyEQ(int track, float x, float y);
+		void effectWah(int track);
+		void modifyWah(int track, float x, float y);
+		void effectPhaser(int track);
+		void modifyPhaser(int track, float x, float y);
+		void effectChorus(int track);
+		void modifyChorus(int track, float x, float y);
 };
 
 #endif // PLAYER_H

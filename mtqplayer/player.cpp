@@ -23,7 +23,7 @@ Player::Player()
 	BASS_SetConfig(BASS_CONFIG_CURVE_VOL, false);
 
 	// import effects lib
-	bFX = BASS_PluginLoad("/home/hci1/dis_group8include/bass/libbass_fx.so", 0);
+	//bFX = BASS_PluginLoad("/home/hci1/dis_group8include/bass/libbass_fx.so", 0);
 	cout << BASS_ErrorGetCode() << " (Plugin)\n";
 	cout << "BFX VERSION: " << BASS_GetVersion() << " " << BASS_FX_GetVersion() << "\n";
 
@@ -102,11 +102,7 @@ HSTREAM* Player::getTrackByNo(int n)
 	else if (n==2)
 		return &trackB;
 	else
-		return NULL;/* ===================================================================================================
- * EFFEKTE -> Implementierung einzelne Effekte
- * =================================================================================================== */
-
-
+		return NULL;
 }
 
 
@@ -169,11 +165,15 @@ void Player::toggleEffect(int track, int effectNumber)
 	}
 	else
 	{
+		stopEffect(track);
 		switch(effectNumber)
 		{
 			case 1: effectFlanger(track); break; // BREAK BREAK BREAK AHAAAAAAAAAAAAAAAAAAH TOD UND HASSSSSSSSSS
 			case 2: effectReverb(track); break;
 			case 3: effectEQ(track); break;
+			case 4: effectWah(track); break;
+			case 5: effectPhaser(track); break;
+			case 6: effectChorus(track); break;
 		}
 		setTrackEffectNo(track, effectNumber);
 
@@ -189,6 +189,9 @@ void Player::modifyEffect(int track, float x, float y)
 		case 1: modifyFlanger(track, x, y); break;
 		case 2: modifyReverb(track, x, y); break;
 		case 3: modifyEQ(track, x, y); break;
+		case 4: modifyWah(track, x,y); break;
+		case 5: modifyPhaser(track, x, y); break;
+		case 6: modifyChorus(track, x,y); break;
 	}
 }
 
@@ -279,6 +282,90 @@ void Player::modifyEQ(int track, float x, float y)
 	BASS_FXSetParameters(*E, &EQParams);
 
 	cout << "Modify EQ: " << BASS_ErrorGetCode() << "\n";
+}
+
+void Player::effectWah(int track)
+{
+	HSTREAM* T = getTrackByNo(track);
+	HFX* E = getTrackEffectByNo(track);
+
+	*E = BASS_ChannelSetFX(*T,BASS_FX_BFX_AUTOWAH,1);
+	cout << "Wahwah activated! " << BASS_ErrorGetCode() << "\n";
+}
+
+void Player::modifyWah(int track, float x, float y)
+{
+	HFX* E = getTrackEffectByNo(track);
+
+	float fDryMix = 0.5;
+	float fWetMix = 2;
+	float fFeedback = 0.5;
+	float fRate = x/10;
+	float fRange = 6; //4.3
+	float fFreq = y * 10;
+	int lChannel = -1;
+
+	BASS_BFX_AUTOWAH WahParams = { fDryMix, fWetMix, fFeedback, fRate, fRange, fFreq, lChannel};
+
+	BASS_FXSetParameters(*E, &WahParams);
+
+	cout << "Modify Wah: " << fRate <<"/" << fFreq<< ": " << BASS_ErrorGetCode() << "\n";
+}
+
+void Player::effectPhaser(int track)
+{
+	HSTREAM* T = getTrackByNo(track);
+	HFX* E = getTrackEffectByNo(track);
+
+	*E = BASS_ChannelSetFX(*T,BASS_FX_BFX_PHASER,1);
+	cout << "Phaser activated! " << BASS_ErrorGetCode() << "\n";
+}
+
+void Player::modifyPhaser(int track, float x, float y)
+{
+	HFX* E = getTrackEffectByNo(track);
+
+	float fDryMix = 1;
+	float fWetMix = 1;
+	float fFeedback = 0.7;
+	float fRate = x*8;
+	float fRange = 4;
+	float fFreq = 4*y;
+	int lChannel = -1;
+
+	BASS_BFX_PHASER phaserParams = { fDryMix, fWetMix, fFeedback, fRate, fRange, fFreq, lChannel};
+
+	BASS_FXSetParameters(*E, &phaserParams);
+
+	cout << "Modify Wah: " << BASS_ErrorGetCode() << "\n";
+}
+
+void Player::effectChorus(int track)
+{
+	HSTREAM* T = getTrackByNo(track);
+	HFX* E = getTrackEffectByNo(track);
+
+	*E = BASS_ChannelSetFX(*T,BASS_FX_BFX_CHORUS,1);
+	cout << "Phaser activated! " << BASS_ErrorGetCode() << "\n";
+}
+
+void Player::modifyChorus(int track, float x, float y)
+{
+	HFX* E = getTrackEffectByNo(track);
+
+	float fDryMix = 0.9;
+	float fWetMix = 0.3;
+	float fFeedback = 0.5;
+	float fRate = x*8;
+	float fMinSweep = 1;
+	float fMaxSweep = 4*y;
+	int lChannel = -1;
+
+	BASS_BFX_CHORUS chorusParams = { fDryMix, fWetMix, fFeedback, fRate, fMinSweep, fMaxSweep, lChannel};
+
+	BASS_FXSetParameters(*E, &chorusParams);
+
+	cout << "Modify Chorus: " << BASS_ErrorGetCode() << "\n";
 }
 
 
