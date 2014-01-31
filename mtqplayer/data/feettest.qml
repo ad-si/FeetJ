@@ -16,9 +16,12 @@ Rectangle {
         y: 1500
         width: 700
         height: 300
-        onMtqTapDown: {
-            player.setVolume(1, 1-crossfader.value);
-            player.setVolume(2, crossfader.value);
+        onValueChanged: {
+            if (crossfader.value < 0.5) {
+                player.crossfade(1,2, crossfader.value);
+            } else {
+                player.crossfade(2,1, crossfader.value);
+            }
         }
     }
 

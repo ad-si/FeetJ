@@ -42,7 +42,7 @@ public slots:
 	void test();
 	void testStuff();
 	void changeTrack(int channel, int title);
-	void crossfade(float pos);
+	void crossfade(int target, int source, float time);
 	void play(int channel);
 	void setVolume(int track, float vol);
 	void toggleEffect(int track, int effectNumber);
