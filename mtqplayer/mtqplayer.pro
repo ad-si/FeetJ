@@ -78,11 +78,13 @@ OTHER_FILES += \
     data/Test.qml \
     data/Songpicker.qml \
     data/Crossfader.qml \
-    data/EffectController.qml \
-    data/EffectButton.qml \
     data/DjArea.qml \
     data/FeetJ.qml \
-    data/feetbeatz.qml
+    data/feetbeatz.qml \
+    data/EffectArea.qml \
+    data/EffectPad.qml \
+    data/EffectControls.qml \
+    data/Song.qml
 
 INCLUDEPATH += include
 

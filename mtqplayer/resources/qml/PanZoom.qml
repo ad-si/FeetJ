@@ -6,7 +6,7 @@ import "PanZoomLoader.js" as PanZoomLoader
 
 Rectangle {
 	id: background
-	color: "black"
+    color: "gray"
 	x: 0
 	y: 0
 
