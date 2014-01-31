@@ -473,9 +473,21 @@ Rectangle {
        width: 300
        visible: true
        onMtqTapDown: {
-           player.modifyEffect(1,event.mappedCenter.x, event.mappedCenter.y)
+           player.modifyEffect(1,event.mappedCenter.x/3, event.mappedCenter.y/3);
+           controlPadMarker.x = event.mappedCenter.x -18;
+           controlPadMarker.y = event.mappedCenter.y -18;
 
        }
+       Rectangle {
+           id: controlPadMarker
+           height: 36
+           width: 36
+           color: 'black'
+           x: 150-18
+           y: 150-18
+           visible: true
+
+        }
     }
 
     ToggleButton {

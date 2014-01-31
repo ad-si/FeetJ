@@ -185,7 +185,7 @@ void Player::effectFlanger(int track)
 	cout << "let's see..." << *E << "\n";
 	// default parameters for flanger
 	modifyFlanger(track, 50, 50);
-	std::cout << effectA << "effect: gerade modify aufgerufen\n";
+	//std::cout << effectA << "effect: gerade modify aufgerufen\n";
 }
 
 void Player::modifyFlanger(int track, int x, int y)
@@ -194,15 +194,13 @@ void Player::modifyFlanger(int track, int x, int y)
 	cout << "Modify Effect: " << effectA << "\n";
 	HFX* E = getTrackEffectByNo(track);
 	cout << "E: " << *E << "\n";
-	float fx = x/3;
-	float fy = y/3;
 
 	// 0 to 100
-	float fWetDryMix = fx; // that's pretty wet (
+	float fWetDryMix = x; // that's pretty wet (
 
 	// 0 to 100
-	float fDepth = fy; // that's pretty deep (default -50)
-	float fFeedback = 50;
+	float fDepth = 100; // that's pretty deep (default 100)
+	float fFeedback = y-20;
 	float fFrequency = 1; // that's pretty frequent
 	DWORD lWaveform = 1;
 	float fDelay = 2;
@@ -211,7 +209,7 @@ void Player::modifyFlanger(int track, int x, int y)
 	BASS_DX8_FLANGER flangerParams = {fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase};
 	BASS_FXSetParameters(*E, &flangerParams);
 
-	cout << ":::" << track << " -> Modified Flanger to " << fx << " / " << fy <<  " :: " << BASS_ErrorGetCode() << "\n";
+	cout << ":::" << track << " -> Modified Flanger to " << x << " / " << y <<  " :: " << BASS_ErrorGetCode() << "\n";
 }
 
 void Player::effectReverb(int track)
