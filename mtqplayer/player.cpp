@@ -180,18 +180,16 @@ void Player::effectFlanger(int track)
 	HFX* E = getTrackEffectByNo(track);
 
 	*E = BASS_ChannelSetFX(*T,BASS_FX_DX8_FLANGER,1);
-	effectA = *E;
 	cout << "let's see..." << *E << "\n";
 	// default parameters for flanger
-	//modifyFlanger(track, 30.0, 30.0);
-	//modifyFlanger(track, 100.0, 100.0);
+	modifyFlanger(track, 50, 50);
 }
 
 void Player::modifyFlanger(int track, int x, int y)
 {
 	HSTREAM* T = getTrackByNo(track);
 	HFX* E = getTrackEffectByNo(track);
-	cout << *E;
+	cout << "E: " << *E << "\n";
 	float fx = x/3;
 	float fy = y/3;
 
