@@ -9,7 +9,6 @@ Rectangle {
     height: 2400
     color: "black"
 
-
     Rectangle {
         id: nowLine
         height: 2
@@ -20,6 +19,7 @@ Rectangle {
     }
 
     DjArea {
+        id: djArea
         anchors.horizontalCenter: parent.horizontalCenter
     }
 

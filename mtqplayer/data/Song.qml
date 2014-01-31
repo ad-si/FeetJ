@@ -1,7 +1,12 @@
 import QtQuick 2.0
 import mtq.widgets 1.0
+import "feetj.js" as FeetJ
 
 Item {
+
+    id: songContainer
+    height: 2400
+    width: 200
 
     property string imagePath
     property double waveHeight
@@ -9,9 +14,7 @@ Item {
 
     GenericButton {
 
-        id: waveLane
-        height: 2400 //waveheight
-        width: 200
+        id: song
         anchors.fill: parent
         color: "#222222"
 
@@ -19,27 +22,23 @@ Item {
             //waveLane.y += waveLane.height
 
             //lane.visible = false
-            waveLane.visible = false
+            song.visible = false
 
             //songPicker.x = tap.x - songPicker.width/2
             //songPicker.y = tap.y - songPicker.height/2
             //songPicker.visible = true
-        }
 
+            FeetJ.configurate({
+                x: event.mappedCenter.x,
+                y: event.mappedCenter.y
+            })
+            FeetJ.addSongPickerTo(songContainer)
+        }
 
         Image {
             source: "/home/hci1/dis13_group8/mtqplayer/songs/catgroove.png"
             anchors.fill: parent
         }
-
-        /*
-        Behavior on y {
-            NumberAnimation {
-                duration: songDuration
-            }
-
-        }
-        */
 
         Text {
             text: "+"

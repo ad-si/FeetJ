@@ -1,41 +1,34 @@
 import QtQuick 2.0
 import mtq.widgets 1.0
+import "feetj.js" as FeetJ
+import "songs.js" as Songs
 
 
 Item {
 
+    property alias pickerWidth: songPicker.width
+    property alias pickerHeight: songPicker.height
+
     ListPicker {
         id: songPicker
         width: 700
-        height: 400
+        height: Songs.all.length * 80
         selectedItem: 0
         caption: "Songs"
 
         Component.onCompleted: {
-            songPicker.addItem("Chubby Checker - Let's Twist again")
-            songPicker.addItem("Parov Stellar - Catgroove")
-            songPicker.addItem("Beach Boys - Surfin' USA")
+
+            Songs.all.forEach(function(song){
+                songPicker.addItem(song.name)
+            })
         }
 
         onSelectedItemChanged: {
-            if (selectedItem == 0) {
-                songPicker.visible = false
-     //           lane1.visible = true
-            }
-            else if (selectedItem == 1) {
-                songPicker.visible = false
-         //       lane1.visible = true
-            }
-            else if (selectedItem == 2) {
-                songPicker.visible = false
-           //     lane2.visible = true
 
-            }
+            songPicker.visible = false
+
+            FeetJ.loadSong(Songs.all[selectedItem])
         }
-    }
-
-    Rectangle {
-
     }
 
    // Lane {

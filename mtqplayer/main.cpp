@@ -16,7 +16,6 @@ using namespace std;
 int main(int argc, char **argv)
 {
 	mtq::Application app(argc, argv);
-	cout << "\nIch bin dumm!\n\n";
 
 	Player p;
 

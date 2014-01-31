@@ -73,7 +73,7 @@ OTHER_FILES += \
     qml/HelloWorld.qml \
     resources/config/mtqplayer.ini \
     config.ini \
-    data/audioLogic.js \
+    data/feetj.js \
     data/Lane.qml \
     data/Test.qml \
     data/Songpicker.qml \
@@ -85,7 +85,8 @@ OTHER_FILES += \
     data/EffectPad.qml \
     data/EffectControls.qml \
     data/Song.qml \
-    data/feettest.qml
+    data/feettest.qml \
+    data/songs.js
 
 INCLUDEPATH += include
 
