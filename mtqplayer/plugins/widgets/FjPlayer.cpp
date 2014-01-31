@@ -179,5 +179,5 @@ void FjPlayer::modifyEffect(int track, float x, float y)
 }
 
 void FjPlayer::setVolume(int track, float vol) {
-//	p.setTrackVolume(track, vol);
+	p.setTrackVolume(track, vol);
 }

@@ -9,6 +9,7 @@ Rectangle {
     width: 4096
     height: 2400
     color: "#ff333333"
+    property var songsAdded: 0
 
     FjSlider {
         id: crossfader
@@ -77,16 +78,38 @@ Rectangle {
         onSelectedItemChanged: {
             if (selectedItem == 0) {
                 player.changeTrack(1, 2);
+                if (floor.songsAdded == 0) {
+                    player.setVolume(1,1);
+                } else {
+                    player.setVolume(1,0);
+                }
+
+                floor.songsAdded++;
+
                 laneImageChubby.visible = true
                 songPicker.visible = false
             }
             else if (selectedItem == 1) {
                 player.changeTrack(1,1);
+                if (floor.songsAdded == 0) {
+                    player.setVolume(1,1);
+                } else {
+                    player.setVolume(1,0);
+                }
+
+                floor.songsAdded++;
                 laneImageParov.visible = true
                 songPicker.visible = false
             }
             else if (selectedItem == 2) {
                 player.changeTrack(1,0);
+                if (floor.songsAdded == 0) {
+                    player.setVolume(1,1);
+                } else {
+                    player.setVolume(1,0);
+                }
+
+                floor.songsAdded++;
                 laneImageBeach.visible = true
                 songPicker.visible = false
             }
@@ -203,16 +226,38 @@ r - Catgroove");
         onSelectedItemChanged: {
             if (selectedItem == 0) {
                 player.changeTrack(2,2);
+                if (floor.songsAdded == 0) {
+                    player.setVolume(2,1);
+                } else {
+                    player.setVolume(2,0);
+                }
+
+                floor.songsAdded++;
+
                 laneImageChubby2.visible = true
                 songPicker2.visible = false
             }
             else if (selectedItem == 1) {
                 player.changeTrack(2,1);
+                if (floor.songsAdded == 0) {
+                    player.setVolume(2,1);
+                } else {
+                    player.setVolume(2,0);
+                }
+
+                floor.songsAdded++;
                 laneImageParov2.visible = true
                 songPicker2.visible = false
             }
             else if (selectedItem == 2) {
                 player.changeTrack(2,0);
+                if (floor.songsAdded == 0) {
+                    player.setVolume(2,1);
+                } else {
+                    player.setVolume(2,0);
+                }
+
+                floor.songsAdded++;
                 laneImageBeach2.visible = true
                 songPicker2.visible = false
             }
