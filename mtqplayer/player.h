@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "bass/bass.h"
+#include "bass/bass_fx.h"
 #include "songlist.h"
 
 #include <iostream>
@@ -34,6 +35,8 @@ class Player : public QObject
 		HFX effectB;
 		int effectNoB;
 
+		HPLUGIN bFX;
+
 		HSTREAM* getTrackByNo(int n);
 		HFX* getTrackEffectByNo(int track);
 		int getTrackEffectNo(int track);
@@ -47,6 +50,12 @@ class Player : public QObject
 		void modifyReverb(int track, float x, float y);
 		void effectEQ(int track);
 		void modifyEQ(int track, float x, float y);
+		void effectWah(int track);
+		void modifyWah(int track, float x, float y);
+		void effectPhaser(int track);
+		void modifyPhaser(int track, float x, float y);
+		void effectChorus(int track);
+		void modifyChorus(int track, float x, float y);
 };
 
 #endif // PLAYER_H

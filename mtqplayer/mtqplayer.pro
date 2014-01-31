@@ -56,7 +56,8 @@ HEADERS += \
     plugins/widgets/FjSlider.h \
     plugins/widgets/FjPlayer.h \
     song.h \
-    songlist.h
+    songlist.h \
+    include/bass/bass_fx.h
 
 
 RESOURCES += \
@@ -97,6 +98,14 @@ QMAKE_POST_LINK = ln -s $${PWD}/lib/libMultiToeQt.so $${OUT_PWD}/libMultiToeQt.s
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/include/bass/release/ -lbass
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/include/bass/debug/ -lbass
 else:unix: LIBS += -L$$PWD/include/bass/ -lbass
+
+INCLUDEPATH += $$PWD/include/bass
+DEPENDPATH += $$PWD/include/bass
+
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/include/bass/release/ -lbass_fx
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/include/bass/debug/ -lbass_fx
+else:unix: LIBS += -L$$PWD/include/bass/ -lbass_fx
 
 INCLUDEPATH += $$PWD/include/bass
 DEPENDPATH += $$PWD/include/bass

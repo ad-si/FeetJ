@@ -350,6 +350,46 @@ r - Catgroove");
     }
 
     PushButton {
+        id: wah
+        x: 500
+        y: 100
+        height: 200
+        width: 300
+        visible: true
+        text: 'wahwahwaaaa'
+        onMtqTapDown: {
+            player.toggleEffect(1,4);
+        }
+    }
+
+    PushButton {
+        id: phaser
+        x: 500
+        y: 400
+        height: 200
+        width: 300
+        visible: true
+        text: 'PHAZZZER!!!!'
+        onMtqTapDown: {
+            player.toggleEffect(1,5);
+        }
+    }
+
+
+    PushButton {
+        id: chorus
+        x: 500
+        y: 800
+        height: 200
+        width: 300
+        visible: true
+        text: 'khorus'
+        onMtqTapDown: {
+            player.toggleEffect(1,6);
+        }
+    }
+
+    PushButton {
         id: reverb
         x: 400
         y: 500
