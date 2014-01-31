@@ -149,9 +149,10 @@ void Player::toggleEffect(int track, int effectNumber)
 	{
 		switch(effectNumber)
 		{
-			case 1: effectFlanger(track);
-			case 2: effectReverb(track);
+			case 1: effectFlanger(track); break; // BREAK BREAK BREAK AHAAAAAAAAAAAAAAAAAAH TOD UND HASSSSSSSSSS
+			case 2: effectReverb(track); break;
 		}
+		cout << "toggle nach effectF(): " << effectA << "\n";
 		setTrackEffectNo(track, effectNumber);
 
 	}
@@ -163,6 +164,7 @@ void Player::modifyEffect(int track, float x, float y)
 	int ENo = getTrackEffectNo(track);
 	switch(ENo)
 	{
+		std::cout << effectA << " modify effect\n";
 		case 1: modifyFlanger(track, x, y);
 		//case 2: modifyReverb(track);
 	}
@@ -183,11 +185,13 @@ void Player::effectFlanger(int track)
 	cout << "let's see..." << *E << "\n";
 	// default parameters for flanger
 	modifyFlanger(track, 50, 50);
+	std::cout << effectA << "effect: gerade modify aufgerufen\n";
 }
 
 void Player::modifyFlanger(int track, int x, int y)
 {
-	HSTREAM* T = getTrackByNo(track);
+	//HSTREAM* T = getTrackByNo(track);
+	cout << "Modify Effect: " << effectA << "\n";
 	HFX* E = getTrackEffectByNo(track);
 	cout << "E: " << *E << "\n";
 	float fx = x/3;
@@ -205,7 +209,7 @@ void Player::modifyFlanger(int track, int x, int y)
 	DWORD lPhase = BASS_DX8_PHASE_ZERO;
 
 	BASS_DX8_FLANGER flangerParams = {fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase};
-	BASS_FXSetParameters(*E-1, &flangerParams);
+	BASS_FXSetParameters(*E, &flangerParams);
 
 	cout << ":::" << track << " -> Modified Flanger to " << fx << " / " << fy <<  " :: " << BASS_ErrorGetCode() << "\n";
 }
