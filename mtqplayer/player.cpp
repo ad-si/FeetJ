@@ -4,6 +4,7 @@
 #include <iostream>
 #include "songlist.h"
 #include <QDebug>
+#include <typeinfo>
 
 //HSTREAM Player::trackA;
 //HSTREAM Player::trackB;
@@ -158,6 +159,7 @@ void Player::toggleEffect(int track, int effectNumber)
 
 void Player::modifyEffect(int track, float x, float y)
 {
+	//redundant? track == ENo?
 	int ENo = getTrackEffectNo(track);
 	switch(ENo)
 	{
@@ -178,18 +180,20 @@ void Player::effectFlanger(int track)
 	HFX* E = getTrackEffectByNo(track);
 
 	*E = BASS_ChannelSetFX(*T,BASS_FX_DX8_FLANGER,1);
-
+	effectA = *E;
+	cout << "let's see..." << *E << "\n";
 	// default parameters for flanger
-	modifyFlanger(track, 50.0, 50.0);
+	//modifyFlanger(track, 30.0, 30.0);
+	//modifyFlanger(track, 100.0, 100.0);
 }
 
-void Player::modifyFlanger(int track, float x, float y)
+void Player::modifyFlanger(int track, int x, int y)
 {
 	HSTREAM* T = getTrackByNo(track);
 	HFX* E = getTrackEffectByNo(track);
-
-	float fx = 1.0 * x;
-	float fy = 1.0 * y;
+	cout << *E;
+	float fx = x/3;
+	float fy = y/3;
 
 	// 0 to 100
 	float fWetDryMix = fx; // that's pretty wet (
@@ -203,9 +207,9 @@ void Player::modifyFlanger(int track, float x, float y)
 	DWORD lPhase = BASS_DX8_PHASE_ZERO;
 
 	BASS_DX8_FLANGER flangerParams = {fWetDryMix, fDepth, fFeedback, fFrequency, lWaveform, fDelay, lPhase};
-	BASS_FXSetParameters(*E, &flangerParams);
+	BASS_FXSetParameters(*E-1, &flangerParams);
 
-	cout << track << " -> Modified Flanger to " << fx << " / " << fy <<  " :: " << BASS_ErrorGetCode() << "\n";
+	cout << ":::" << track << " -> Modified Flanger to " << fx << " / " << fy <<  " :: " << BASS_ErrorGetCode() << "\n";
 }
 
 void Player::effectReverb(int track)

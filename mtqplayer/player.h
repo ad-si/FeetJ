@@ -42,7 +42,7 @@ class Player : public QObject
 
 		void effectFlanger(int track);
 		void effectReverb(int track);
-		void modifyFlanger(int track, float x, float y);
+		void modifyFlanger(int track, int x, int y);
 };
 
 #endif // PLAYER_H
