@@ -479,8 +479,7 @@ r - Catgroove");
        width: 300
        visible: true
        onMtqTapDown: {
-           console.log(event.mappedCenter.x/3, event.mappedCenter.y/3);
-           player.modifyEffect(1,event.mappedCenter.x/3, event.mappedCenter.y/3)
+           player.modifyEffect(1,event.mappedCenter.x, event.mappedCenter.y)
 
        }
     }
