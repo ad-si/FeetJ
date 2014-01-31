@@ -18,8 +18,8 @@ Rectangle {
         width: 700
         height: 300
         onMtqTapDown: {
-            player.setVolume(1, 1-crossfader.value);
-            player.setVolume(2, crossfader.value);
+            player.setVolume(1, 1-crossfader.value)
+            player.setVolume(2, crossfader.value)
         }
 
 //        OnValueChanged: console.log("sieh mal einer an")
@@ -101,10 +101,6 @@ Rectangle {
                    console.log("halloeches "+ lane1.currentSong)
                }
         }
-
-
-
-    }
 
     PushButton {
         id: laneImageParov
@@ -204,7 +200,6 @@ Rectangle {
 
         }
     }
-
 
 
     PushButton {
@@ -349,8 +344,7 @@ Rectangle {
 
         Component.onCompleted: {
             songPicker2.addItem("Chubby Checker - Let's Twist again");
-            songPicker2.addItem("Parov Stella
-r - Catgroove");
+            songPicker2.addItem("Parov Stellar - Catgroove");
             songPicker2.addItem("Beach Boys - Surfin' USA")
         }
 
@@ -523,4 +517,5 @@ r - Catgroove");
         font.pointSize: 48
         color: "white"
     }
+}
 }
