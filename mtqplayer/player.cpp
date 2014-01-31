@@ -1,5 +1,6 @@
 #include "player.h"
 #include "bass/bass.h"
+#include "bass/bass_fx.h"
 #include <stdlib.h>
 #include <iostream>
 #include "songlist.h"
@@ -20,6 +21,11 @@ Player::Player()
 	BASS_Init(device, freq, 0, 0, NULL);
 
 	BASS_SetConfig(BASS_CONFIG_CURVE_VOL, false);
+
+	// import effects lib
+	bFX = BASS_PluginLoad("/home/hci1/dis_group8include/bass/libbass_fx.so", 0);
+	cout << BASS_ErrorGetCode() << " (Plugin)\n";
+	cout << "BFX VERSION: " << BASS_GetVersion() << " " << BASS_FX_GetVersion() << "\n";
 
 }
 
@@ -96,7 +102,11 @@ HSTREAM* Player::getTrackByNo(int n)
 	else if (n==2)
 		return &trackB;
 	else
-		return NULL;
+		return NULL;/* ===================================================================================================
+ * EFFEKTE -> Implementierung einzelne Effekte
+ * =================================================================================================== */
+
+
 }
 
 

@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "bass/bass.h"
+#include "bass/bass_fx.h"
 #include "songlist.h"
 
 #include <iostream>
@@ -33,6 +34,8 @@ class Player : public QObject
 		int effectNoA;
 		HFX effectB;
 		int effectNoB;
+
+		HPLUGIN bFX;
 
 		HSTREAM* getTrackByNo(int n);
 		HFX* getTrackEffectByNo(int track);
