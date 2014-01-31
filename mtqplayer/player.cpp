@@ -217,4 +217,17 @@ void Player::effectReverb(int track)
 	*E = BASS_ChannelSetFX(*T,BASS_FX_DX8_REVERB,1);
 }
 
+/* ===================================================================================================
+ * EFFEKTE -> Implementierung einzelne Effekte
+ * =================================================================================================== */
 
+void Player::crossfade(int target, int source, float timeInMs){
+	//Was wird Bam Margera als nächstes tun?
+	HSTREAM* TON = getTrackByNo(target);
+	HSTREAM* TOFF = getTrackByNo(source);
+	/*HSTREAM* T = getTrackByNo(track);
+	BASS_ChannelSetAttribute(*T, BASS_ATTRIB_VOL, vol);*/
+
+	BASS_ChannelSlideAttribute(*TON, BASS_ATTRIB_VOL, 1, timeInMs);
+	BASS_ChannelSlideAttribute(*TOFF, BASS_ATTRIB_VOL, 0, timeInMs);
+}

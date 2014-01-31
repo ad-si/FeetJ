@@ -114,9 +114,17 @@ void FjPlayer::setValueByTapX(int x) {
 	update();
 }
 
-void FjPlayer::crossfade(float pos)
+void FjPlayer::crossfade(int target, int source, float time)
 {
-	p.setCrossfade(pos);
+	float timeInMs;
+
+	if (time > 0.5) {
+		time = 1 - time;
+	}
+
+	timeInMs = (time * 8 + 1) * 1000;
+
+	p.crossfade(target, source, timeInMs);
 }
 
 qreal FjPlayer::value() const

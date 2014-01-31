@@ -23,6 +23,7 @@ class Player : public QObject
 		void toggleEffect(int track, int effectNumber);
 		void stopEffect(int track);
 		void modifyEffect(int track, float x, float y);
+		void crossfade(int target, int source, float timeInMs);
 		SongList lib;
 
 	private:
