@@ -295,7 +295,7 @@ r - Catgroove");
         height: 200
         width: 300
         visible: true
-        text: flanger
+        text: 'flanger'
         onMtqTapDown: {
             player.toggleEffect(1,1);
         }
@@ -308,9 +308,22 @@ r - Catgroove");
         height: 200
         width: 300
         visible: true
-        text: reverb
+        text: 'reverb'
         onMtqTapDown: {
             player.toggleEffect(1,2);
+        }
+    }
+
+    PushButton {
+        id: gargle
+        x: 400
+        y: 200
+        height: 200
+        width: 300
+        visible: true
+        text: 'gargle'
+        onMtqTapDown: {
+            player.toggleEffect(1,3);
         }
     }
 

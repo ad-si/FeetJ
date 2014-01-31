@@ -151,8 +151,8 @@ void Player::toggleEffect(int track, int effectNumber)
 		{
 			case 1: effectFlanger(track); break; // BREAK BREAK BREAK AHAAAAAAAAAAAAAAAAAAH TOD UND HASSSSSSSSSS
 			case 2: effectReverb(track); break;
+			case 3: effectEQ(track); break;
 		}
-		cout << "toggle nach effectF(): " << effectA << "\n";
 		setTrackEffectNo(track, effectNumber);
 
 	}
@@ -164,9 +164,9 @@ void Player::modifyEffect(int track, float x, float y)
 	int ENo = getTrackEffectNo(track);
 	switch(ENo)
 	{
-		std::cout << effectA << " modify effect\n";
-		case 1: modifyFlanger(track, x, y);
-		//case 2: modifyReverb(track);
+		case 1: modifyFlanger(track, x, y); break;
+		case 2: modifyReverb(track, x, y); break;
+		case 3: modifyEQ(track, x, y); break;
 	}
 }
 
@@ -218,5 +218,45 @@ void Player::effectReverb(int track)
 	HFX* E = getTrackEffectByNo(track);
 	*E = BASS_ChannelSetFX(*T,BASS_FX_DX8_REVERB,1);
 }
+
+void Player::modifyReverb(int track, float x, float y)
+{
+	HFX* E = getTrackEffectByNo(track);
+	float fInGain = 0; // dB
+	float fReverbMix = (x-100)*0.96/100; // -96 bis 0 dB
+	float fReverbTime = y*30; // 0.001 to 3000 ms
+	float fHighFreqRTRatio = 0.001; //ms
+	BASS_DX8_REVERB revParams = {fInGain, fReverbMix, fReverbTime, fHighFreqRTRatio};
+
+
+	BASS_FXSetParameters(*E, &revParams);
+
+	cout << "Modify Reverb: " << BASS_ErrorGetCode() << "\n";
+}
+
+void Player::effectEQ(int track)
+{
+	HSTREAM* T = getTrackByNo(track);
+	HFX* E = getTrackEffectByNo(track);
+
+	*E = BASS_ChannelSetFX(*T,BASS_FX_DX8_PARAMEQ,1);
+	cout << "EQ activated! " << BASS_ErrorGetCode() << "\n";
+}
+
+void Player::modifyEQ(int track, float x, float y)
+{
+	HFX* E = getTrackEffectByNo(track);
+
+	float fCenter = 160*x; // 80 - 16000
+	float fBandwith = 16; // semitones
+	float fGain = y*0.3 - 15; // -15 to 15
+
+	BASS_DX8_PARAMEQ EQParams = {fCenter, fBandwith, fGain};
+
+	BASS_FXSetParameters(*E, &EQParams);
+
+	cout << "Modify EQ: " << BASS_ErrorGetCode() << "\n";
+}
+
 
 
