@@ -11,6 +11,7 @@ Item {
     property double waveHeight
     property int songDuration
     property string imageName: 'placeholder'
+    property string state
 
     GenericButton {
 
@@ -20,11 +21,16 @@ Item {
 
         onMtqTap: {
 
-            FeetJ.configurate({
-                x: event.mappedCenter.x,
-                y: event.mappedCenter.y
-            })
-            FeetJ.addSongPickerTo(songContainer)
+            if(state !== 'songPicker'){
+
+                FeetJ.configurate({
+                    x: event.mappedCenter.x,
+                    y: event.mappedCenter.y
+                })
+                FeetJ.addSongPickerTo(songContainer)
+
+                state = 'songPicker'
+            }
         }
 
         Image {

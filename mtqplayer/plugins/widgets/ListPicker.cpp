@@ -12,10 +12,11 @@ using namespace mtq;
 MTQ_QML_REGISTER_PLUGIN(ListPicker)
 
 //ListPicker can be used to select an option in a List. Possibly as a menu
-ListPicker::ListPicker(QQuickItem *parent)
-	: BaseWidget(parent),
-	  m_svgRenderer(new QSvgRenderer(design::widgetsSvgFile, this))
+ListPicker::ListPicker(QQuickItem *parent):
+	BaseWidget(parent),
+	m_svgRenderer(new QSvgRenderer(design::widgetsSvgFile, this))
 {
+	setColor("#000000");
 	m_items = QVector<QString>();
 }
 
@@ -23,6 +24,9 @@ void ListPicker::paint(QPainter *painter)
 {
 	int itemCount = m_items.size();
 	int itemHeight = (height() / (itemCount + 1)) - SEPARATOR_HEIGHT;
+
+
+	this->setFillColor(QColor(color()));
 
 	//Drawing the caption
 	painter->setPen(design::labelFontColor);
@@ -34,6 +38,7 @@ void ListPicker::paint(QPainter *painter)
 	//Render menuItems
 	if (itemCount > 0) {
 		painter->setFont(design::labelFont);
+
 		for (int i = 0; i < itemCount; i++) {
 			if (m_selectedItem == i)
 				m_svgRenderer->render(painter, "ListPicker::selectedItem",
@@ -79,6 +84,16 @@ void ListPicker::setCaption(const QString &caption)
 {
 	m_caption = caption;
 	update();
+}
+
+QColor ListPicker::color() const
+{
+	return m_color;
+}
+
+void ListPicker::setColor(const QColor color)
+{
+	m_color = color;
 }
 
 void ListPicker::processTapDown(mtq::TapEvent *event)

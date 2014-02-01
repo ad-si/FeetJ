@@ -16,6 +16,7 @@ class ListPicker: public BaseWidget
 	//QProperties: access attributes from QML.
 	//Here we define the getters and setters to be used
 	Q_PROPERTY(int selectedItem READ selectedItem WRITE setSelectedItem NOTIFY selectedItemChanged)
+	Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
 	Q_PROPERTY(QString caption READ caption WRITE setCaption NOTIFY captionChanged)
 
 public:
@@ -25,8 +26,12 @@ public:
 
 	void setSelectedItem(const int index);
 	int selectedItem() const;
+
 	QString caption() const;
 	void setCaption(const QString &caption);
+
+	QColor color() const;
+	void setColor(const QColor color);
 
 public slots:
 	void addItem(const QString & itemText);
@@ -36,6 +41,7 @@ private:
 	QSvgRenderer *m_svgRenderer;
 	int m_selectedItem;
 	QString m_caption;
+	QColor m_color;
 
 protected:
     void processTapDown(mtq::TapEvent *event);
@@ -43,4 +49,5 @@ protected:
 signals:
 	void selectedItemChanged(int selectedItem);
 	void captionChanged(QString caption);
+	void colorChanged(QColor color);
 };

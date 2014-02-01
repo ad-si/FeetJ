@@ -13,7 +13,7 @@ Item {
         width: 700
         height: FeetJ.songs.length * 80
         selectedItem: 0
-        caption: "Songs"
+        caption: 'Songs'
 
         Component.onCompleted: {
 
@@ -25,6 +25,8 @@ Item {
         onSelectedItemChanged: {
 
             songPicker.visible = false
+
+            parent.parent.state = 'stop'
 
             FeetJ.loadSong(FeetJ.songs[selectedItem], parent.parent)
         }
