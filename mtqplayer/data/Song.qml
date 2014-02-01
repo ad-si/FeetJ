@@ -8,40 +8,39 @@ Item {
     height: 2400
     width: 200
 
-    property string imagePath
     property double waveHeight
     property int songDuration
+    property string imageName: 'placeholder'
+    property string state
 
     GenericButton {
 
         id: song
         anchors.fill: parent
-        color: "#222222"
+        color: '#323232'
 
         onMtqTap: {
-            //waveLane.y += waveLane.height
 
-            //lane.visible = false
-            song.visible = false
+            if(state !== 'songPicker'){
 
-            //songPicker.x = tap.x - songPicker.width/2
-            //songPicker.y = tap.y - songPicker.height/2
-            //songPicker.visible = true
+                FeetJ.configurate({
+                    x: event.mappedCenter.x,
+                    y: event.mappedCenter.y
+                })
+                FeetJ.addSongPickerTo(songContainer)
 
-            FeetJ.configurate({
-                x: event.mappedCenter.x,
-                y: event.mappedCenter.y
-            })
-            FeetJ.addSongPickerTo(songContainer)
+                state = 'songPicker'
+            }
         }
 
         Image {
-            source: "/home/hci1/dis13_group8/mtqplayer/songs/catgroove.png"
+            source: "/home/hci1/dis13_group8/mtqplayer/songs/" + imageName + ".png"
             anchors.fill: parent
         }
 
         Text {
             text: "+"
+            color: 'white'
             anchors.centerIn: parent
             font {
                 family: "Helvetica"

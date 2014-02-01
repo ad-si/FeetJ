@@ -1,3 +1,5 @@
+Qt.include('songs.js')
+
 var config = {
         visible: false
     }
@@ -42,7 +44,6 @@ function addSongPickerTo(parent){
         songPicker.statusChanged.connect(finishCreation)
 }
 
-function loadSong(song){
-
-    console.log(song.name)
+function loadSong(song, element){
+    element.imageName = song.id
 }
