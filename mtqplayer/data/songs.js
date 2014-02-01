@@ -1,4 +1,4 @@
-var all = [
+var songs = [
     {
         "id": "biggerthanhiphop",
          "name": "Dead Prez - Bigger than Hip Hop"

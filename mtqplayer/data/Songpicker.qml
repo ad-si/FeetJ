@@ -1,7 +1,6 @@
 import QtQuick 2.0
 import mtq.widgets 1.0
 import "feetj.js" as FeetJ
-import "songs.js" as Songs
 
 
 Item {
@@ -12,13 +11,13 @@ Item {
     ListPicker {
         id: songPicker
         width: 700
-        height: Songs.all.length * 80
+        height: FeetJ.songs.length * 80
         selectedItem: 0
         caption: "Songs"
 
         Component.onCompleted: {
 
-            Songs.all.forEach(function(song){
+            FeetJ.songs.forEach(function(song){
                 songPicker.addItem(song.name)
             })
         }
@@ -27,14 +26,7 @@ Item {
 
             songPicker.visible = false
 
-            FeetJ.loadSong(Songs.all[selectedItem])
+            FeetJ.loadSong(FeetJ.songs[selectedItem], parent.parent)
         }
     }
-
-   // Lane {
-        //id: lane1
-        //imagePath: "/home/hci1/dis13_group8/mtqplayer/images/chubbychecker.png"
-        //songDuration: 141000
-     //   waveHeight: 1763
-   // }
 }
