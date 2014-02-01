@@ -336,82 +336,125 @@ r - Catgroove");
 
     }
 
-    PushButton {
+    GenericButton {
         id: flanger1
         x: 20
         y: 400
         height: 150
         width: 300
         visible: true
-        text: 'flanger'
+        text: 'Flanger'
+        color: "blue"
         onMtqTapDown: {
             player.toggleEffect(1,1);
+            flanger1.color = "red";
+            wah1.color = "blue";
+            chorus1.color = "blue";
+            reverb1.color = "blue";
+            phaser1.color = "blue";
+            gargle1.color = "blue";
         }
     }
 
-    PushButton {
+    GenericButton {
         id: wah1
         x: 20
         y: 580
         height: 150
         width: 300
         visible: true
-        text: 'wahwahwaaaa'
+        text: 'Wah'
+        color: "blue"
         onMtqTapDown: {
             player.toggleEffect(1,4);
+            wah1.color = "red";
+            chorus1.color = "blue";
+            reverb1.color = "blue";
+            phaser1.color = "blue";
+            gargle1.color = "blue";
+            flanger1.color = "blue";
+
         }
     }
 
-    PushButton {
+    GenericButton {
         id: phaser1
         x: 20
         y: 760
         height: 150
         width: 300
         visible: true
-        text: 'PHAZZZER!!!!'
+        text: 'Phaser'
+        color: "blue"
         onMtqTapDown: {
             player.toggleEffect(1,5);
+            phaser1.color = "red";
+            wah1.color = "blue";
+            chorus1.color = "blue";
+            reverb1.color = "blue";
+            gargle1.color = "blue";
+            flanger1.color = "blue";
         }
     }
 
 
-    PushButton {
+    GenericButton {
         id: chorus1
         x: 20
         y: 940
         height: 150
         width: 300
         visible: true
-        text: 'khorus'
+        text: 'Chorus'
+        color: "blue"
         onMtqTapDown: {
             player.toggleEffect(1,6);
+            chorus1.color = "red";
+            wah1.color = "blue";
+            reverb1.color = "blue";
+            phaser1.color = "blue";
+            gargle1.color = "blue";
+            flanger1.color = "blue";
         }
     }
 
-    PushButton {
+    GenericButton {
         id: reverb1
         x: 20
         y: 1120
         height: 150
         width: 300
         visible: true
-        text: 'reverb'
+        text: 'Reverb'
+        color: "blue"
         onMtqTapDown: {
             player.toggleEffect(1,2);
+            reverb1.color = "red";
+            wah1.color = "blue";
+            chorus1.color = "blue";
+            phaser1.color = "blue";
+            gargle1.color = "blue";
+            flanger1.color = "blue";
         }
     }
 
-    PushButton {
+    GenericButton {
         id: gargle1
         x: 20
         y: 1300
         height: 150
         width: 300
         visible: true
-        text: 'gargle'
+        text: 'Equalizer'
+        color: "blue"
         onMtqTapDown: {
             player.toggleEffect(1,3);
+            gargle1.color = "red"
+            wah1.color = "blue"
+            chorus1.color = "blue"
+            reverb1.color = "blue"
+            phaser1.color = "blue"
+            flanger1.color = "blue"
         }
     }
 
@@ -422,6 +465,7 @@ r - Catgroove");
        height: 800
        width: 700
        visible: true
+       color: "white"
        onMtqTapDown: {
            player.modifyEffect(1,event.mappedCenter.x/3, event.mappedCenter.y/3);
            controlPadMarker1.x = event.mappedCenter.x -18;
@@ -440,82 +484,126 @@ r - Catgroove");
         }
     }
 
-    PushButton {
+    GenericButton {
         id: flanger2
         x: 3776
         y: 400
         height: 150
         width: 300
         visible: true
-        text: 'flanger'
+        text: 'Flanger'
+        color: "blue"
         onMtqTapDown: {
             player.toggleEffect(2,1);
+            flanger2.color = "red";
+            wah2.color = "blue";
+            chorus2.color = "blue";
+            reverb2.color = "blue";
+            phaser2.color = "blue";
+            gargle2.color = "blue";
         }
     }
 
-    PushButton {
+    GenericButton {
         id: wah2
         x: 3776
         y: 580
         height: 150
         width: 300
         visible: true
-        text: 'wahwahwaaaa'
+        text: 'Wah'
+        color: "blue"
         onMtqTapDown: {
             player.toggleEffect(2,4);
+            wah2.color = "red";
+            flanger2.color = "blue";
+            chorus2.color = "blue";
+            reverb2.color = "blue";
+            phaser2.color = "blue";
+            gargle2.color = "blue";
         }
     }
 
-    PushButton {
+    GenericButton {
         id: phaser2
         x: 3776
         y: 760
         height: 150
         width: 300
         visible: true
-        text: 'PHAZZZER!!!!'
+        text: 'Phaser'
+        color: "blue"
         onMtqTapDown: {
             player.toggleEffect(2,5);
+            phaser2.color = "red";
+            flanger2.color = "blue";
+            wah2.color = "blue";
+            chorus2.color = "blue";
+            reverb2.color = "blue";
+            gargle2.color = "blue";
         }
     }
 
 
-    PushButton {
+    GenericButton {
         id: chorus2
         x: 3776
         y: 940
         height: 150
         width: 300
         visible: true
-        text: 'khorus'
+        text: 'Chorus'
+        color: "blue"
         onMtqTapDown: {
-            player.toggleEffect(2,6);
+            player.toggleEffect(2,6)
+            chorus2.color = "red"
+            flanger2.color = "blue"
+            wah2.color = "blue"
+            reverb2.color = "blue"
+            phaser2.color = "blue"
+            gargle2.color = "blue"
+
         }
     }
 
-    PushButton {
+    GenericButton {
         id: reverb2
         x: 3776
         y: 1120
         height: 150
         width: 300
         visible: true
-        text: 'reverb'
+        text: 'Reverb'
+        color: "blue"
         onMtqTapDown: {
             player.toggleEffect(2,2);
+            reverb2.color = "red";
+            flanger2.color = blue;
+            wah2.color = blue;
+            chorus2.color = blue;
+            phaser2.color = blue;
+            gargle2.color = blue;
         }
     }
 
-    PushButton {
+    GenericButton {
         id: gargle2
         x: 3776
         y: 1300
         height: 150
         width: 300
         visible: true
-        text: 'gargle'
+        text: 'Equalizer'
+        color: "blue"
         onMtqTapDown: {
             player.toggleEffect(2,3);
+            gargle2.color = "red";
+            flanger2.color = "blue";
+            wah2.color = "blue";
+            chorus2.color = "blue";
+            reverb2.color = "blue";
+            phaser2.color = "blue";
+            //controlPad2.text = "Equalizer"
         }
     }
 
@@ -526,6 +614,13 @@ r - Catgroove");
        height: 800
        width: 700
        visible: true
+       /*Text {
+            text: "none"
+            color: "black"
+            anchors.centerIn: parent
+            font.pointSize: 40
+       }*/
+       color: "white"
        onMtqTapDown: {
            player.modifyEffect(2,event.mappedCenter.x/3, event.mappedCenter.y/3);
            controlPadMarker2.x = event.mappedCenter.x -18;
