@@ -87,7 +87,8 @@ OTHER_FILES += \
     data/EffectControls.qml \
     data/Song.qml \
     data/feettest.qml \
-    data/songs.js
+    data/songs.js \
+    data/testv2.qml
 
 INCLUDEPATH += include
 

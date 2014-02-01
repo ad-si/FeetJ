@@ -1,7 +1,5 @@
 import QtQuick 2.0
 import mtq.widgets 1.0
-//import "audioLogic.js" as audioLogic
-
 
 Rectangle {
     id: floor
@@ -23,8 +21,29 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
-    EffectArea {
-        anchors.right: parent.right
+    EffectControls {
+        id: effectControls1
+        x: 250
+        y: 0
+
+
+    }
+
+    EffectPad {
+        id: effectPad1
+        x: 350
+        y: 500
+        height: 800
+        width: 700
+    }
+
+    EffectPad {
+        id: effects2
+        x: 3300
+        y: 500
+        height: 300
+        width: 650
+
     }
 
     FjPlayer {
@@ -37,5 +56,3 @@ Rectangle {
         y: -300
     }
 }
-
-
