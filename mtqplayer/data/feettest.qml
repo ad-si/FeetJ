@@ -13,7 +13,7 @@ Rectangle {
 
     FjSlider {
         id: crossfader
-        x: 2500
+        x: 1748
         y: 1500
         width: 700
         height: 300
@@ -46,7 +46,7 @@ Rectangle {
     GenericButton
     {
         id: lane1
-        x: 2000
+        x: 1448
         y: 0
         visible: true
         height: 2400
@@ -61,8 +61,8 @@ Rectangle {
 
     ListPicker {
         id: songPicker
-        x: 1800
-        y: 1500
+        x: 1148
+        y: 1100
         width: 800
         height: 400
         visible: false
@@ -120,7 +120,7 @@ Rectangle {
 
     PushButton {
         id: laneImageChubby
-        x: 2000
+        x: 1448
         y: 1500-laneImageChubby.height
         height: 1762.5
         width: 200
@@ -144,7 +144,7 @@ Rectangle {
 
     PushButton {
         id: laneImageParov
-        x: 2000
+        x: 1448
         y: 1500-laneImageParov.height
         height: 2962.5
         width: 200
@@ -167,7 +167,7 @@ Rectangle {
 
     PushButton {
         id: laneImageBeach
-        x: 2000
+        x: 1448
         y: 1500-laneImageBeach.height
         height: 1887.5
         width: 200
@@ -193,7 +193,7 @@ Rectangle {
     GenericButton
     {
         id: lane2
-        x: 3500
+        x: 2548
         y: 0
         visible: true
         height: 2400
@@ -208,8 +208,8 @@ Rectangle {
 
     ListPicker {
         id: songPicker2
-        x: 3200
-        y: 1500
+        x: 2248
+        y: 1100
         width: 800
         height: 400
         visible: false
@@ -268,7 +268,7 @@ r - Catgroove");
 
     PushButton {
         id: laneImageChubby2
-        x: 3200
+        x: 2548
         y: 1500-laneImageChubby2.height
         height: 1762.5
         width: 200
@@ -292,7 +292,7 @@ r - Catgroove");
 
     PushButton {
         id: laneImageParov2
-        x: 3200
+        x: 2548
         y: 1500-laneImageParov2.height
         height: 2962.5
         width: 200
@@ -315,7 +315,7 @@ r - Catgroove");
 
     PushButton {
         id: laneImageBeach2
-        x: 3200
+        x: 2548
         y: 1500-laneImageBeach2.height
         height: 1887.5
         width: 200
@@ -337,10 +337,10 @@ r - Catgroove");
     }
 
     PushButton {
-        id: flanger
-        x: 100
-        y: 100
-        height: 200
+        id: flanger1
+        x: 20
+        y: 400
+        height: 150
         width: 300
         visible: true
         text: 'flanger'
@@ -350,10 +350,10 @@ r - Catgroove");
     }
 
     PushButton {
-        id: wah
-        x: 500
-        y: 100
-        height: 200
+        id: wah1
+        x: 20
+        y: 580
+        height: 150
         width: 300
         visible: true
         text: 'wahwahwaaaa'
@@ -363,10 +363,10 @@ r - Catgroove");
     }
 
     PushButton {
-        id: phaser
-        x: 500
-        y: 400
-        height: 200
+        id: phaser1
+        x: 20
+        y: 760
+        height: 150
         width: 300
         visible: true
         text: 'PHAZZZER!!!!'
@@ -377,10 +377,10 @@ r - Catgroove");
 
 
     PushButton {
-        id: chorus
-        x: 500
-        y: 800
-        height: 200
+        id: chorus1
+        x: 20
+        y: 940
+        height: 150
         width: 300
         visible: true
         text: 'khorus'
@@ -390,10 +390,10 @@ r - Catgroove");
     }
 
     PushButton {
-        id: reverb
-        x: 400
-        y: 500
-        height: 200
+        id: reverb1
+        x: 20
+        y: 1120
+        height: 150
         width: 300
         visible: true
         text: 'reverb'
@@ -403,10 +403,10 @@ r - Catgroove");
     }
 
     PushButton {
-        id: gargle
-        x: 400
-        y: 200
-        height: 200
+        id: gargle1
+        x: 20
+        y: 1300
+        height: 150
         width: 300
         visible: true
         text: 'gargle'
@@ -416,20 +416,20 @@ r - Catgroove");
     }
 
     GenericButton {
-       id: controlPad
-       x: 100
-       y: 1000
-       height: 300
-       width: 300
+       id: controlPad1
+       x: 400
+       y: 500
+       height: 800
+       width: 700
        visible: true
        onMtqTapDown: {
            player.modifyEffect(1,event.mappedCenter.x/3, event.mappedCenter.y/3);
-           controlPadMarker.x = event.mappedCenter.x -18;
-           controlPadMarker.y = event.mappedCenter.y -18;
+           controlPadMarker1.x = event.mappedCenter.x -18;
+           controlPadMarker1.y = event.mappedCenter.y -18;
 
        }
        Rectangle {
-           id: controlPadMarker
+           id: controlPadMarker1
            height: 36
            width: 36
            color: 'black'
@@ -438,5 +438,110 @@ r - Catgroove");
            visible: true
 
         }
-}
+    }
+
+    PushButton {
+        id: flanger2
+        x: 3776
+        y: 400
+        height: 150
+        width: 300
+        visible: true
+        text: 'flanger'
+        onMtqTapDown: {
+            player.toggleEffect(2,1);
+        }
+    }
+
+    PushButton {
+        id: wah2
+        x: 3776
+        y: 580
+        height: 150
+        width: 300
+        visible: true
+        text: 'wahwahwaaaa'
+        onMtqTapDown: {
+            player.toggleEffect(2,4);
+        }
+    }
+
+    PushButton {
+        id: phaser2
+        x: 3776
+        y: 760
+        height: 150
+        width: 300
+        visible: true
+        text: 'PHAZZZER!!!!'
+        onMtqTapDown: {
+            player.toggleEffect(2,5);
+        }
+    }
+
+
+    PushButton {
+        id: chorus2
+        x: 3776
+        y: 940
+        height: 150
+        width: 300
+        visible: true
+        text: 'khorus'
+        onMtqTapDown: {
+            player.toggleEffect(2,6);
+        }
+    }
+
+    PushButton {
+        id: reverb2
+        x: 3776
+        y: 1120
+        height: 150
+        width: 300
+        visible: true
+        text: 'reverb'
+        onMtqTapDown: {
+            player.toggleEffect(2,2);
+        }
+    }
+
+    PushButton {
+        id: gargle2
+        x: 3776
+        y: 1300
+        height: 150
+        width: 300
+        visible: true
+        text: 'gargle'
+        onMtqTapDown: {
+            player.toggleEffect(2,3);
+        }
+    }
+
+    GenericButton {
+       id: controlPad2
+       x: 2996
+       y: 500
+       height: 800
+       width: 700
+       visible: true
+       onMtqTapDown: {
+           player.modifyEffect(2,event.mappedCenter.x/3, event.mappedCenter.y/3);
+           controlPadMarker2.x = event.mappedCenter.x -18;
+           controlPadMarker2.y = event.mappedCenter.y -18;
+
+       }
+       Rectangle {
+           id: controlPadMarker2
+           height: 36
+           width: 36
+           color: 'black'
+           x: 150-18
+           y: 150-18
+           visible: true
+
+        }
+    }
+
 }
