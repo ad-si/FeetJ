@@ -343,7 +343,15 @@ r - Catgroove");
         height: 150
         width: 300
         visible: true
-        text: 'Flanger'
+//        text: 'Flanger'
+        Text {
+            y: 45
+            x: 80
+            text: 'Flanger'
+            font { family: 'Arial'; pixelSize: 40; italic: false; }
+            color: "#FFFFFF"
+        }
+
         color: "#323232"
         Image {
             id: flangerBlue
@@ -351,18 +359,23 @@ r - Catgroove");
             source: "/home/hci1/dis13_group8/mtqplayer/images/effektBlue.png"
             anchors.fill: parent
             Text {
+                y: 45
+                x: 80
                 text: 'Flanger'
+                font { family: 'Arial'; pixelSize: 40; italic: false; }
+                color: "#FFFFFF"
             }
         }
         onMtqTapDown: {
             player.toggleEffect(1,1);
             flangerBlue.visible = true
-//            flanger1.color = "#5BB9FF";
-//            wah1.color = "blue";
-//            chorus1.color = "blue";
-//            reverb1.color = "blue";
-//            phaser1.color = "blue";
-//            gargle1.color = "blue";
+            eqBlue.visible = false
+            reverbBlue.visible = false
+            wahBlue.visible = false
+            phaserBlue.visible = false
+            chorusBlue.visible = false
+
+
         }
     }
 
@@ -373,16 +386,37 @@ r - Catgroove");
         height: 150
         width: 300
         visible: true
-        text: 'Wah'
+//        text: 'Wah'
+        Text {
+            y: 45
+            x: 80
+            text: 'WahWah'
+            font { family: 'Arial'; pixelSize: 40; italic: false; }
+            color: "#FFFFFF"
+        }
+        Image {
+            id: wahBlue
+            visible: false
+            source: "/home/hci1/dis13_group8/mtqplayer/images/effektBlue.png"
+            anchors.fill: parent
+            Text {
+                y: 45
+                x: 80
+                text: 'WahWah'
+                font { family: 'Arial'; pixelSize: 40; italic: false; }
+                color: "#FFFFFF"
+            }
+        }
         color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(1,4);
-            wah1.color = "red";
-            chorus1.color = "blue";
-            reverb1.color = "blue";
-            phaser1.color = "blue";
-            gargle1.color = "blue";
-            flanger1.color = "blue";
+            wahBlue.visible = true
+            eqBlue.visible = false
+            flangerBlue.visible = false
+            reverbBlue.visible = false
+            phaserBlue.visible = false
+            chorusBlue.visible = false
+
 
         }
     }
@@ -394,16 +428,38 @@ r - Catgroove");
         height: 150
         width: 300
         visible: true
-        text: 'Phaser'
+//        text: 'Phaser'
+        Text {
+            y: 45
+            x: 80
+            text: 'Phaser'
+            font { family: 'Arial'; pixelSize: 40; italic: false; }
+            color: "#FFFFFF"
+        }
         color: "#323232"
+        Image {
+            id: phaserBlue
+            visible: false
+            source: "/home/hci1/dis13_group8/mtqplayer/images/effektBlue.png"
+            anchors.fill: parent
+            Text {
+                y: 45
+                x: 80
+                text: 'Phaser'
+                font { family: 'Arial'; pixelSize: 40; italic: false; }
+                color: "#FFFFFF"
+            }
+        }
         onMtqTapDown: {
             player.toggleEffect(1,5);
-            phaser1.color = "red";
-            wah1.color = "blue";
-            chorus1.color = "blue";
-            reverb1.color = "blue";
-            gargle1.color = "blue";
-            flanger1.color = "blue";
+            phaserBlue.visible = true
+            eqBlue.visible = false
+            flangerBlue.visible = false
+            reverbBlue.visible = false
+            wahBlue.visible = false
+            chorusBlue.visible = false
+
+
         }
     }
 
@@ -415,16 +471,37 @@ r - Catgroove");
         height: 150
         width: 300
         visible: true
-        text: 'Chorus'
+//        text: 'Chorus'
+        Text {
+            y: 45
+            x: 80
+            text: 'Chorus'
+            font { family: 'Arial'; pixelSize: 40; italic: false; }
+            color: "#FFFFFF"
+        }
+        Image {
+            id: chorusBlue
+            visible: false
+            source: "/home/hci1/dis13_group8/mtqplayer/images/effektBlue.png"
+            anchors.fill: parent
+            Text {
+                y: 45
+                x: 80
+                text: 'Chorus'
+                font { family: 'Arial'; pixelSize: 40; italic: false; }
+                color: "#FFFFFF"
+            }
+        }
         color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(1,6);
-            chorus1.color = "red";
-            wah1.color = "blue";
-            reverb1.color = "blue";
-            phaser1.color = "blue";
-            gargle1.color = "blue";
-            flanger1.color = "blue";
+            chorusBlue.visible = true
+            eqBlue.visible = false
+            flangerBlue.visible = false
+            reverbBlue.visible = false
+            wahBlue.visible = false
+            phaserBlue.visible = false
+
         }
     }
 
@@ -435,16 +512,38 @@ r - Catgroove");
         height: 150
         width: 300
         visible: true
-        text: 'Reverb'
+//        text: 'Reverb'
+        Text {
+            y: 45
+            x: 80
+            text: 'Reverb'
+            font { family: 'Arial'; pixelSize: 40; italic: false; }
+            color: "#FFFFFF"
+        }
+        Image {
+            id: reverbBlue
+            visible: false
+            source: "/home/hci1/dis13_group8/mtqplayer/images/effektBlue.png"
+            anchors.fill: parent
+            Text {
+                y: 45
+                x: 80
+                text: 'Reverb'
+                font { family: 'Arial'; pixelSize: 40; italic: false; }
+                color: "#FFFFFF"
+            }
+        }
         color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(1,2);
-            reverb1.color = "red";
-            wah1.color = "blue";
-            chorus1.color = "blue";
-            phaser1.color = "blue";
-            gargle1.color = "blue";
-            flanger1.color = "blue";
+            reverbBlue.visible = true
+            eqBlue.visible = false
+            flangerBlue.visible = false
+            wahBlue.visible = false
+            phaserBlue.visible = false
+            chorusBlue.visible = false
+
+
         }
     }
 
@@ -455,16 +554,37 @@ r - Catgroove");
         height: 150
         width: 300
         visible: true
-        text: 'Equalizer'
+//        text: 'Equalizer'
+        Text {
+            y: 45
+            x: 80
+            text: 'Equalizer'
+            font { family: 'Arial'; pixelSize: 40; italic: false; }
+            color: "#FFFFFF"
+        }
+        Image {
+            id: eqBlue
+            visible: false
+            source: "/home/hci1/dis13_group8/mtqplayer/images/effektBlue.png"
+            anchors.fill: parent
+            Text {
+                y: 45
+                x: 80
+                text: 'Equalizer'
+                font { family: 'Arial'; pixelSize: 40; italic: false; }
+                color: "#FFFFFF"
+            }
+        }
         color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(1,3);
-            gargle1.color = "red"
-            wah1.color = "blue"
-            chorus1.color = "blue"
-            reverb1.color = "blue"
-            phaser1.color = "blue"
-            flanger1.color = "blue"
+            eqBlue.visible = true
+            flangerBlue.visible = false
+            reverbBlue.visible = false
+            wahBlue.visible = false
+            phaserBlue.visible = false
+            chorusBlue.visible = false
+
         }
     }
 
@@ -501,16 +621,38 @@ r - Catgroove");
         height: 150
         width: 300
         visible: true
-        text: 'Flanger'
+//        text: 'Flanger'
+//        color: "#323232"
+        Text {
+            y: 45
+            x: 80
+            text: 'Flanger'
+            font { family: 'Arial'; pixelSize: 40; italic: false; }
+            color: "#FFFFFF"
+        }
+
         color: "#323232"
+        Image {
+            id: flangerBlue2
+            visible: false
+            source: "/home/hci1/dis13_group8/mtqplayer/images/effektBlue.png"
+            anchors.fill: parent
+            Text {
+                y: 45
+                x: 80
+                text: 'Flanger'
+                font { family: 'Arial'; pixelSize: 40; italic: false; }
+                color: "#FFFFFF"
+            }
+        }
         onMtqTapDown: {
             player.toggleEffect(2,1);
-            flanger2.color = "red";
-            wah2.color = "blue";
-            chorus2.color = "blue";
-            reverb2.color = "blue";
-            phaser2.color = "blue";
-            gargle2.color = "blue";
+            flangerBlue2.visible = true
+            eqBlue2.visible = false
+            reverbBlue2.visible = false
+            wahBlue2.visible = false
+            phaserBlue2.visible = false
+            chorusBlue2.visible = false
         }
     }
 
@@ -523,14 +665,34 @@ r - Catgroove");
         visible: true
         text: 'Wah'
         color: "#323232"
+        Text {
+            y: 45
+            x: 80
+            text: 'WahWah'
+            font { family: 'Arial'; pixelSize: 40; italic: false; }
+            color: "#FFFFFF"
+        }
+        Image {
+            id: wahBlue2
+            visible: false
+            source: "/home/hci1/dis13_group8/mtqplayer/images/effektBlue.png"
+            anchors.fill: parent
+            Text {
+                y: 45
+                x: 80
+                text: 'WahWah'
+                font { family: 'Arial'; pixelSize: 40; italic: false; }
+                color: "#FFFFFF"
+            }
+        }
         onMtqTapDown: {
             player.toggleEffect(2,4);
-            wah2.color = "red";
-            flanger2.color = "blue";
-            chorus2.color = "blue";
-            reverb2.color = "blue";
-            phaser2.color = "blue";
-            gargle2.color = "blue";
+            wahBlue2.visible = true
+            eqBlue2.visible = false
+            flangerBlue2.visible = false
+            reverbBlue2.visible = false
+            phaserBlue2.visible = false
+            chorusBlue2.visible = false
         }
     }
 
@@ -541,16 +703,36 @@ r - Catgroove");
         height: 150
         width: 300
         visible: true
-        text: 'Phaser'
+//        text: 'Phaser'
+        Text {
+            y: 45
+            x: 80
+            text: 'Phaser'
+            font { family: 'Arial'; pixelSize: 40; italic: false; }
+            color: "#FFFFFF"
+        }
+        Image {
+            id: phaserBlue2
+            visible: false
+            source: "/home/hci1/dis13_group8/mtqplayer/images/effektBlue.png"
+            anchors.fill: parent
+            Text {
+                y: 45
+                x: 80
+                text: 'Phaser'
+                font { family: 'Arial'; pixelSize: 40; italic: false; }
+                color: "#FFFFFF"
+            }
+        }
         color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(2,5);
-            phaser2.color = "red";
-            flanger2.color = "blue";
-            wah2.color = "blue";
-            chorus2.color = "blue";
-            reverb2.color = "blue";
-            gargle2.color = "blue";
+            phaserBlue2.visible = true
+            eqBlue2.visible = false
+            flangerBlue2.visible = false
+            reverbBlue2.visible = false
+            wahBlue2.visible = false
+            chorusBlue2.visible = false
         }
     }
 
@@ -562,16 +744,36 @@ r - Catgroove");
         height: 150
         width: 300
         visible: true
-        text: 'Chorus'
+//        text: 'Chorus'
+        Text {
+            y: 45
+            x: 80
+            text: 'Chorus'
+            font { family: 'Arial'; pixelSize: 40; italic: false; }
+            color: "#FFFFFF"
+        }
+        Image {
+            id: chorusBlue2
+            visible: false
+            source: "/home/hci1/dis13_group8/mtqplayer/images/effektBlue.png"
+            anchors.fill: parent
+            Text {
+                y: 45
+                x: 80
+                text: 'Chorus'
+                font { family: 'Arial'; pixelSize: 40; italic: false; }
+                color: "#FFFFFF"
+            }
+        }
         color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(2,6)
-            chorus2.color = "red"
-            flanger2.color = "blue"
-            wah2.color = "blue"
-            reverb2.color = "blue"
-            phaser2.color = "blue"
-            gargle2.color = "blue"
+            chorusBlue2.visible = true
+            eqBlue2.visible = false
+            flangerBlue2.visible = false
+            reverbBlue2.visible = false
+            wahBlue2.visible = false
+            phaserBlue2.visible = false
 
         }
     }
@@ -583,16 +785,36 @@ r - Catgroove");
         height: 150
         width: 300
         visible: true
-        text: 'Reverb'
+//        text: 'Reverb'
+        Text {
+            y: 45
+            x: 80
+            text: 'Reverb'
+            font { family: 'Arial'; pixelSize: 40; italic: false; }
+            color: "#FFFFFF"
+        }
+        Image {
+            id: reverbBlue2
+            visible: false
+            source: "/home/hci1/dis13_group8/mtqplayer/images/effektBlue.png"
+            anchors.fill: parent
+            Text {
+                y: 45
+                x: 80
+                text: 'Reverb'
+                font { family: 'Arial'; pixelSize: 40; italic: false; }
+                color: "#FFFFFF"
+            }
+        }
         color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(2,2);
-            reverb2.color = "#5BB9FF";
-            flanger2.color = blue;
-            wah2.color = blue;
-            chorus2.color = blue;
-            phaser2.color = blue;
-            gargle2.color = blue;
+            reverbBlue2.visible = true
+            eqBlue2.visible = false
+            flangerBlue2.visible = false
+            wahBlue2.visible = false
+            phaserBlue2.visible = false
+            chorusBlue2.visible = false
         }
     }
 
@@ -603,16 +825,36 @@ r - Catgroove");
         height: 150
         width: 300
         visible: true
-        text: 'Equalizer'
+//        text: 'Equalizer'
         color: "#323232"
+        Text {
+            y: 45
+            x: 80
+            text: 'Equalizer'
+            font { family: 'Arial'; pixelSize: 40; italic: false; }
+            color: "#FFFFFF"
+        }
+        Image {
+            id: eqBlue2
+            visible: false
+            source: "/home/hci1/dis13_group8/mtqplayer/images/effektBlue.png"
+            anchors.fill: parent
+            Text {
+                y: 45
+                x: 80
+                text: 'Equalizer'
+                font { family: 'Arial'; pixelSize: 40; italic: false; }
+                color: "#FFFFFF"
+            }
+        }
         onMtqTapDown: {
             player.toggleEffect(2,3);
-            gargle2.color = "red";
-            flanger2.color = "blue";
-            wah2.color = "blue";
-            chorus2.color = "blue";
-            reverb2.color = "blue";
-            phaser2.color = "blue";
+            eqBlue2.visible = true
+            flangerBlue2.visible = false
+            reverbBlue2.visible = false
+            wahBlue2.visible = false
+            phaserBlue2.visible = false
+            chorusBlue2.visible = false
             //controlPad2.text = "Equalizer"
         }
     }
