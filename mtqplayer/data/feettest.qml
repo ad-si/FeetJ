@@ -8,7 +8,7 @@ Rectangle {
     id: floor
     width: 4096
     height: 2400
-    color: "#ff333333"
+    color: "#0F0F0F"
     property var songsAdded: 0
 
     FjSlider {
@@ -51,7 +51,7 @@ Rectangle {
         visible: true
         height: 2400
         width: 200
-        color: "#ccffff"
+        color: "#323232"
         onMtqTapDown: {
             lane1.visible = false;
             songPicker.visible=true
@@ -198,7 +198,7 @@ Rectangle {
         visible: true
         height: 2400
         width: 200
-        color: "#ccffff"
+        color: "#323232"
         onMtqTapDown: {
             lane2.visible = false;
             songPicker2.visible=true
@@ -344,15 +344,25 @@ r - Catgroove");
         width: 300
         visible: true
         text: 'Flanger'
-        color: "blue"
+        color: "#323232"
+        Image {
+            id: flangerBlue
+            visible: false
+            source: "/home/hci1/dis13_group8/mtqplayer/images/effektBlue.png"
+            anchors.fill: parent
+            Text {
+                text: 'Flanger'
+            }
+        }
         onMtqTapDown: {
             player.toggleEffect(1,1);
-            flanger1.color = "red";
-            wah1.color = "blue";
-            chorus1.color = "blue";
-            reverb1.color = "blue";
-            phaser1.color = "blue";
-            gargle1.color = "blue";
+            flangerBlue.visible = true
+//            flanger1.color = "#5BB9FF";
+//            wah1.color = "blue";
+//            chorus1.color = "blue";
+//            reverb1.color = "blue";
+//            phaser1.color = "blue";
+//            gargle1.color = "blue";
         }
     }
 
@@ -364,7 +374,7 @@ r - Catgroove");
         width: 300
         visible: true
         text: 'Wah'
-        color: "blue"
+        color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(1,4);
             wah1.color = "red";
@@ -385,7 +395,7 @@ r - Catgroove");
         width: 300
         visible: true
         text: 'Phaser'
-        color: "blue"
+        color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(1,5);
             phaser1.color = "red";
@@ -406,7 +416,7 @@ r - Catgroove");
         width: 300
         visible: true
         text: 'Chorus'
-        color: "blue"
+        color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(1,6);
             chorus1.color = "red";
@@ -426,7 +436,7 @@ r - Catgroove");
         width: 300
         visible: true
         text: 'Reverb'
-        color: "blue"
+        color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(1,2);
             reverb1.color = "red";
@@ -446,7 +456,7 @@ r - Catgroove");
         width: 300
         visible: true
         text: 'Equalizer'
-        color: "blue"
+        color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(1,3);
             gargle1.color = "red"
@@ -465,7 +475,7 @@ r - Catgroove");
        height: 800
        width: 700
        visible: true
-       color: "white"
+       color: "#888888"
        onMtqTapDown: {
            player.modifyEffect(1,event.mappedCenter.x/3, event.mappedCenter.y/3);
            controlPadMarker1.x = event.mappedCenter.x -18;
@@ -492,7 +502,7 @@ r - Catgroove");
         width: 300
         visible: true
         text: 'Flanger'
-        color: "blue"
+        color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(2,1);
             flanger2.color = "red";
@@ -512,7 +522,7 @@ r - Catgroove");
         width: 300
         visible: true
         text: 'Wah'
-        color: "blue"
+        color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(2,4);
             wah2.color = "red";
@@ -532,7 +542,7 @@ r - Catgroove");
         width: 300
         visible: true
         text: 'Phaser'
-        color: "blue"
+        color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(2,5);
             phaser2.color = "red";
@@ -553,7 +563,7 @@ r - Catgroove");
         width: 300
         visible: true
         text: 'Chorus'
-        color: "blue"
+        color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(2,6)
             chorus2.color = "red"
@@ -574,10 +584,10 @@ r - Catgroove");
         width: 300
         visible: true
         text: 'Reverb'
-        color: "blue"
+        color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(2,2);
-            reverb2.color = "red";
+            reverb2.color = "#5BB9FF";
             flanger2.color = blue;
             wah2.color = blue;
             chorus2.color = blue;
@@ -594,7 +604,7 @@ r - Catgroove");
         width: 300
         visible: true
         text: 'Equalizer'
-        color: "blue"
+        color: "#323232"
         onMtqTapDown: {
             player.toggleEffect(2,3);
             gargle2.color = "red";
@@ -620,7 +630,7 @@ r - Catgroove");
             anchors.centerIn: parent
             font.pointSize: 40
        }*/
-       color: "white"
+       color: "#888888"
        onMtqTapDown: {
            player.modifyEffect(2,event.mappedCenter.x/3, event.mappedCenter.y/3);
            controlPadMarker2.x = event.mappedCenter.x -18;
