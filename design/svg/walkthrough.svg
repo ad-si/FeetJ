@@ -46,9 +46,9 @@
      inkscape:window-height="1152"
      id="namedview166"
      showgrid="false"
-     inkscape:zoom="0.015045503"
-     inkscape:cx="10005.176"
-     inkscape:cy="-11286.092"
+     inkscape:zoom="0.028284271"
+     inkscape:cx="-470.83903"
+     inkscape:cy="8053.9154"
      inkscape:window-x="1280"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -65,7 +65,7 @@
      inkscape:snap-object-midpoints="true"
      inkscape:snap-midpoints="true"
      inkscape:snap-center="true"
-     inkscape:snap-global="false"
+     inkscape:snap-global="true"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:document-units="m"
@@ -87,6 +87,24 @@
        empcolor="#01b4ff"
        empopacity="0.25098039" />
   </sodipodi:namedview>
+  <rect
+     style="fill:#323232;fill-opacity:1;stroke:none"
+     id="rect6261"
+     width="1771.6531"
+     height="354.33072"
+     x="15590.551"
+     y="5314.96"
+     inkscape:export-filename="/Users/adrian/Sites/feetbeatz/design/png/crossfader.png"
+     inkscape:export-xdpi="40"
+     inkscape:export-ydpi="40" />
+  <path
+     inkscape:connector-curvature="0"
+     id="path4310"
+     d="m 17078.74,5421.2581 106.299,70.8661 -106.299,70.8662"
+     style="fill:none;stroke:#c8c8c8;stroke-width:17.71653557;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     inkscape:export-filename="/Users/adrian/Sites/feetbeatz/design/png/crossfader.png"
+     inkscape:export-xdpi="40"
+     inkscape:export-ydpi="40" />
   <rect
      inkscape:export-ydpi="40"
      inkscape:export-xdpi="40"
@@ -2430,49 +2448,15 @@
        style="fill:#64c8ff;fill-opacity:1;stroke:none"
        transform="matrix(0,1,-1,0,0,0)" />
   </g>
-  <rect
-     style="fill:#323232;fill-opacity:1;stroke:none"
-     id="rect6261"
-     width="1771.6531"
-     height="354.33072"
-     x="13062.219"
-     y="7489.125" />
   <path
-     style="fill:none;stroke:#c8c8c8;stroke-width:35.43307114;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-     d="m 14833.872,7914.3222 0,-496.063"
+     style="fill:none;stroke:#65c7ff;stroke-width:35.43307114;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="m 16476.378,5740.1568 0,-496.063"
      id="path6263"
      inkscape:connector-curvature="0"
-     sodipodi:nodetypes="cc" />
-  <path
-     style="fill:#646464;fill-opacity:1;stroke:none"
-     d="m 14550.406,7595.4232 0,141.732 106.3,-70.866 z"
-     id="path6320"
-     inkscape:connector-curvature="0" />
-  <path
-     inkscape:connector-curvature="0"
-     id="path6322"
-     d="m 14196.076,7595.4232 0,141.732 106.299,-70.866 z"
-     style="fill:#646464;fill-opacity:1;stroke:none" />
-  <path
-     inkscape:connector-curvature="0"
-     id="path6324"
-     d="m 14479.54,7595.4232 0,141.732 106.3,-70.866 z"
-     style="fill:#646464;fill-opacity:1;stroke:none" />
-  <path
-     inkscape:connector-curvature="0"
-     id="path6334"
-     d="m 13345.682,7595.4232 0,141.732 -106.299,-70.866 z"
-     style="fill:#646464;fill-opacity:1;stroke:none" />
-  <path
-     style="fill:#646464;fill-opacity:1;stroke:none"
-     d="m 13700.013,7595.4232 0,141.732 -106.299,-70.866 z"
-     id="path6336"
-     inkscape:connector-curvature="0" />
-  <path
-     style="fill:#646464;fill-opacity:1;stroke:none"
-     d="m 13416.548,7595.4232 0,141.732 -106.299,-70.866 z"
-     id="path6338"
-     inkscape:connector-curvature="0" />
+     sodipodi:nodetypes="cc"
+     inkscape:export-filename="/Users/adrian/Sites/feetbeatz/design/png/crossfader.png"
+     inkscape:export-xdpi="40"
+     inkscape:export-ydpi="40" />
   <path
      style="fill:none;stroke:#c8c8c8;stroke-width:35.43307114;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
      d="m 14527.559,9212.5978 708.661,0"
@@ -2534,17 +2518,6 @@
      sodipodi:nodetypes="ssssscs"
      inkscape:transform-center-x="-388.18203"
      inkscape:transform-center-y="426.15481" />
-  <text
-     xml:space="preserve"
-     style="font-size:200px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Helvetica"
-     x="-6537.5"
-     y="26982.777"
-     id="text6448"
-     sodipodi:linespacing="125%"><tspan
-       sodipodi:role="line"
-       id="tspan6450"
-       x="-6537.5"
-       y="26982.777">Loop!</tspan></text>
   <g
      transform="matrix(-0.11686362,1.4288338,-1.4288338,-0.11686362,-22259.209,21382.795)"
      id="g6346"
@@ -3731,4 +3704,45 @@
        x="879.30719"
        id="tspan3678"
        sodipodi:role="line">Flanger</tspan></text>
+  <path
+     style="fill:none;stroke:#c8c8c8;stroke-width:17.71653522000000081;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     d="m 16228.346,5421.2593 -106.299,70.8661 106.299,70.8662"
+     id="path3532"
+     inkscape:connector-curvature="0"
+     transform="translate(-6.2571022e-5,0)"
+     inkscape:export-filename="/Users/adrian/Sites/feetbeatz/design/png/crossfader.png"
+     inkscape:export-xdpi="40"
+     inkscape:export-ydpi="40" />
+  <path
+     inkscape:connector-curvature="0"
+     id="path4302"
+     d="m 15944.881,5421.2593 -106.299,70.8661 106.299,70.8662"
+     style="fill:none;stroke:#c8c8c8;stroke-width:17.71653557;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     inkscape:export-filename="/Users/adrian/Sites/feetbeatz/design/png/crossfader.png"
+     inkscape:export-xdpi="40"
+     inkscape:export-ydpi="40" />
+  <path
+     style="fill:none;stroke:#c8c8c8;stroke-width:17.71653557;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     d="m 15874.015,5421.2593 -106.299,70.8661 106.299,70.8662"
+     id="path4304"
+     inkscape:connector-curvature="0"
+     inkscape:export-filename="/Users/adrian/Sites/feetbeatz/design/png/crossfader.png"
+     inkscape:export-xdpi="40"
+     inkscape:export-ydpi="40" />
+  <path
+     inkscape:connector-curvature="0"
+     id="path4306"
+     d="m 16724.409,5421.2581 106.299,70.8661 -106.299,70.8662"
+     style="fill:none;stroke:#c8c8c8;stroke-width:17.71653557;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     inkscape:export-filename="/Users/adrian/Sites/feetbeatz/design/png/crossfader.png"
+     inkscape:export-xdpi="40"
+     inkscape:export-ydpi="40" />
+  <path
+     style="fill:none;stroke:#c8c8c8;stroke-width:17.71653557;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     d="m 17007.874,5421.2581 106.299,70.8661 -106.299,70.8662"
+     id="path4308"
+     inkscape:connector-curvature="0"
+     inkscape:export-filename="/Users/adrian/Sites/feetbeatz/design/png/crossfader.png"
+     inkscape:export-xdpi="40"
+     inkscape:export-ydpi="40" />
 </svg>
