@@ -10,6 +10,7 @@ ids=(
 	add-second-song
 	crossfade
 	loop
+	scratch
 	add-effectpanel
 	control-controlpad
 	overview
