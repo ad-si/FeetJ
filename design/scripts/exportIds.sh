@@ -7,6 +7,7 @@ ids=(
 	select-filter
 	select-song
 	play-song
+	push-song
 	add-second-song
 	crossfade
 	loop
