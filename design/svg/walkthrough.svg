@@ -30,13 +30,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
+     inkscape:window-width="960"
      inkscape:window-height="1152"
      id="namedview166"
      showgrid="true"
-     inkscape:zoom="0.01"
-     inkscape:cx="6310.0473"
-     inkscape:cy="-4146.6975"
+     inkscape:zoom="0.056568542"
+     inkscape:cx="5403.8858"
+     inkscape:cy="-1876.5179"
      inkscape:window-x="1280"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -84,7 +84,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -92,18 +92,18 @@
      inkscape:export-ydpi="40"
      inkscape:export-xdpi="40"
      inkscape:export-filename="/Users/adrian/Sites/feetbeatz/design/png/crossfader.png"
-     y="-1425.196"
-     x="4714.1724"
-     height="354.33072"
-     width="1771.6531"
+     y="-500.00031"
+     x="4800"
+     height="100.00002"
+     width="500"
      id="rect6261"
      style="fill:#323232;fill-opacity:1;stroke:none" />
   <path
      inkscape:export-ydpi="40"
      inkscape:export-xdpi="40"
      inkscape:export-filename="/Users/adrian/Sites/feetbeatz/design/png/crossfader.png"
-     style="fill:none;stroke:#c8c8c8;stroke-width:17.71653557;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-     d="m 6202.3618,-1318.8993 106.299,70.866 -106.299,70.867"
+     style="fill:none;stroke:#c8c8c8;stroke-width:5.00000095;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     d="m 5219.9999,-470.0003 30,20 -30,20.0003"
      id="path4310"
      inkscape:connector-curvature="0" />
   <defs
@@ -128,7 +128,7 @@
     <linearGradient
        id="linearGradient6354"
        osb:paint="solid"
-       gradientTransform="matrix(0,0,-9.0386468e-8,9.0150917e-8,7.63271,-253591.42)">
+       gradientTransform="matrix(0,0,-9.0386468e-8,9.0150917e-8,7408.8707,-255993.12)">
       <stop
          style="stop-color:#69d3ff;stop-opacity:1;"
          offset="0"
@@ -156,7 +156,7 @@
      inkscape:export-xdpi="40"
      inkscape:export-filename="/Users/adrian/Documents/hpi/designing interactive systems/feetbeatz/linkdiagram.png"
      style="fill:url(#linearGradient6582);fill-opacity:1;stroke:none"
-     id="step2"
+     id="select-mode"
      width="3599.9998"
      height="2199.9998"
      x="3699.9998"
@@ -239,11 +239,11 @@
      inkscape:connector-curvature="0" />
   <rect
      inkscape:label="#rect4549"
-     y="-1.0861546e-05"
-     x="-2.2737368e-13"
+     y="0"
+     x="0"
      height="2200"
      width="3600"
-     id="step1"
+     id="initial-view"
      style="fill:url(#linearGradient6582);fill-opacity:1;stroke:none"
      inkscape:export-filename="/Users/adrian/Documents/hpi/designing interactive systems/feetbeatz/linkdiagram.png"
      inkscape:export-xdpi="40"
@@ -463,7 +463,7 @@
      inkscape:export-xdpi="40"
      inkscape:export-filename="/Users/adrian/Documents/hpi/designing interactive systems/feetbeatz/linkdiagram.png"
      style="fill:url(#linearGradient6582);fill-opacity:1;stroke:none"
-     id="step8"
+     id="add-second-song"
      width="3600.0007"
      height="2199.9998"
      x="-3.3183474e-05"
@@ -664,7 +664,7 @@
      x="3700"
      height="2199.9998"
      width="3599.9995"
-     id="crossfading"
+     id="crossfade"
      style="fill:url(#linearGradient6582);fill-opacity:1;stroke:none"
      inkscape:export-filename="/Users/adrian/Documents/hpi/designing interactive systems/feetbeatz/linkdiagram.png"
      inkscape:export-xdpi="40"
@@ -794,8 +794,8 @@
      sodipodi:nodetypes="cc"
      inkscape:connector-curvature="0"
      id="path6263"
-     d="m 5599.9998,-1000.0003 0,-496.063"
-     style="fill:none;stroke:#65c7ff;stroke-width:35.43307114;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+     d="m 5049.9999,-380.00026 0,-140.00003"
+     style="fill:none;stroke:#65c7ff;stroke-width:10.00000191;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
   <path
      inkscape:connector-curvature="0"
      id="path6402"
@@ -840,7 +840,7 @@
      inkscape:export-xdpi="40"
      inkscape:export-filename="/Users/adrian/Documents/hpi/designing interactive systems/feetbeatz/linkdiagram.png"
      style="fill:url(#linearGradient6582);fill-opacity:1;stroke:none"
-     id="looping"
+     id="loop"
      width="3599.9988"
      height="2199.9998"
      x="7400"
@@ -1653,14 +1653,14 @@
      inkscape:export-filename="/Users/adrian/Sites/feetbeatz/design/png/crossfader.png"
      inkscape:connector-curvature="0"
      id="path3532"
-     d="m 5351.9678,-1318.8973 -106.299,70.866 106.299,70.866"
-     style="fill:none;stroke:#c8c8c8;stroke-width:17.71653557;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+     d="m 4979.9998,-470.0002 -29.9999,19.9999 29.9999,20"
+     style="fill:none;stroke:#c8c8c8;stroke-width:5.00000095;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
   <path
      inkscape:export-ydpi="40"
      inkscape:export-xdpi="40"
      inkscape:export-filename="/Users/adrian/Sites/feetbeatz/design/png/crossfader.png"
-     style="fill:none;stroke:#c8c8c8;stroke-width:17.71653557;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-     d="m 5068.5028,-1318.8973 -106.299,70.866 106.299,70.866"
+     style="fill:none;stroke:#c8c8c8;stroke-width:5.00000095;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     d="m 4899.9998,-470.0002 -29.9999,19.9999 29.9999,20"
      id="path4302"
      inkscape:connector-curvature="0" />
   <path
@@ -1669,14 +1669,14 @@
      inkscape:export-filename="/Users/adrian/Sites/feetbeatz/design/png/crossfader.png"
      inkscape:connector-curvature="0"
      id="path4304"
-     d="m 4997.6368,-1318.8973 -106.299,70.866 106.299,70.866"
-     style="fill:none;stroke:#c8c8c8;stroke-width:17.71653557;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+     d="m 4879.9998,-470.0002 -29.9999,19.9999 29.9999,20"
+     style="fill:none;stroke:#c8c8c8;stroke-width:5.00000095;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
   <path
      inkscape:export-ydpi="40"
      inkscape:export-xdpi="40"
      inkscape:export-filename="/Users/adrian/Sites/feetbeatz/design/png/crossfader.png"
-     style="fill:none;stroke:#c8c8c8;stroke-width:17.71653557;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-     d="m 5848.0308,-1318.8993 106.299,70.866 -106.299,70.867"
+     style="fill:none;stroke:#c8c8c8;stroke-width:5.00000095;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     d="m 5120,-470.0003 29.9999,20 L 5120,-430"
      id="path4306"
      inkscape:connector-curvature="0" />
   <path
@@ -1685,8 +1685,8 @@
      inkscape:export-filename="/Users/adrian/Sites/feetbeatz/design/png/crossfader.png"
      inkscape:connector-curvature="0"
      id="path4308"
-     d="m 6131.4958,-1318.8993 106.299,70.866 -106.299,70.867"
-     style="fill:none;stroke:#c8c8c8;stroke-width:17.71653557;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+     d="m 5200,-470.0003 29.9999,20 L 5200,-430"
+     style="fill:none;stroke:#c8c8c8;stroke-width:5.00000095;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
   <path
      inkscape:transform-center-x="172.37336"
      inkscape:transform-center-y="-172.37334"
@@ -1721,7 +1721,7 @@
      inkscape:export-xdpi="40"
      inkscape:export-filename="/Users/adrian/Documents/hpi/designing interactive systems/feetbeatz/linkdiagram.png"
      style="fill:url(#linearGradient6582);fill-opacity:1;stroke:none"
-     id="rect4370"
+     id="add-lane"
      width="3599.9998"
      height="2199.9998"
      x="7400"
@@ -1907,7 +1907,7 @@
      x="-3.3183474e-05"
      height="2199.9998"
      width="3599.9998"
-     id="rect4428"
+     id="select-filter"
      style="fill:url(#linearGradient6582);fill-opacity:1;stroke:none"
      inkscape:export-filename="/Users/adrian/Documents/hpi/designing interactive systems/feetbeatz/linkdiagram.png"
      inkscape:export-xdpi="40"
@@ -2166,7 +2166,7 @@
      inkscape:export-xdpi="40"
      inkscape:export-filename="/Users/adrian/Documents/hpi/designing interactive systems/feetbeatz/linkdiagram.png"
      style="fill:url(#linearGradient6582);fill-opacity:1;stroke:none"
-     id="rect4506"
+     id="select-song"
      width="3599.9998"
      height="2199.9998"
      x="3699.9998"
@@ -2501,7 +2501,7 @@
      x="7400"
      height="2199.9998"
      width="3599.9998"
-     id="rect4610"
+     id="play-song"
      style="fill:url(#linearGradient6582);fill-opacity:1;stroke:none"
      inkscape:export-filename="/Users/adrian/Documents/hpi/designing interactive systems/feetbeatz/linkdiagram.png"
      inkscape:export-xdpi="40"
@@ -2644,7 +2644,7 @@
   </g>
   <g
      style="fill:url(#linearGradient6572);fill-opacity:1;stroke:none"
-     transform="matrix(0.28146499,-0.2906453,0.2906453,0.28146499,19840.001,9176.0079)"
+     transform="matrix(0.34909855,-0.20451757,0.20451757,0.34909855,18036.408,11715.053)"
      id="g4656">
     <path
        style="fill:url(#linearGradient6572);fill-opacity:1;stroke:none"
@@ -2734,7 +2734,7 @@
      x="-4.5474735e-13"
      height="2199.9998"
      width="3599.9988"
-     id="rect6598"
+     id="add-effectpanel"
      style="fill:url(#linearGradient6582);fill-opacity:1;stroke:none"
      inkscape:export-filename="/Users/adrian/Documents/hpi/designing interactive systems/feetbeatz/linkdiagram.png"
      inkscape:export-xdpi="40"
@@ -2934,7 +2934,7 @@
      inkscape:export-xdpi="40"
      inkscape:export-filename="/Users/adrian/Documents/hpi/designing interactive systems/feetbeatz/linkdiagram.png"
      style="fill:#000000;fill-opacity:1;stroke:none"
-     id="rect6902"
+     id="control-controlpad"
      width="3599.9998"
      height="2199.9998"
      x="3700.0007"
@@ -3426,4 +3426,37 @@
      height="400"
      x="8600.001"
      y="7699.9995" />
+  <path
+     inkscape:transform-center-y="329.99841"
+     inkscape:connector-curvature="0"
+     id="path8138"
+     d="m 9199.9999,6179.9993 0,40"
+     style="fill:none;stroke:#c8c8c8;stroke-width:9.99999905;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+  <path
+     sodipodi:type="arc"
+     style="fill:none;stroke:#ffffff;stroke-width:15.95475101;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     id="path8140"
+     sodipodi:cx="19128.125"
+     sodipodi:cy="21392.213"
+     sodipodi:rx="471.875"
+     sodipodi:ry="485.50708"
+     d="m 19600,21392.213 a 471.875,485.50708 0 0 1 -471.875,485.507 l 0,-485.507 z"
+     transform="matrix(0.44955131,0.44955131,-0.43692878,0.43692878,9947.7996,-12045.948)"
+     sodipodi:start="0"
+     sodipodi:end="1.5707963" />
+  <path
+     style="fill:url(#linearGradient6354);fill-opacity:1;stroke:#69d3ff;stroke-width:20.00000763;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     d="m 9005.3005,6094.2083 -35.3997,35.311"
+     id="path8142"
+     inkscape:connector-curvature="0"
+     inkscape:transform-center-y="211.86461"
+     inkscape:transform-center-x="212.39914" />
+  <path
+     inkscape:transform-center-y="101.95633"
+     inkscape:transform-center-x="99.04327"
+     sodipodi:nodetypes="ssssscs"
+     inkscape:connector-curvature="0"
+     id="path8144"
+     d="m 9002.3143,6106.0343 c -22.7999,-18.267 -20.9096,-74.163 89.4314,-139.861 32.9675,-19.628 42.1566,-43.803 48.4033,-50.942 18.9772,-21.688 40.3355,-34.916 61.8615,-14.603 22.0051,20.765 0.9999,46.01 -26.5241,72.086 -8.8477,8.382 -23.0601,16.329 -32.5721,35.431 -55.6531,110.604 -119.7418,114.601 -140.6,97.889 z"
+     style="fill:#323232;fill-opacity:1;stroke:#000000;stroke-width:0.28222218" />
 </svg>

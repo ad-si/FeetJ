@@ -1,13 +1,21 @@
 #! /bin/bash
 
 ids=(
-	looping
-	crossfading
+	initial-view
+	select-mode
+	add-lane
+	select-filter
+	select-song
+	play-song
+	add-second-song
+	crossfade
+	loop
+	add-effectpanel
+	control-controlpad
 	overview
-	overviewEffectPad
 )
 
 for id in ${ids[@]}
 do
-	inkscape --export-id=$id --export-dpi=10 --export-png=png/$id.png svg/walkthrough.svg
+	inkscape --export-id=$id --export-dpi=90 --export-png=png/$id.png svg/walkthrough.svg
 done
