@@ -34,8 +34,8 @@
      inkscape:window-height="752"
      id="namedview166"
      showgrid="true"
-     inkscape:zoom="0.11313708"
-     inkscape:cx="13556.348"
+     inkscape:zoom="0.15999999"
+     inkscape:cx="13467.96"
      inkscape:cy="5202.7937"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -3909,7 +3909,7 @@
   </g>
   <g
      id="g3576"
-     transform="matrix(0.34909855,-0.20451757,0.20451757,0.34909855,21736.408,11860.053)"
+     transform="matrix(0.34909855,-0.20451757,0.20451757,0.34909855,21746.408,11670.053)"
      style="fill:url(#linearGradient6572);fill-opacity:1;stroke:none">
     <path
        d="m -8701.9832,-26620.466 53.3933,154.608 c 623.3798,6.475 418.4876,-586.662 -53.3933,-154.608 z"
@@ -3934,7 +3934,7 @@
      inkscape:connector-curvature="0" />
   <g
      id="g3598"
-     transform="matrix(1,0,0,-1,11880,12049.999)">
+     transform="translate(11900,-3680)">
     <path
        sodipodi:nodetypes="cc"
        transform="translate(0,-2.1001953e-4)"
